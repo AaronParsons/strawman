@@ -1,0 +1,76 @@
+Preliminary Proposals (required): Preliminary proposals are required and must
+be submitted via the NSF FastLane system, even if full proposals will be
+submitted via Grants.gov.
+
+Separately submitted collaborative proposals will not be accepted; partner
+institutions must be funded via subawards.
+
+Preliminary Proposal Contents
+
+The preliminary proposal should consist of the following elements:
+
+Cover Sheet. For planning purposes, August 1, 2014 should be shown as the start
+date. Be sure to check the block indicating that a preliminary proposal is
+being submitted, and identify the program solicitation number in the program
+announcement/solicitation block.
+
+Project Summary. (1 page maximum) Required elements include an overview of the
+proposed program, and separate entries addressing the intellectual merit and
+broader impacts. The summary should be written in the third person, informative
+to those working in the same or related field(s), and understandable to a
+scientifically or technically literate reader.
+
+Table of Contents. A Table of Contents is automatically generated for the
+proposal by the FastLane system. The proposer cannot edit this form.
+
+Project Description (8-pages maximum), including the following:
+- A statement of which of the four categories of MSIP is most appropriate 
+for this proposal as the first sentence (see section II. Program Description).
+- A scientific justification. For Open Access Capabilities, explain the 
+uniqueness and lack of general availability of the capability.
+- A description of the broader impacts, including student training.
+- A description of benefits to the community (observing time, data products, etc.)
+- An outline of the project management plan (where appropriate).
+Note: Results from Prior NSF Support should not be included. Links to URLs may 
+not be used.
+
+References Cited (2-page limit). See NSF GPG instructions.
+
+Biographical Sketches (2 pages each; long collaborator lists may continue on a
+3rd page). Biographical Sketches are required for the PI and all co-PIs, and
+additional senior personnel at all participating institutions. See GPG for
+details.  
+
+Budget and Budget Justification, including budgets for any subawards.
+
+Facilities, Equipment, and Other Resources: In order for NSF, and its
+reviewers, to assess the scope of a proposed project, all organizational
+resources necessary for, and available to a project, must be described in this
+section of the proposal (see GPG Chapter II.C.2.i for further information).
+Proposers should describe only those resources that are directly applicable.
+Proposers should include an aggregated description of the internal and external
+resources (both physical and personnel) that the organization and its
+collaborators will provide to the project, should it be funded. Such
+information must be provided in this section, in lieu of other parts of the
+proposal (e.g., budget justification, project description). The description
+should be narrative in nature and must not include any quantifiable financial
+information.
+
+Supplementary Documents: (to be entered in the Supplementary Documents section
+of FastLane). 1) A list of the major team members, their affiliations, and
+their role in the project; 2) A list of Partner Institutions to be funded via
+subawards, and the role of each in the project.
+
+No other items or appendices are to be included. Information pertaining to
+"Results from Prior NSF Support", "Current and Pending Support", "Data
+Management Plan", and "Postdoctoral Mentoring Plan" is not required for
+preliminary proposals and should not be included. Preliminary proposals
+containing items other than those required above will be returned without
+review.
+
+Optional Information to be submitted to NSF via the FastLane Single Copy
+Documents Section.
+
+List of suggested reviewers or reviewers not to include (with a brief
+explanation or justification for why the reviewer should be excluded);
+Proprietary or privileged information (if applicable).
