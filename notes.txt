@@ -1,0 +1,5 @@
+To run mdlvis:
+mdlvis.py -a cross -C gauss_ln32x32 -s cyg --nchan=1 --sfreq=.150 --sdf=9.765625e-5 --inttime=60 --startjd=2454600.888287 --endjd=2454600.929953 --pol=xx
+
+To run mk_img:
+mk_img.py -a all -p xx -C gauss_ln32x32 -c 0 -s cyg -o bms --size=500 --res=5 --no_w  ln32x32_1hr.uv
