@@ -1,0 +1,108 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,graphicx}
+
+\newcommand{\vb}[1]{\ensuremath{\mathbf{#1}}}
+
+\setlength\textwidth{5.75in}
+\setlength\textheight{8.5in}
+\setlength\topmargin{-0.5in}
+\setlength\oddsidemargin{0.5in}
+\setlength\evensidemargin{0.5in}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newenvironment{proof}[1][Proof]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{definition}[1][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{example}[1][Example]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{remark}[1][Remark]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\newcommand{\qed}{\nobreak \ifvmode \relax \else
+      \ifdim\lastskip<1.5em \hskip-\lastskip
+      \hskip1.5em plus0em minus0.5em \fi \nobreak
+      \vrule height0.75em width0.5em depth0.25em\fi}
+
+\newcommand{\apj}{Astrophysical Journal}
+
+\newcommand{\s}{\mathbf{s}}
+\newcommand{\shat}{\widehat{\mathbf{s}}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\A}{\mathbf{A}}
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\G}{\mathbf{G}}
+\newcommand{\f}{\mathbf{f}}
+\newcommand{\nfg}{\mathbf{n}_\textrm{fg}}
+\newcommand{\ninst}{\mathbf{n}_\textrm{inst}}
+\newcommand{\Proj}{\boldsymbol \Pi}
+\newcommand{\Pert}{\boldsymbol \Psi}
+
+\begin{document}
+\title{LOFAR sensitivity projections}
+
+
+\maketitle
+\noindent
+
+To date, LOFAR has not published any power spectrum sensitivity calculations.  Their quoted sensitivities are typically expressed in the image-domain (i.e., they are essentially point source sensitivities).  As we know, this may not be the most relevant metric when considering power spectrum sensitivity.  In this memo we try to calculate a rough power spectrum sensitivity ``our way" for the LOFAR array.
+\section{Assumptions}We assume a field-of-view of $5^\circ \times 5^\circ$, and a $6\,\textrm{MHz}$ bandwidth centered around $150\,\textrm{MHz}$.  Of the short baselines most relevant to an EoR power spectrum measurement, LOFAR has
+\begin{itemize}
+\item 5 baselines of length $35\,\textrm{m}$, able to access $k^\textrm{min} > 0.21~h^{-1}\textrm{Mpc}$.
+\item 5 baselines of length $70\,\textrm{m}$, able to access $k^\textrm{min} > 0.27~h^{-1}\textrm{Mpc}$.
+\item 18 baselines of length $130\,\textrm{m}$, able to access $k^\textrm{min} > 0.37~h^{-1}\textrm{Mpc}$.
+\end{itemize}
+The minimum accessible $k$ values quoted above assume that LOFAR will not able to directly subtract off foregrounds to the precision required to detect the EoR.  In other words, we assume that LOFAR will need to  work in the EoR window.  To be conservative, we defined the boundary of the EoR window (in units of delay) as the horizon delay plus $300\,\textrm{ns}$.  For a baseline of length $b$, this gives a minimum accessible $k_\parallel^\textrm{min}$ of
+\begin{equation}
+k^\textrm{min} \approx k_\parallel^\textrm{min} = \frac{2\pi}{Y} \left( \frac{b}{c} + 300\,\textrm{ns} \right),
+\end{equation}
+where $Y = 12.4 h^{-1}\,\textrm{Mpc}/\textrm{MHz}$ is the conversion factor between frequency and line-of-sight distance at $z=8.5$ (corresponding to $\nu=150\,\textrm{MHz}$), assuming $\Omega_m=0.27$.  Note also that $k^\textrm{min} \approx k_\parallel^\textrm{min}$, since it is likely that only the LOFAR core will be used for EoR measurements, so $k_\parallel \gg k_\perp$.\\
+\\
+As for observation strategy, we assume $3000\,\textrm{hours}$ of total integration, with $10\,\textrm{hours}$ of observing per day, split over $5$ fields.
+\section{Scaling formula}
+Our starting point is the noise power spectrum formula from \cite{sensitivity} (their Eq. A11) for an array with a uniformly filled circle in the $uv$-plane:
+\begin{eqnarray}
+\label{PAPERform}
+\Delta^2_N (k) \!\!\!\! &\approx& \!\!\!\! (150\,\textrm{mK}^2) \left[ \frac{k}{0.1~h\,\textrm{Mpc}^{-1}}\right]^{\frac{5}{2}} \left[ \frac{6\,\textrm{MHz}}{B}\right]^{\frac{1}{2}} \left[ \frac{1}{\Delta \ln k}\right]^{\frac{1}{2}} \left[ \frac{\Omega}{0.76\,\textrm{sr}}\right]^{\frac{5}{4}} \nonumber \\
+&& \times  \left[ \frac{T_\textrm{sys}}{500\,\textrm{K}}\right]^2 \left[ \frac{6\,\textrm{hr}}{t_\textrm{per\_day}} \right]^\frac{1}{2} \left[ \frac{120\,\textrm{days}}{t_\textrm{days}} \right] \left[ \frac{u_\textrm{max}}{20} \right]^{\frac{1}{2}} \left[ \frac{32}{N} \right].
+\end{eqnarray}
+We now adapt this formula to the LOFAR case.\\
+%The first adjustment to make is to note that the fiducial figure incorporates the amount of time $t_c$ that PAPER can spend coherently integrating in a $uv$-cell before the Earth's rotation necessitates that data be combined incoherently.  The quantity $t_c$ is different for LOFAR because it has a different antenna size, which means that the natural $uv$-cell size is different.  There are two effects here.  With a larger antenna size, LOFAR can coherently integrate over larger $uv$-cells, reducing noise.  However, this also means that with a fixed $uv$-volume, there are fewer independent samples.  The first effect is already taken into account by the $\Omega^{5/4}$ scaling in Eq. \ref{PAPERform}.  The second introduces a factor of
+%\begin{equation}
+%\sqrt{\frac{t_c^{LOFAR}}{t_c^{PAPER}}} = \sqrt{\frac{\Omega^{PAPER}}{\Omega^{LOFAR}}} \approx 3.16
+%\end{equation}
+\\
+The first adjustment to make is to note that this formula applies to a uniformly filled circle on the $uv$-plane.  In this analysis (assuming negligible overlap between the three baseline types on the $uv$-plane), we consider each baseline separately before incoherently averaging their power spectra, so the correct $uv$-footprint to consider is a ring.  To obtain the correct expression for a ring, we can use the following trick.  In decomposing a circle of uniform density into concentric rings, one notices that each ring contributes an equal amount of sensitivity---baselines rotate more rapidly through the $uv$-plane at large $|\mathbf{u}|$, integrating for less time per $uv$-cell, but make up for this by having more independent cells \cite{sensitivity}.  Since the contribution to the sensitivity is a constant as a function of $|\mathbf{u}|$, the sensitivity of a uniformly filled circle of radius $u_\textrm{max}$ is equal to the sensitivity of a ring placed at the \emph{average} $|\mathbf{u}|$, i.e. $u_\textrm{max}/2$.  Turning this around, the correct $u_\textrm{max}$ to insert into Equation \ref{PAPERform} is $2u$, where $u$ is radius of the ring under consideration.\\
+\\
+Additionally, whereas PAPER is a drift-scan instrument surveying a large region at every instant, LOFAR tracks smaller fields across the sky.  The parameter $t_\textrm{per\_day}$ essentially counts the number of statistically independent samples observed per day (the dependence of coherent integration time within a single $uv$-cell is absorbed into the $\Omega$ and $t_\textrm{days}$ parameters).  The number of independent fields $N_\textrm{fields}$ therefore enters the same way as $t_\textrm{per\_day}$, which we can redefine to be $t_\textrm{per\_day\_per\_field}$.  Putting everything together and omitting parameters that are common between LOFAR and PAPER (e.g. $T_\textrm{sys}$), we obtain
+\begin{eqnarray}
+\label{finalForm}
+\Delta^2_N (k) &\approx&  (6.7\,\textrm{mK}^2) \left[ \frac{k}{0.1~h\,\textrm{Mpc}^{-1}}\right]^{\frac{5}{2}}   \left[ \frac{\Omega}{0.0076\,\textrm{sr}}\right]^{\frac{5}{4}} \left[ \frac{300\,\textrm{days}}{t_\textrm{days}} \right]  \nonumber \\
+&& \times \left[ \frac{2\,\textrm{hr}}{t_\textrm{per\_day\_per\_field}} \right]^\frac{1}{2} \left[ \frac{u}{20} \right]^{\frac{1}{2}} \left[ \frac{1}{N} \right] \left[ \frac{5}{N_\textrm{fields}} \right]^{\frac{1}{2}}.
+\end{eqnarray}
+\section{Results}
+Evaluating Eq. \ref{finalForm} for the three types of baselines listed above at each of their $k^\textrm{min}$ values gives:
+\begin{itemize}
+\item $\Delta^2 (k) < 36\,\textrm{mK}^2$ ($2\sigma$) for the $5$ baselines ($N=2.2$) of length $35\,\textrm{m}$ at $k= 0.21~h^{-1}\textrm{Mpc}$.
+\item $\Delta^2 (k) < 96\,\textrm{mK}^2$ ($2\sigma$) for the $5$ baselines ($N=2.2$) of length $70\,\textrm{m}$ at $k= 0.27~h^{-1}\textrm{Mpc}$.
+\item $\Delta^2 (k) < 150\,\textrm{mK}^2$ ($2\sigma$) for the $18$ baselines ($N=4.2$) of length $130\,\textrm{m}$ at $k= 0.37~h^{-1}\textrm{Mpc}$.
+\end{itemize}
+At the higher values of $k$, these baselines can be combined incoherently to increase their sensitivity to the power spectrum.  For instance, whereas $k= 0.21~h^{-1}\textrm{Mpc}$ is accessible only to the shortest baseline because of foregrounds, $k= 0.27~h^{-1}\textrm{Mpc}$ is accessible to both the shortest and the second shortest baseline.  Assuming an inverse variance weighting in combining power spectrum measurements from different baselines, the final sensitivity is
+\begin{equation}
+\Delta_\textrm{final}^2 (k) = \left( \sum_i \frac{1}{[\Delta^2_i(k)]^2}\right)^{-\frac{1}{2}}.
+\end{equation}
+Using this, we have
+\begin{itemize}
+\item At $k= 0.21~h^{-1}\textrm{Mpc}$, only the shortest baseline can contribute, so the sensitivity remains at $\Delta^2_\textrm{final} (k) < 36\,\textrm{mK}^2$ ($2\sigma$).
+\item At $k= 0.27~h^{-1}\textrm{Mpc}$, the shortest two baselines contribute, giving $\Delta^2_\textrm{final} (k) < 56\,\textrm{mK}^2$ ($2\sigma$).  (The shortest baseline in fact contributes more).
+\item At $k= 0.37~h^{-1}\textrm{Mpc}$, all three baselines contribute, giving $\Delta^2_\textrm{final} (k) < 94\,\textrm{mK}^2$ ($2\sigma$).  (The middle baseline contributes the most, followed by the shortest baseline).
+\end{itemize}
+
+\bibliographystyle{plain}
+\bibliography{LOFAR}  
+\end{document}
