@@ -54,13 +54,19 @@ The specific values for high-level parameters are summarized in Table \ref{tab:o
 \hline
 {\bf Parameter} & {\bf Value} & {\bf Note} \\
 \hline
-N  &  576  & Roughly linear in cost (for N $<$ 1000 )and time, but low technical risk \\ \hline
+$N$  &  576  & Roughly linear in cost (for N $<$ 1000 ) and time, but low technical risk \\ \hline
 Diameter & 14 m& Roughly (sub)-linear cost in area within about 8-15 m.  \\ \hline
+$\Omega_P$ & 0.026 sr & Element power field-of-view \\ \hline
+$\Omega_{PP}$ & 0.013 sr & Element power-squared field-of-view \\ \hline
+$\Omega_{eff}$ & 0.052 sr & Effective field-of-view for sensitivity calculations \\ \hline
 Mount/optics & {\em f} 0.32 prime focus fixed-zenith with shield & $f/D$ can vary 0.3-0.4 with little impact. \\ \hline
-Sampled frequency range & 0-250 MHz &  Sampling at 500 Msa/s.  Supported by electronics but need to investigate feed performance. \\ \hline
+Sampled frequency range & 0-250 MHz &  Sampling at 500 Msps.  Supported by electronics but need to investigate feed performance. \\ \hline
 Processing bandwidth & 100 MHz & Many options of processing to yield sparse support at wide bandwidths along with a large EOR processed band.  Support F-engine at node. \\ \hline
 Antennas per node & 16	 & Low risk. \\ \hline
 Configuration	& 24 $\times$ 24 square grid & The strawman is heavily predicated on the regular square grid configuration but not the size.  Outliers are possible. \\ \hline
+$f/f_0$ & $1.5\cdot10^5$ & Redundancy metric \\ \hline
+Total collecting area & 0.09 km$^2$ & \\ \hline
+Angular resolution & 15 arcmin & Evaluated at 150 MHz. Proportional to wavelength. \\ \hline
 \end{tabular}
 \end{table}
 
@@ -71,6 +77,13 @@ Figure \ref{fig:heraconfig576} shows the overall layout of antennas and distribu
 \includegraphics[width=12cm]{plots/heraconfig576.png}
 \caption{Overall layout of HERA.  Black circles are antennas, yellow circles are poles, red lines are antenna-node connections,  green is the shared signal/power trenches and cyan are power distribution points.  The square inset zooms in on one nodes worth - note that the red signal lines will be of equal length. }
 \label{fig:heraconfig576}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm]{plots/signal_flow.png}
+\caption{Signal flow for HERA.}
+\label{fig:signal_flow}
 \end{figure}
 
 \section{Antenna}
@@ -223,7 +236,11 @@ The balun/low-noise amplifiers sit immediately below the feed supported off the 
 The front-end electronics may easily cover any range between 30-300 MHz.  The feed itself is roughly an octave, which may be re-centered from the nominal 150 MHz.   Extending the range adds risk associated with the actual performance (i.e., not just cost), however studies are underway on this.  The cost of increasing the bandwidth is discussed below, as it relates to the digitizer and signal transport.
 
 \section{Node}
+
 The node receives signals from 16 antennas (32 inputs), digitizes, does some degree of processing/packetizing and sends it down optical fiber to the correlator.  The specific architecture of the node is the critical determinant of the array flexibility.  For the strawman here (0-250 MHz), the existing design of the PAPER 16-input ADC card can be used, but joined with a Kintex FPGA to process and put onto optical fiber.   This board is currently being designed by NRAO and Berkeley and the schematic is shown in Figure \ref{fig:herald}.  More information may be found at https://casper.berkeley.edu/wiki/DAB-HERALD.
+
+For 576 antennas, 36 nodes will be required.  For outrigger antennas, cable lengths may dictate that each
+antenna has its own node.
 
 The node will accept 230VAC/50Hz single phase.  This powers the refrigerator (a stable temperature around 75$^o$F will be used), the lna's via two wires to each antenna for 12 VDC, the receivers, digitizers and data transmission.
 
@@ -237,13 +254,140 @@ The node will accept 230VAC/50Hz single phase.  This powers the refrigerator (a 
 \subsection{Receiver}
 The analog receiver input is 50 $\Omega$ coax and, as with the front-end, may fairly easily handle 30-300 MHz.  An excellent input match is needed to keep the reflections below the level of confusion for the EOR signal.  The PAPER receiver may be used upon changing the input impedance from 75 $\Omega$ to 50 $\Omega$.
 
+Each analog receiver card will handle 2 polarizations from a single antenna feed.  Hence, each node will
+house 16 receiver cards.  For 576 antennas, there will be a total of 576 receiver cards.
+
 \subsection{Digitizer}
+
 The digitizer board integrates Hittite ADCs
 such as those used on CASPER's ADCx16 board with a small Kintex7 FPGA
 that will be responsible for processing and formatting data into 10 GbE packets to be output
 over an SFP+ connector.  This board will also implement the F-engine portion of the correlator and truncate to fewer bits (4b+4b real/imaginary) for transmitting back to the central correlator.
 
+Each digitizer processes 3 antennas.  6 digitizers are required per node.  For 576 antenns (36 nodes), 216 digitizers
+are required.
+
+\begin{itemize}
+\item each DAB hosts 3 Hittite HMCAD1511 ADC chips, each digitizing 2 inputs at 500 Msps.
+\item Implement coarse delay compensation to align FFT windows in time between F engines
+\item F engine channelizes each input with 2048 channels across 250 MHz
+\item 100 MHz (820 channels) of (4b real, 4b imag) samples for 6 inputs (4.8 Gbps total) are packetized in
+10 GbE format.  Note that these channels may not be contiguous.  Also note that this is 50\% of the link capacity.
+\end{itemize}
+
+\subsubsection{ADC}
+\begin{itemize}
+\item HMCAD1511, which has been tested in the field on CASPER ADC-16 boards.
+\item Each ADC chip is capable of digitizing
+4 inputs at up to 250 Msps, 2 inputs at 500 Msps, or 1 input at 1 Gsps.  
+\item The analog bandwidth of
+these chips begins rolling at 500 MHz, and is usable out to $\sim$700 MHz.
+\item On high-density (16-input) boards, on-chip crosstalk, which is specified
+in the datasheet at $<$-60dB, is not noticable.
+\end{itemize}
+
+\subsubsection{FPGA}
+\begin{itemize}
+\item Xilinx Kintex-7 in a 2FFG676 package.  
+\item Three different sizes of Kintex chip are compatible with the 2FFG676
+package.  Of interest are the XC7K160T (cost: \$400) and XC7K325T (cost: \$1500).
+\item FPGA logic will be used to:
+\begin{itemize}
+\item Host six 4-tap Polyphase Filter Banks, each inputting two
+time-domain samples in parallel per FPGA clock
+\item Equalize channel data (to minimize quantization noise) with a programmable bandpass function
+\item Re-quantize samples to 8b (4b real, 4b imag). XXX if we retain extra capacity in optical links, could do 16b
+and eliminate the ``fluffing'' step in GPU receive code.
+\item Select 100-MHz subset of channels for transmission.
+\item Packetize data and transmit through 10 GbE core.
+\end{itemize}
+\item Current estimates suggest that the XC7K160T will have sufficient logic for these operations.
+\end{itemize}
+
+\subsection{Optical Transcievers}
+\begin{itemize}
+\item Need to support transmission $\sim$10 km to Karoo Array Processing Building (KAPB)
+\item 10-km CWDM (e.g. \url{http://www.fiberstore.com/narrow/sfp+_v973t0/cwdm-1270-1330nm_v970t1/5km-20km_v966t2/10g-cwdm-transceivers_986}). Cost: \$400.
+\item Comes in 18 colors (although can only find 4 available for purchase).  This sets upper limit on muliplexing.
+\end{itemize}
+
+Other options include 1km optical tranceivers, which are cheaper (\$150), but would have to be aggregated and
+re-transmitted back to KAPB.  There are also 40-km DWDM modules
+(e.g. \url{http://www.fiberstore.com/narrow/sfp+_v983t0/20km-40km_v980t1/10g-dwdm-transceivers_990}) for
+\$900 that are longer range and allow more muxing onto fiber.
+
+
+\section{Optical Network}
+\begin{itemize}
+\item input signals on optical cables from node
+\item XXX DWDM mux box (e.g. \url{http://www.fiberstore.com/c/100g-dwdm-mux-demux_178}) is an option
+for multiplexing signals onto fewer cables.  XXX is there a CWDM equivalent?
+\item Patch panel (e.g. \url{http://www.cableorganizer.com/black-box/economy-fiber-optic-patch-panels/?gclid=CKH7uoahg7gCFWbhQgodLw4A_w}) interfaces between array distribution and 10-km cable bundle connecting to Karro Array
+Processing Building (KAPB)
+\item Two 10-km 144-fiber optical fiber bundles (e.g. \url{http://www.fiberoptics4sale.com/p/AFL-Mini-Span-ADSS-Cable/AE-1449CC20-EA0.html}) carry each 10-GbE optical link from nodes to KAPB. XXX this is an expensive component at \$12.70 per meter.
+\item Patch panel (see above) interfaces between 10-km cable bundle and distribution within KAPB.
+\item XXX DWDM demux box (see above) to demux signals after 10-km haul?  
+\item output to optical cables at correlator
+\end{itemize}
+
+XXX Passive splitter (e.g. \url{http://www.fiberstore.com/2x32-fiber-plc-splitter-with-fan-out-kits-p-11612.html})
+do these work for CWDM, or is a special mux/demux necessary?
+
+Case 1: All of these relative costs suggest that the cost of sending signals 10km to
+the Karoo Array Processing Building could be reduced by using CWDM at each node
+(\$400/10G link), patch panel (\$4/link), mux (between \$2 and \$50/link), 10km
+fiber (shared by 4 to 18 signals, so between \$50 and \$225/link), demux (between
+\$2 and \$50/link), patch panel (\$4/link), CWDM transceiver (\$400/link).  Total =
+\$860 to \$1135/link times 192 links = \$165k to \$218k.
+
+Case 2: It's worth noting that under the current architecture, we only use 50\%
+of each 10G link from each ADC board.  We could add a switch into the node to
+mux signals before the optical tx (reduce to 96 links, but add 3 \$100 switch
+ports per link, and 2 \$100 10GbE cables), so \$1360 to \$1635 times 96 links =
+\$131k to \$157k.  This saves money, but has added headache of a switch in the
+node. 
+
+Case 3: Another alternative is to daisy-chain ADC boards (downside is needing
+logic to forward traffic to allow upstream communication with ADC boards.  Not a fan
+of signal assymetry).
+This halves the links, but only adds one \$100 cable to price, so cost is \$92k
+to \$119k.
+
+Case 4: The final thought is that maybe we could send 200 MHz back to the
+correlator instead of 100 MHz, and beef up the correlator a bit to process it.
+This would correspond to case 1, but also add \$342k to the correlator cost.
+
+\section{Timing Distribution}
+
+\begin{itemize}
+\item GPS antenna
+\item single master GPS disciplined oscillator, output 10 MHz and 1PPS
+\item Valon synthesizer PLL, output 500 MHz. XXX could distribute 10 MHz and put these in each node
+\item Amplification of clock signal to +15 dBm
+\item Split clock signal 36 ways for distribution to nodes
+\item 1PPS signal amplification and splitting 36 ways
+\item Distribute clock signal and 1PPS over CAT7 cable
+\item Inside node, split clock and signal 6 ways, additional +10dB amplification
+\item SMA cable into digitizer boards
+\end{itemize}
+
+If FPGAs are clocked at 250 MHz (half of sample clock), then 4ns timing should be theoretically possible.
+Would be nice to match cable length/time of flight to approximately this level.  At the very least,
+differential delays resulting from cable lengths must be less than 1/10 (and preferrably 1/100)
+of an FFT window period,
+or 400 ns (120m) to avoid baseline-dependent signal attenuation in the correlator.  If cable matching
+is not possible, then the next best option is to implement coarse sample delays on each digitizer board.
+
+(FUTURE DEV) GPS receivers independently generate 10 MHz reference at each node.  Currently
+insufficient timing accuracy (20 ns absoluting timing), but may be useful if stations outside the core are desired.
+
 \section{Correlator}
+
+\subsection{F Engine}
+The 576 F-Engine of the correlator are implemented on the digitizer board.  It consists of a 4-tap, 2048-channel
+PFB.
+
+\subsection{X Engine}
 The digital system that comprises a large switch and GPUs.  It should sit within the Karoo Array Processing
 Building about 10 km distant.
 
@@ -253,16 +397,79 @@ technology (the Kepler 690 dual GPU card), allowing a 576-element full-Stokes co
 74 GPU boxes, each containing 1 CPU, 2 dual-GPUs, and 1 dual 10GbE NIC.
 If full Stokes is not needed (i.e. no U,V), the GPU system may possibly be reduced by a factor of 2.
 
+Future capabilities are extrapolated from the following system:
+\begin{itemize}
+\item CPU server 4U rack mount computer SuperMicro SuperChassis 747TQ-R1620B with Motherboard: SuperMicro X9DRG-QF, active heatsinks, 8 4GB 1600 MHz DDR3
+\item 2 dual Mellanox MCX312A-XCBT NICs
+\item 2 dual EVGA GTX690
+\end{itemize}
+
+For PAPER-128 (128-antenna, dual-polarization), deployed Sept. 2013, 8 servers were sufficient.
+Extrapolating from this marker, assuming two Moore's Law doublings of processing capacity (constraining
+deployment to 2016 or 2017).
+
+It is worth noting that TITAN GPUs (a single-GPU board) were shown to have sufficient processing
+capability.  This implies that the GTX690 cards may have significant (factor of 2) extra processing
+capacity, and that processing in this system is still bandwidth-limited.  If this is the case,
+one less Moore's Law doubling is necessary for the required performance, or equivalently, 21 servers
+would suffice for 2 Moore's Law doublings.
+
+The correlator system includes:
+\begin{itemize}
+\item 192 CWDM optical tranceivers (receiving signal from optical network), same as in node
+\item a 273-port SFP+ 10GbE switch (\$500/port)
+\item GPU servers (similar to above with 2016-2017 technology)
+\item 4 CPU servers for monitor, control, data receiving, and interfacing to the data storage system.
+\item racks (4) and 10GbE cables (82)
+\item UPS rated operating power: 35 kW
+\end{itemize}
+
+\subsection{EFG Correlator}
+Electric Field Gridding (EFG) is an efficient approach to implementing spatial correlation for
+antenna elements laid out on a grid.  Development of an EFG correlator (a la Omniscope) for HERA
+is part of this proposal.  The algorithms will be developed separately, and it will be implemented 
+on the same GPU computing engines that make up the traditional FX correlator's X engines.  Because
+EFG is computationally efficient, it will require fewer resources than the X engine.  The remaining 
+computing resources will be devoted to implementing a traditional FX correlator for rotating subsets
+of antennas and frequency channels to derive the real-time calibration parameters that EFG correlators
+require to correctly grid data prior to Fourier transformation.
 
 \section{Processing and Data Management}
 \label{sec:procData}
+We calculate output data rates assuming full-Stokes correlation of 576 antennas, storing 1024 frequency
+channels with 8 bytes per visibility.  Integrations are assumed to be 10s, with observations running
+12 hr/day for 180 days of observing per campaign.  According to these assumptions, 
+the sustained output data rate while the 
+correlator is running will be 4.35 Gbps.  This amounts to 23 TB per day, and 4 PB per observing campaign.
+
 Given the sheer volume of data output from the correlator, a near-real-time processing system must
 be in place to reduce data to a manageable volume.  A data compression scheme tailored to low-frequency
 transit telescopes is described in Appendix A of \citet{parsons_et_al2013}.
 As demonstrated on PAPER, this delay/fringe-rate compression scheme is nearly lossless from
-the point of view of EoR emission locked to the celestial sphere.  Applying the full compression assuming
-a maximum baseline length of 300m results in a 20x data reduction factor.  This reduces the data volume
-from a campaign (180 days) to 174 TB.
+the point of view of EoR emission locked to the celestial sphere.  Compression for a 475m maximum baseline
+(applied uniformly to all baselines) can be applied along the delay and fringe-rate axes.  Applying both
+compressions reduces the campaign data volume to 480 TB.  To this is added the capability to store
+data compressed along only one of the two (delay,fringe-rate) axes, LST-binned over 4-day intervals, for a
+total of 360 TB.  Extra buffering to hold 7 days of raw data (total, 160 TB) is allowed for
+occasions when compression systems may fail.  Finally, an extra 50\% capacity is added for use during
+processing.  Hence the total data volume that is budgeted for is 1.5 PB.
+
+The compression algorithm will
+be applied to the data during the daytime, when observations are not being conducted.  A RAID storage
+system will retain observations for each day, and at the conclusion of each day, the data will be
+compressed with the GPU servers used in the correlator.  Assuming a factor of 10 boost in performance
+for GPUs relative to CPUs (which has been demonstrated via preliminary tests of accelerating data
+compression on GPUs in the laboratory), and assuming 2 Moore's Law doublings, 20 GPU servers will be needed
+to keep up with observations.  Hence, the 41 servers in the correlator will be more than sufficient.
+
+The data management system consists of:
+\begin{itemize}
+\item 20 GPU servers (part of the correlator)
+\item 4 additional CPU servers for data management and RAID maintanence
+\item 4 10GbE ports and cables for connecting the RAID system to the correlator (through the switch)
+\item 1500 TB of RAID storage (at \$120 per TB)
+\item 2 racks
+\end{itemize}
 
 \section{Reticulation}
 Signal and power reticulation have been discussed above and are shown in Figure \ref{fig:heraconfig576}.  Figure \ref{fig:heraconfig576ret} below shows just the reticulation.
@@ -289,7 +496,7 @@ Control of the array naturally splits to three types:
 \end{enumerate}
 
 \section{Infrastructure}
-The proposed site is an RF quiet site with adequate power, networking and physical area.
+The proposed site is an RF quiet site with adequate power, networking and physical area.  
 
 \bibliographystyle{plainnat}
 \bibliography{/Users/ddeboer/Documents/Papers/mybibdesk}
