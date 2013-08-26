@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/MacPorts 2012_9) (format=pdflatex 2013.4.29)  1 AUG 2013 23:54
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/MacPorts 2012_9) (format=pdflatex 2013.4.29)  22 AUG 2013 13:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -316,16 +316,16 @@ AAS preprint substyle, v5.2 <12 Dec 2003>.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+lasy on input line 49.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 50.
 (/opt/local/share/texmf-texlive-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 49.
+LaTeX Font Info:    Try loading font information for U+msa on input line 50.
 
 (/opt/local/share/texmf-texlive-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 49.
+LaTeX Font Info:    Try loading font information for U+msb on input line 50.
 
 (/opt/local/share/texmf-texlive-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
@@ -336,31 +336,28 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 File: plots/21cm_cosmo.jpg Graphic file (type jpg)
 
 <use plots/21cm_cosmo.jpg>
-Package pdftex.def Info: plots/21cm_cosmo.jpg used on input line 117.
+Package pdftex.def Info: plots/21cm_cosmo.jpg used on input line 120.
 (pdftex.def)             Requested size: 329.36853pt x 90.3375pt.
-Missing character: There is no â in font cmr10!
-Missing character: There is no ˆ in font cmr10!
-Missing character: There is no ’ in font cmr10!
  [2 <./plots/21cm_cosmo.jpg>]
-<plots/eor_pspec.png, id=17, 793.5246pt x 373.6359pt>
+<plots/eor_pspec.png, id=17, 768.2301pt x 387.3672pt>
 File: plots/eor_pspec.png Graphic file (type png)
 
 <use plots/eor_pspec.png>
-Package pdftex.def Info: plots/eor_pspec.png used on input line 177.
-(pdftex.def)             Requested size: 422.09166pt x 198.7425pt.
+Package pdftex.def Info: plots/eor_pspec.png used on input line 183.
+(pdftex.def)             Requested size: 394.14833pt x 198.7425pt.
 
 <plots/paper_element.jpg, id=19, 295.1025pt x 180.675pt>
 File: plots/paper_element.jpg Graphic file (type jpg)
 
 <use plots/paper_element.jpg>
-Package pdftex.def Info: plots/paper_element.jpg used on input line 212.
+Package pdftex.def Info: plots/paper_element.jpg used on input line 218.
 (pdftex.def)             Requested size: 206.57033pt x 126.47249pt.
 
 <plots/hera_dish.png, id=20, 454.3374pt x 311.2428pt>
 File: plots/hera_dish.png Graphic file (type png)
 
 <use plots/hera_dish.png>
-Package pdftex.def Info: plots/hera_dish.png used on input line 213.
+Package pdftex.def Info: plots/hera_dish.png used on input line 219.
 (pdftex.def)             Requested size: 184.62263pt x 126.47249pt.
  [3 <./plots/eor_pspec.png>] [4 <./plots/paper_element.jpg> <./plots/hera_dish.
 png>] [5] (./proj_description_ucb.bbl [1
@@ -374,7 +371,7 @@ Here is how much of TeX's memory you used:
  7047 multiletter control sequences out of 15000+200000
  11882 words of font info for 50 fonts, out of 3000000 for 9000
  134 hyphenation exceptions out of 8191
- 38i,5n,26p,1048b,225s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,5n,26p,1119b,225s stack positions out of 5000i,500n,10000p,200000b,50000s
 </opt/local/share/texmf-texlive-dist/fonts/type1/
 public/amsfonts/cm/cmbx10.pfb></opt/local/share/texmf-texlive-dist/fonts/type1/
 public/amsfonts/cm/cmbx12.pfb></opt/local/share/texmf-texlive-dist/fonts/type1/
@@ -385,7 +382,7 @@ lic/amsfonts/cm/cmr8.pfb></opt/local/share/texmf-texlive-dist/fonts/type1/publi
 c/amsfonts/cm/cmsy10.pfb></opt/local/share/texmf-texlive-dist/fonts/type1/publi
 c/amsfonts/cm/cmsy7.pfb></opt/local/share/texmf-texlive-dist/fonts/type1/public
 /amsfonts/cm/cmti10.pfb>
-Output written on proj_description_ucb.pdf (7 pages, 1201634 bytes).
+Output written on proj_description_ucb.pdf (7 pages, 1202996 bytes).
 PDF statistics:
  71 PDF objects out of 1000 (max. 8388607)
  46 compressed objects within 1 object stream

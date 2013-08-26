@@ -31,7 +31,8 @@
 
 \begin{document}
 %\title{Hydrogen Epoch of Reionization Arrays (HERA): From Detection to Characterization}
-\title{HERA: From Detection of Reionization to its Characterization}
+%\title{HERA: From Detection of Reionization to its Characterization}
+\title{HERA: Characterizing Our Cosmic Dawn}
 % A statement of which of the four categories of MSIP is most appropriate
 %for this proposal as the first sentence (see section II. Program Description).
 
@@ -77,10 +78,12 @@ is timed to begin producing transformative science just as current HERA-I instru
 are finishing.  As described below, recent technical breakthroughs favor
 larger, close-packed antenna elements, and this has substantially altered the
 HERA plan.  The next step for HERA targeted in this proposal delivers the 0.1
-km$^2$ collecting area and associated science of HERA-II, but with less than
-600 antennas, the budget (\$16.3M), project complexity, and project team are of
+km$^2$ collecting area and associated science of HERA-II, but 
+%with less than 600 antennas, 
+the improved design makes
+the budget (\$16.3M), project complexity, and project team are of
 a modest HERA-IB scope.
-% XXX is the budget figure too hidden?
+% is the budget figure too hidden?
 
 \vspace{-0.25in}
 \section{Scientific Justification}
@@ -118,9 +121,9 @@ characterize the topology of the gas at reionization."
 \caption{\small
 Following recombination (left edge), the brightness temperature
 of 21cm emission is sensitive to the density and temperature of the IGM
-through the Dark Ages, evolves with the heating and
-ionization of the IGM during the Epoch of Reionization (EoR), and
-traces the distribution of galaxies as the universe expands,
+through the Dark Ages ($z\!\sim$120--20), evolves with the heating and
+ionization of the IGM during the Epoch of Reionization (EoR; $z\!\sim$12--6), and
+traces the distribution of galaxies as the universe expands ($z<4$),
 leading up the the present day (right edge).  Color indicates
 the redshifting of the 21cm line between 50 MHz (red) and 1.4 GHz (violet).
 }\label{fig:21cm_cosmo}
@@ -128,18 +131,21 @@ the redshifting of the 21cm line between 50 MHz (red) and 1.4 GHz (violet).
 
 As large scale structures in the IGM grow through gravitational
 instability and are heated and ionized by luminous sources, fluctuations
-are introduced in 21cm emission.  
-Imaging of these fluctuations is ideal, but in the short term, statistical
-measurements (such as the power spectrum) may be more powerful.  Figure
-\ref{fig:eor_pspec} shows how the power spectrum of 21cm fluctuations
-evolves through a fiducial reionization model. The fluctuations briefly
-fade as the gas is heated in the first stages of
-reionization, then increase as large ionized bubbles form around galaxies, finally fading again
-as the majority of the gas is ionized. At higher redshifts, variations in the ultraviolet and
+are introduced in 21cm emission (see Figure \ref{fig:21cm_cosmo}).  
+Imaging of these fluctuations is a long-range goal, but in the short term, statistical
+measurements (such as the power spectrum shown in Figure \ref{fig:eor_pspec}) may be more powerful.  
+%Figure
+%\ref{fig:eor_pspec} shows how the power spectrum of 21cm fluctuations
+%evolves through a fiducial reionization model. 
+Fluctuations decrease in amplitude 
+as the gas is heated in the first stages of
+reionization, then increase as large ionized bubbles form around galaxies, and finally fade again
+as the majority of the gas is ionized.
+Variations in the ultraviolet and
 X-ray backgrounds, in addition to the normal density fluctuations in the IGM,
 induce additional structure in the 21cm background. These fluctuations, from the Dark Ages
 through reionization, are the primary target of HERA. Measuring them allows us to
-probe the properties of high−z galaxies and how they affected the Universe
+probe the properties of high$-z$ galaxies and how they affected the Universe
 around them.  Specifically, HERA will help us understand when reionization
 occurred, how the cosmic web evolved, where the first generation of quasars
 formed, when the first galaxies formed, and what their properties were.
@@ -176,10 +182,10 @@ practically viable given realistic limitations on calibration accuracy.
 \begin{figure}[!ht]\centering
 \includegraphics[height=2.75in]{plots/eor_pspec.png}
 \caption{\small
-Upper limits on the 21cm reionization power spectrum at $z\sim8$, along
+$2\sigma$ upper limits on the 21cm EoR power spectrum at $z\sim8$, along
 with fiducial signal models for several ionization fractions (black;
 \citealt{lidz_et_al2008}),
-and the predicted sensitivies of HERA in various stages, including sample variance
+and the predicted RMS sensitivies of HERA in various stages, including sample variance
 and baseline-dependent foreground cutoffs.
 The foreground isolation in PAPER measurements
 above $k\approx0.1h\ {\rm Mpc}^{-1}$
@@ -243,7 +249,6 @@ built from inexpensive materials, and follow a simple construction that can be
 delegated to local contractors, makes the cost of building HERA's Phase-II
 experiment several times cheaper than was anticipated in the roadmap
 submitted to NWNH.  
-%XXX talk a bit more about build-ability.
 HERA follows a staged build-out plan similar to that championed by PAPER.  In
 each deployment stage, improvements are incorporated into the system, and new
 science capabilities are unlocked.  This approach has the advantage of
@@ -269,7 +274,7 @@ the spatial FFT correlator, and the various software analysis pipelines.
 
 {\bf Year 2 (FY 2016)}.  Perform HERA-37 commissioning observations, 
 along with 91 PAPER elements, using the existing PAPER correlator.
-Test the performance of the HERA dishes; verify beam
+Verify HERA dish performance; calibrate beam
 patterns against PAPER beam responses; check for problematic
 spectral structure from reflections.  Perform science observations
 Oct. 2015 to Apr. 2016 that, because HERA-37 has $\sim$10 times the sensitivity of
@@ -286,8 +291,9 @@ replacing existing 37 elements.
 science observations from Oct. 2016 to Apr. 2017 using the PAPER correlator.
 Publish HERA-37 science papers.   Finalize and fabricate node and correlator designs.
 Analyze the HERA-127 dataset to constrain the timing
-and duration of reionization.  Contractors expand HERA-127 to a 331-element array.
-Install node electronics in the field and a 331-element
+and duration of reionization.  Contractors expand HERA-127 to a 331-element array
+from May to Sep.
+Install node electronics in the field and a new
 GPU correlator in an off-site building,
 with optical links carrying digitized data.
 Install data storage infrastructure.  Upgrade the UPenn data analysis cluster.
@@ -327,24 +333,28 @@ site, and reports to DeBoer.  SKA-SA Liason Walbrugh (supported by SKA-SA)
 interacts with Goeke, DeBoer and the SKA-SA board to
 coordinate HERA and SKA site activities.
 
-An external advisory board evaluates the baseline hardware design 
+An external advisory board evaluates the baseline design 
 based on existing components in a Preliminary Design Review at project inception.
-A Critical Design Review in Year 3 evaluates the readiness of the
-production design that incorporates development activities for the analog system
+A Critical Design Review in Year 3 evaluates the 
+production design, incorporating improvements to the analog system
 and feeds (Bradley), the node and correlator (Werthimer), and the data storage
-system (Aguirre).  Fabrication of digital and analog electronics systems 
-is contracted to Digicom Technologies, and antenna
-component fabrication is contracted to Burns Industries, 
+system (Aguirre).
+Software development, calibration, power-spectral analysis, and imaging responsibilities 
+are shared across institutions, coordinated at NRAO, MIT, UCB, and U. Washington,
+respectively.
+Fabrication of electronics systems 
+is contracted to, e.g., Digicom Technologies; antenna
+component fabrication is contracted to, e.g., Burns Industries, 
 including delivery to site.  Construction on site proceeds
 with 2-3 teams of local contractors and laborers, managed by Goeke.  As with
 PAPER, observing proceeds autonomously without local observers; SKA-SA
 provides occasional site support as necessary.
 
-Project risk and contingency are handled primarily by de-scoping.  Baseline designs based
-on existing hardware establish a low-risk path to basic functionality.  Improved functionality
-results from successful development activities and is otherwise de-scoped.
+Project risk and contingency are handled primarily by de-scoping.  Baseline designs using
+existing hardware establish a low-risk path to basic functionality.  Improved functionality
+results from successful development activities or is otherwise de-scoped.
 Cost excesses and schedule slips are absorbed by reducing
-build-out scope, with associated reduction in science capabilities.
+build-out, with associated de-scoping of science capabilities.
 
 %\begin{table}
 %\label{tab:params}
