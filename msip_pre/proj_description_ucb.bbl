@@ -1,0 +1,116 @@
+\begin{thebibliography}{13}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{{Comm. for a Decadal Survey of A\&A; NRC}}(2010)]{astro2010}
+{{Comm. for a Decadal Survey of A\&A; NRC}}, 2010: {\em New Worlds, New
+  Horizons in Astronomy and Astrophysics\/}. Natl. Academies Press.
+
+\bibitem[{Fan} et~al.(2006){Fan}, {Carilli}, and {Keating}]{fan_et_al2006}
+{Fan}, X., C.~L. {Carilli}, and B.~{Keating}, 2006: {Observational Constraints
+  on Cosmic Reionization}. {\em \araa\/}, {\bf 44}, 415--462,
+  arXiv:astro-ph/0602375.
+
+\bibitem[{Lidz} et~al.(2008){Lidz}, {Zahn}, {McQuinn}, {Zaldarriaga}, and
+  {Hernquist}]{lidz_et_al2008}
+{Lidz}, A., O.~{Zahn}, M.~{McQuinn}, M.~{Zaldarriaga}, and L.~{Hernquist},
+  2008: {Detecting the Rise and Fall of 21 cm Fluctuations with the Murchison
+  Widefield Array}. {\em \apj\/}, {\bf 680}, 962--974, arXiv:0711.4373.
+
+\bibitem[{Paciga} et~al.(2013){Paciga}, {Albert}, {Bandura}, {Chang}, {Gupta},
+  {Hirata}, {Odegova}, {Pen}, {Peterson}, {Roy}, {Shaw}, {Sigurdson}, and
+  {Voytek}]{paciga_et_al2013}
+{Paciga}, G., J.~G. {Albert}, K.~{Bandura}, T.-C. {Chang}, Y.~{Gupta},
+  C.~{Hirata}, J.~{Odegova}, U.-L. {Pen}, J.~B. {Peterson}, J.~{Roy}, J.~R.
+  {Shaw}, K.~{Sigurdson}, and T.~{Voytek}, 2013: {A simulation-calibrated limit
+  on the H I power spectrum from the GMRT Epoch of Reionization experiment}.
+  {\em \mnras\/}, 1301.5906.
+
+\bibitem[{Page} et~al.(2007){Page}, {Hinshaw}, {Komatsu}, {Nolta}, {Spergel},
+  {Bennett}, {Barnes}, {Bean}, {Dor{\'e}}, {Dunkley}, {Halpern}, {Hill},
+  {Jarosik}, {Kogut}, {Limon}, {Meyer}, {Odegard}, {Peiris}, {Tucker}, {Verde},
+  {Weiland}, {Wollack}, and {Wright}]{page_et_al2007}
+{Page}, L., G.~{Hinshaw}, E.~{Komatsu}, M.~R. {Nolta}, D.~N. {Spergel}, C.~L.
+  {Bennett}, C.~{Barnes}, R.~{Bean}, O.~{Dor{\'e}}, J.~{Dunkley}, M.~{Halpern},
+  R.~S. {Hill}, N.~{Jarosik}, A.~{Kogut}, M.~{Limon}, S.~S. {Meyer},
+  N.~{Odegard}, H.~V. {Peiris}, G.~S. {Tucker}, L.~{Verde}, J.~L. {Weiland},
+  E.~{Wollack}, and E.~L. {Wright}, 2007: {Three-Year Wilkinson Microwave
+  Anisotropy Probe (WMAP) Observations: Polarization Analysis}. {\em \apjs\/},
+  {\bf 170}, 335--376, arXiv:astro-ph/0603450.
+
+\bibitem[{Parsons} et~al.(2010){Parsons}, {Backer}, {Foster}, {Wright},
+  {Bradley}, {Gugliucci}, {Parashare}, {Benoit}, {Aguirre}, {Jacobs},
+  {Carilli}, {Herne}, {Lynch}, {Manley}, and {Werthimer}]{parsons_et_al2010}
+{Parsons}, A.~R., D.~C. {Backer}, G.~S. {Foster}, M.~C.~H. {Wright}, R.~F.
+  {Bradley}, N.~E. {Gugliucci}, C.~R. {Parashare}, E.~E. {Benoit}, J.~E.
+  {Aguirre}, D.~C. {Jacobs}, C.~L. {Carilli}, D.~{Herne}, M.~J. {Lynch}, J.~R.
+  {Manley}, and D.~J. {Werthimer}, 2010: {The Precision Array for Probing the
+  Epoch of Re-ionization: Eight Station Results}. {\em \aj\/}, {\bf 139},
+  1468--1480, 0904.2334.
+
+\bibitem[{Parsons} et~al.(2013){Parsons}, {Liu}, {Aguirre}, {Ali}, {Bradley},
+  {Carilli}, {DeBoer}, {Dexter}, {Gugliucci}, {Jacobs}, {Klima}, {MacMahon},
+  {Manley}, {Moore}, {Pober}, {Stefan}, and {Walbrugh}]{parsons_et_al2013}
+{Parsons}, A.~R., A.~{Liu}, J.~E. {Aguirre}, Z.~S. {Ali}, R.~F. {Bradley},
+  C.~L. {Carilli}, D.~R. {DeBoer}, M.~R. {Dexter}, N.~E. {Gugliucci}, D.~C.
+  {Jacobs}, P.~{Klima}, D.~H.~E. {MacMahon}, J.~R. {Manley}, D.~F. {Moore},
+  J.~C. {Pober}, I.~I. {Stefan}, and W.~P. {Walbrugh}, 2013: {New Limits on
+  21cm EoR From PAPER-32 Consistent with an X-Ray Heated IGM at z=7.7}. {\em
+  ArXiv e-prints\/}, 1304.4991.
+
+\bibitem[{Parsons} et~al.(2012){Parsons}, {Pober}, {Aguirre}, {Carilli},
+  {Jacobs}, and {Moore}]{parsons_et_al2012b}
+{Parsons}, A.~R., J.~C. {Pober}, J.~E. {Aguirre}, C.~L. {Carilli}, D.~C.
+  {Jacobs}, and D.~F. {Moore}, 2012: {A Per-baseline, Delay-spectrum Technique
+  for Accessing the 21 cm Cosmic Reionization Signature}. {\em \apj\/}, {\bf
+  756}, 165, 1204.4749.
+
+\bibitem[{Planck Collaboration} et~al.(2013){Planck Collaboration}, {Ade},
+  {Aghanim}, {Armitage-Caplan}, {Arnaud}, {Ashdown}, {Atrio-Barandela},
+  {Aumont}, {Baccigalupi}, {Banday}, and et~al.]{planck_et_al2013}
+{Planck Collaboration}, P.~A.~R. {Ade}, N.~{Aghanim}, C.~{Armitage-Caplan},
+  M.~{Arnaud}, M.~{Ashdown}, F.~{Atrio-Barandela}, J.~{Aumont},
+  C.~{Baccigalupi}, A.~J. {Banday}, and et~al., 2013: {Planck 2013 results.
+  XVI. Cosmological parameters}. {\em ArXiv e-prints\/}, 1303.5076.
+
+\bibitem[{Pober} et~al.(2013){Pober}, {Parsons}, {Aguirre}, {Ali}, {Bradley},
+  {Carilli}, {DeBoer}, {Dexter}, {Gugliucci}, {Jacobs}, {Klima}, {MacMahon},
+  {Manley}, {Moore}, {Stefan}, and {Walbrugh}]{pober_et_al2013b}
+{Pober}, J.~C., A.~R. {Parsons}, J.~E. {Aguirre}, Z.~{Ali}, R.~F. {Bradley},
+  C.~L. {Carilli}, D.~{DeBoer}, M.~{Dexter}, N.~E. {Gugliucci}, D.~C. {Jacobs},
+  P.~J. {Klima}, D.~{MacMahon}, J.~{Manley}, D.~F. {Moore}, I.~I. {Stefan}, and
+  W.~P. {Walbrugh}, 2013: {Opening the 21 cm Epoch of Reionization Window:
+  Measurements of Foreground Isolation with PAPER}. {\em \apjl\/}, {\bf 768},
+  L36, 1301.7099.
+
+\bibitem[{Pritchard} and {Loeb}(2012)]{pritchard_loeb2012}
+{Pritchard}, J.~R. and A.~{Loeb}, 2012: {21 cm cosmology in the 21st century}.
+  {\em Reports on Progress in Physics\/}, {\bf 75(8)}, 086901, 1109.6012.
+
+\bibitem[{Santos} et~al.(2005){Santos}, {Cooray}, and {Knox}]{santos_et_al2005}
+{Santos}, M.~G., A.~{Cooray}, and L.~{Knox}, 2005: {Multifrequency Analysis of
+  21 Centimeter Fluctuations from the Era of Reionization}. {\em \apj\/}, {\bf
+  625}, 575--587, arXiv:astro-ph/0408515.
+
+\bibitem[{Zahn} et~al.(2012){Zahn}, {Reichardt}, {Shaw}, {Lidz}, {Aird},
+  {Benson}, {Bleem}, {Carlstrom}, {Chang}, {Cho}, {Crawford}, {Crites}, {de
+  Haan}, {Dobbs}, {Dor{\'e}}, {Dudley}, {George}, {Halverson}, {Holder},
+  {Holzapfel}, {Hoover}, {Hou}, {Hrubes}, {Joy}, {Keisler}, {Knox}, {Lee},
+  {Leitch}, {Lueker}, {Luong-Van}, {McMahon}, {Mehl}, {Meyer}, {Millea},
+  {Mohr}, {Montroy}, {Natoli}, {Padin}, {Plagge}, {Pryke}, {Ruhl}, {Schaffer},
+  {Shirokoff}, {Spieler}, {Staniszewski}, {Stark}, {Story}, {van Engelen},
+  {Vanderlinde}, {Vieira}, and {Williamson}]{zahn_et_al2012}
+{Zahn}, O., C.~L. {Reichardt}, L.~{Shaw}, A.~{Lidz}, K.~A. {Aird}, B.~A.
+  {Benson}, L.~E. {Bleem}, J.~E. {Carlstrom}, C.~L. {Chang}, H.~M. {Cho}, T.~M.
+  {Crawford}, A.~T. {Crites}, T.~{de Haan}, M.~A. {Dobbs}, O.~{Dor{\'e}},
+  J.~{Dudley}, E.~M. {George}, N.~W. {Halverson}, G.~P. {Holder}, W.~L.
+  {Holzapfel}, S.~{Hoover}, Z.~{Hou}, J.~D. {Hrubes}, M.~{Joy}, R.~{Keisler},
+  L.~{Knox}, A.~T. {Lee}, E.~M. {Leitch}, M.~{Lueker}, D.~{Luong-Van}, J.~J.
+  {McMahon}, J.~{Mehl}, S.~S. {Meyer}, M.~{Millea}, J.~J. {Mohr}, T.~E.
+  {Montroy}, T.~{Natoli}, S.~{Padin}, T.~{Plagge}, C.~{Pryke}, J.~E. {Ruhl},
+  K.~K. {Schaffer}, E.~{Shirokoff}, H.~G. {Spieler}, Z.~{Staniszewski}, A.~A.
+  {Stark}, K.~{Story}, A.~{van Engelen}, K.~{Vanderlinde}, J.~D. {Vieira}, and
+  R.~{Williamson}, 2012: {Cosmic Microwave Background Constraints on the
+  Duration and Timing of Reionization from the South Pole Telescope}. {\em
+  \apj\/}, {\bf 756}, 65, 1111.6386.
+
+\end{thebibliography}

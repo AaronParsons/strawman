@@ -1,0 +1,17 @@
+xBins
+38
+
+yBins
+38
+
+fBins
+80
+
+xyLength
+1550.5
+
+fLength
+136.677
+
+fStart
+146.217

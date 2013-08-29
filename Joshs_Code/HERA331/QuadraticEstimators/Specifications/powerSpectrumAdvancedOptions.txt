@@ -1,0 +1,23 @@
+verbose = 1
+
+turnOffPreconditioner = 0
+
+CequalsI = 0
+
+CequalsN = 1
+
+CequalsNU = 0
+
+removeR = 0
+
+removeG = 0
+
+removeMean = 1
+
+printDataCubesToFile = 0
+
+saveKBinEdges = 1
+
+PixelizationFactorEquals1 = 0
+
+includeCroppedPerpBins = 1

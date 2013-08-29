@@ -1,0 +1,29 @@
+
+\documentclass[12pt,preprint]{aastex}
+%\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+%\geometry{a4paper} % or letter or a5paper or ... etc
+% \geometry{landscape} % rotated page geometry
+\usepackage{booktabs}
+\usepackage{amsmath}
+%\usepackage{topcapt}
+% See the ``Article customise'' template for come common customisations
+\newcommand{\MHz}{\textrm{MHz}}
+\newcommand{\M}{\textrm{min}}
+\newcommand{\Hr}{\textrm{h}}
+\title{Imaging sensitivity estimates for HERA}
+\author{Danny Jacobs }
+\date{\centering \today } % delete this line to display the current date
+%\slugcomment{\today}
+%%% BEGIN DOCUMENT
+\begin{document}
+Simulations of the largest reionization structures predict amplitudes in the 10mK range on sub-degree/100Mpc scales (Mcquinn et al, 2007, ApJ 654).   The full HERA array, after application of a conservative foreground filter, will have a surface brightness sensitivity of less than 1mK, giving it ample sensitivity to detect HI emission.  
+\begin{figure}[htb]
+\includegraphics[width=0.75\textwidth]{HERA576_SNR_z=8.png}
+\caption{A full instrumental simulation of a large scale reionization model (McQuinn 2007). Injected noise levels are equivalent to 100 hours of on-field observing and a conservative filtering of foregrounds operating above the ``horizon limited wedge''. Contours indicate regions with SNR>10. }
+\end{figure}
+
+
+
+\emph{Foreground limited sensitivity}\\
+As discussed elsewhere, the sta.ge 1 sensitivity of 21cm observations is limited to observing outside of the ``foreground wedge".  In practice this limits the effective bandwidth over which coherent imaging will be foreground-free to around 1MHz, a redshift range of 0.005.
+\end{document}
