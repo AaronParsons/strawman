@@ -167,9 +167,11 @@ High dynamic range imaging of foregrounds with the MWA towards galactic center u
 \begin{figure}\centering
 \includegraphics{plots/Pober_wedge.pdf}
 \caption{\small
-The EoR window.
+The EoR window as measured by PAPER.  Blue represents a region containing EoR signal but no foreground contamination.
 }\label{fig:EoRwindow}
 \end{figure}
+
+
 
 
 \vspace{-0.25in}
@@ -182,48 +184,50 @@ The EoR window.
 \caption{\small
 The PAPER element (left) provides a clean instrumental response as a function
 of frequency \citep{parsons_et_al2010,parsons_et_al2012b}, which is crucial to
-the foreground isolation shown in Figure \ref{fig:eor_pspec}.  A 14m dish
+the foreground isolation shown in Figure \ref{fig:eor_pspec}.  A 14~m dish
 designed around the same feed (right) dramatically improves sensitivity while
 constraining the path length and amplitude of
 reflections to ensure that foreground isolation is not substantially degraded.  
 }\label{fig:hera_dish}
 \end{figure}
 
-This HERA proposal targets a 568-element array that incorporates these proven
-foreground avoidance techniques while addressing the sensitivity limitations of
-current experiments.  With a better understanding of how antenna size and
-separation affect the interaction of sensitivity and foreground isolation, it
-has become clear that larger, close-packed antenna elements can yield up to 30
-times the sensitivity of current elements without substantially degrading
-foreground isolation.  Where PAPER’s elements lack collecting area and are
-smaller than strictly required for foreground isolation, and the majority of
-MWA and LOFAR elements are spaced too widely to avoid foregrounds, HERA employs
-an extremely compact array of large --- but not {\it too} large --- antenna
-elements, building on PAPER's design.  As illustrated in Figure
-\ref{fig:hera_dish}, these elements consist of PAPER-style dipole feeds
-suspended over 14m parabolic dishes.  The short ($\sim$5m) focal height of these
-dishes is central to limiting the path length of reflections whose time-delay
-gives rise to chromatic instrumental systematics. 
+This proposal outlines a staged build out to a 568-antenna array in South Africa that incorporates the lessons learned from the first generation EoR observatories. It features a 14~m zenith pointing dish optimized for spectral smoothness, a dense hexagonal core to enable redundant baseline calibration and delay-spectrum analysis, and a distribution of outrigger antennas to provide complete uv coverage to $\sim$700~m for foreground imaging and mitigation. HERA draws on the technical heritage of the MWA, PAPER, and EDGES. Specific examples include the spectrally smooth feed and antenna based on PAPER, receiver node and field digitization at baseband from the MWA, absolute radiometric calibraion from EDGES, the delay-spectrum analysis from PAPER, and the precision imaging and foreground removal software from the MWA.
 
-The size of the new HERA dish optimizes cost for a fixed sensitivity and level
-of foreground isolation.  The associated reduction in the number of antenna
-elements, combined with the fact that these dishes have no moving parts, are
-built from inexpensive materials, and follow a simple construction that can be
-delegated to local contractors, makes the cost of building HERA's Phase-II
-experiment several times cheaper than was anticipated in the HERA roadmap
-endorsed by Astro2010.  
+The HERA antenna shown in Figure \ref{fig:hera_dish} is an illustrative example of how the HERA design has been optimized based on our current understanding. The key antenna figure of merit is the spectral smoothness and stability of the response because it determines the precision to which astrophysical foreground emission can be separated from the cosmological 21~cm emission. HERA uses the PAPER dipole feed---modified slightly for wider bandwidth---suspended over a 14~m parabolic dish. The short ($\sim$5m) focal height of the dishes is central to limiting the path length of reflections whose time-delay gives rise to chromatic antenna sensitivity. The zenith pointing enhances the stability of the antenna response (PAPER), short cables to in-field digitizers limit the length of cable reflections (MWA), and absolute calibration (EDGES) are all designed to provide an extremely stable and smooth spectral response. Similarly the antenna layout uses the dense core, outriggers, and symmetric configuration of the MWA, combined with redundant baselines within the core (PAPER). Together these advances enable HERA to have the science reach envisioned in the decadal survey while fitting within the MSIP funding envelope.
+
+%This HERA proposal targets a 568-element array that incorporates these proven
+%foreground avoidance techniques while addressing the sensitivity limitations of
+%current experiments.  With a better understanding of how antenna size and
+%separation affect the interaction of sensitivity and foreground isolation, it
+%has become clear that larger, close-packed antenna elements can yield up to 30
+%times the sensitivity of current elements without substantially degrading
+%foreground isolation.  Where PAPER’s elements lack collecting area and are
+%smaller than strictly required for foreground isolation, and the majority of
+%MWA and LOFAR elements are spaced too widely to avoid foregrounds, HERA employs
+%an extremely compact array of large --- but not {\it too} large --- antenna
+%elements, building on PAPER's design.  As illustrated in Figure
+%\ref{fig:hera_dish}, these elements consist of PAPER-style dipole feeds
+%suspended over 14m parabolic dishes.  The short ($\sim$5m) focal height of these
+%dishes is central to limiting the path length of reflections whose time-delay
+%gives rise to chromatic instrumental systematics. 
+
+%The size of the new HERA dish optimizes cost for a fixed sensitivity and level
+%of foreground isolation.  The associated reduction in the number of antenna
+%elements, combined with the fact that these dishes have no moving parts, are
+%built from inexpensive materials, and follow a simple construction that can be
+%delegated to local contractors, makes the cost of building HERA's Phase-II
+%experiment several times cheaper than was anticipated in the HERA roadmap
+%endorsed by Astro2010.  
 %XXX talk a bit more about build-ability.
 
-HERA follows a staged build-out plan similar to that championed by PAPER.  In
-each deployment stage, improvements are incorporated into the system, and new
+HERA follows a staged build-out plan.  In
+each deployment stage improvements are incorporated into the system and new
 science capabilities are unlocked.  This approach has the advantage of
-providing early access to science, permitting longer development times for
-certain system components, and reducing the project risk by testing systems
+providing early access to science and reducing the project risk by testing systems
 early and changing them incrementally.  As shown in Figure \ref{fig:eor_pspec}, each
-stage of HERA brings an associated improvement in sensitivity that allow key
+stage of HERA brings an associated improvement in sensitivity that allows key
 aspects of 21~cm reionization science to be addressed.  The timeline of HERA
-development, along with the associated science producets, is outlined below. 
-%XXX TBD Morales: add software development stages & science that is enabled
+development, along with the associated science products, is outlined below. 
 
 
 \noindent{\bf Year 1--Infrastructure and First 37 Antennas (FY 2015)}.  
@@ -241,8 +245,9 @@ development, along with the associated science producets, is outlined below.
 \vspace{-7pt}
   \item Commissioning observations using a hybrid array of 37 HERA antennas in a close-packed hexagon surrounded by 91 PAPER antennas in an imaging configuration.
   \item Perform a deep polarized foreground survey using unique hybrid antenna capability of FHD. Will directly determine on-sky beam response of HERA antennas and enable future subtraction of sources in HERA sidelobes.
-  \item Development of site infrastructure (high-bandwidth optical network, surveying, trenching) finishes.
+  \item Finalize site infrastructure (high-bandwidth optical network, surveying, trenching).
   \item On-antenna commissioning of new feeds, receivers, nodes, and antenna calibrations systems in Green Bank and South Africa.
+  \item Build out to 127 HERA antennas starts.
 \end{itemize}
 
 
@@ -250,45 +255,38 @@ development, along with the associated science producets, is outlined below.
 \begin{itemize}\setlength{\parskip}{0pt}
 \vspace{-7pt}
   \item Construction of HERA-127 completes, and science observations begin in Oct. 2016, again using the PAPER correlator.
-  \item Analysis begins on a dataset capable of constraining the timing and duration of reionization. Analysis focuses on current techniques based off PAPER individual baseline analysis, with exploration of subtracting bright and polarized foreground sources.
-  \item Deployment of HERA-331 begins.  Contractors lead
-physical construction, expanding from the existing 127 elements.  Node
-electronics are installed for all 331 elements, and a new, 331-element
-GPU-based correlator is installed in the Karoo Array Processing Building
-(KAPB).
+  \item Analysis begins on a dataset capable of constraining the timing and duration of reionization. Analysis focuses on current techniques based on PAPER individual baseline analysis, with exploration of subtracting bright and polarized foreground sources.
+  \item Deployment of HERA~331 begins. Node electronics are installed for all 331 elements, and a new, 331-element GPU-based correlator is installed in the Karoo Array Processing Building (KAPB).
   \item Science papers from HERA-37 are published.
   \item  Additional data storage infrastructure is installed in the
 KAPB.  The UPenn data analysis cluster is upgraded. 
 \end{itemize}
 
-%Node and correlator designs are finalized and fabrication begins.  
-%Science observations with HERA-127 complete in Apr. 2017;
-
-
 \noindent{\bf Year 4--HERA 331 and Measuring the Evolution of the First Galaxies (FY 2018)}.
 \begin{itemize}
 \setlength{\parskip}{0pt}
 \vspace{-7pt}
-  \item Construction of HERA-331 completes, and science observations begin in Oct. 2017.
-  \item Science observations with HERA-331 complete in Apr. 2018, and analysis begins on a dataset capable of
-characterizing the slope of the power spectrum, distinguishing between various
-sources of ionizing photons.
+  \item Construction of HERA~331 completes, and science observations begin in Oct. 2017.
+  \item Science observations with HERA~331 complete in Apr. 2018, and analysis begins on a dataset capable of
+characterizing the redshift evolution the power spectrum shape---measuring the development of the first galaxies.
   \item Continued analysis and software development with an emphasis on opening the EoR window (removing contamination at low $k_{\parallel}$). 
-  \item  HERA-127 results are published.
+  \item  HERA~127 results are published.
+  \item Build out to 568 antennas begins, including outrigger antennas to fascilitate imaging and better foreground removal.
+  \item Pipelines for EoR processing of HERA~568 complete.
 \end{itemize}
 
-\noindent{\bf Year 5--HERA 568, Imaging Reionization and Constraining the Development of Structure at z>11  (FY 2019)}.
+\noindent{\bf Year 5--HERA 568, Imaging Reionization and Constraining the Development of Structure at $z>11$  (FY 2019)}.
 \begin{itemize}
 \setlength{\parskip}{0pt}
 \vspace{-7pt}
-  \item Construction of HERA-568 completes, and science observations begin in Oct. 2018.
+  \item Construction of HERA~568 completes, and science observations begin in Oct. 2018.
   \item Analysis push to enable imaging of the largest structures and extracting the full sensitivity of the instrument (including partially coherent baselines). 
 \end{itemize}
 
 
 
 
-\section{Enabling Transformative Science}
+\subsection{The Transformative Science enabled by HERA}
 
 % XXX Talk about specifically what science is being added in each stage of HERA
 % XXX Bowman plot of constraints on ionization fraction versus redshift
@@ -426,4 +424,3 @@ build-out, with associated de-scoping of science capabilities.
 
 
 \end{document}
-
