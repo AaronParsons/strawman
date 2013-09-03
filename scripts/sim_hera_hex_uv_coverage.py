@@ -89,7 +89,7 @@ pos = n.ma.masked_less(pos, 1e-4)
 uv_clip = uv.clip(0,1)
 uv = n.fft.fft2(n.fft.ifft2(uv) * _inv_bm2).astype(n.float)
 bm = beam(uv)
-uv_clip = n.fft.fft2(n.fft.ifft2(uv_clip) * _inv_bm2).astype(n.float)
+uv_clip = n.fft.fft2(n.fft.ifft2(uv_clip) * _inv_bm2).astype(n.float).clip(0,1)
 bm_clip = beam(uv_clip)
 uv = n.ma.masked_less(uv, 1e-4)
 uv_clip = n.ma.masked_less(uv_clip, 1e-4)
@@ -101,33 +101,35 @@ p.subplot(231)
 p.imshow(a.img.recenter(pos, CEN), vmin=0, vmax=1, 
     origin='lower', interpolation='nearest',
     extent=(-EXT,EXT,-EXT,EXT))
-p.xlim(-1000,1000); p.ylim(-1000,1000)
+p.xlim(-750,750); p.ylim(-750,750)
 p.xlabel('Position (m)')
 
 p.subplot(232)
 p.imshow(a.img.recenter(uv, CEN), vmin=0, 
     origin='lower', interpolation='nearest',
     extent=(-EXT/2,EXT/2,-EXT/2,EXT/2))
-p.xlim(-1000,1000); p.ylim(-1000,1000)
+p.xlim(-500,500); p.ylim(-500,500)
 p.xlabel('u ($\\lambda$)')
 
 p.subplot(233)
 p.imshow(a.img.recenter(uv_clip, CEN), vmin=0, 
     origin='lower', interpolation='nearest',
     extent=(-EXT/2,EXT/2,-EXT/2,EXT/2))
-p.xlim(-1000,1000); p.ylim(-1000,1000)
+p.xlim(-500,500); p.ylim(-500,500)
 p.xlabel('u ($\\lambda$)')
 p.subplot(235)
 p.imshow(a.img.recenter(10*n.log10(bm), CEN), vmax=0, vmin=-40, 
     origin='lower', interpolation='nearest',
     extent=(-RES_EXT,RES_EXT,-RES_EXT,RES_EXT))
-p.xlim(-600,600); p.ylim(-600,600)
+#p.xlim(-600,600); p.ylim(-600,600)
+p.xlim(-100,100); p.ylim(-100,100)
 p.xlabel('$\\theta$ (arcmin)')
 p.subplot(236)
 p.imshow(a.img.recenter(10*n.log10(bm_clip), CEN), vmax=0, vmin=-40, 
     origin='lower', interpolation='nearest',
     extent=(-RES_EXT,RES_EXT,-RES_EXT,RES_EXT))
-p.xlim(-600,600); p.ylim(-600,600)
+#p.xlim(-600,600); p.ylim(-600,600)
+p.xlim(-100,100); p.ylim(-100,100)
 p.xlabel('$\\theta$ (arcmin)')
 p.show()
 
