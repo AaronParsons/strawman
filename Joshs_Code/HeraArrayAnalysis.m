@@ -6,12 +6,13 @@ cd('/Users/jsdillon/Desktop/HERA/HERA_Runs/HERA547')
 %% Settings
 MproptoDelta = 0;
 invVarWeightingSpherical = 1;
+sampleVarianceOn = 1;
 
 fields = 9;
 exciseWedge = 1;
 wedgeEqualsHorizon = 1;
 buffer = .15;
-%buffer = .03;
+buffer = .03;
 nLowKPerpBinsToRemove = 0;
 nHighKPerpBinsToRemove = 0;
 nLowKParaBinsToRemove = 0;
@@ -79,6 +80,9 @@ load QuadraticEstimators/fisher.mat;
 load QuadraticEstimators/kParaBinCenters.dat;
 load QuadraticEstimators/kPerpBinCenters.dat;
 cylindricalBinCount = load('QuadraticEstimators/BinSampleCounts.dat');
+%fisher = fisher*4;
+
+%disp('Multiplying Fisher matrix by 4...')
 
 %kParaBinCenters = kParaBinCenters / littleh;
 %kPerpBinCenters = kPeBinCenters / littleh;
@@ -332,16 +336,19 @@ else
 end
 
 
-text(.002,.07,'Horizon Wedge with .03 hMpc^{-1} Buffer','BackgroundColor',[1 1 1])
+
 hold on; plot([.001:.001:1], wedgeCoefficientHoriz*([.001:.001:1]) + .03,'w','LineWidth',4); hold off
+text(.002,.07,'Horizon Wedge with .03 hMpc^{-1} Buffer','BackgroundColor',[1 1 1])
 hold on; plot([.001:.001:1], wedgeCoefficientHoriz*([.001:.001:1]) + .03,'k--','LineWidth',2); hold off
 
-text(.01,.02,'Primary Beam Null Wedge with .03 hMpc^{-1} Buffer','BackgroundColor',[1 1 1])
+
 hold on; plot([.001:.001:1], wedgeCoefficientPB*([.001:.001:1]) + .03,'w','LineWidth',4); hold off
+text(.01,.02,'Primary Beam Null Wedge with .03 hMpc^{-1} Buffer','BackgroundColor',[1 1 1])
 hold on; plot([.001:.001:1], wedgeCoefficientPB*([.001:.001:1]) + .03,'k--','LineWidth',2); hold off
 
-text(.0015,.17,'Horizon Wedge with .15 hMpc^{-1} Buffer','BackgroundColor',[1 1 1])
+
 hold on; plot([.001:.001:1], wedgeCoefficientHoriz*([.001:.001:1]) + .15,'w','LineWidth',4); hold off
+text(.0015,.21,'Horizon Wedge with .15 hMpc^{-1} Buffer','BackgroundColor',[1 1 1])
 hold on; plot([.001:.001:1], wedgeCoefficientHoriz*([.001:.001:1]) + .15,'k--','LineWidth',2); hold off
 
 
@@ -417,7 +424,6 @@ end
 
 kSphereBins = kParaBins;
 
-
 %Get kValues into a sorted list (excluding wedge, if necessary)
 kParaBinCentersExtended = [kParaBinCenters; 2*kParaBinCenters(kParaBins) - kParaBinCenters(kParaBins-1)];
 kValues = [];
@@ -427,7 +433,7 @@ for kPara = 1:kParaBins
     for kPerp = 1:kPerpBins
         kValuesVector(kPara + (kPerp-1)*kParaBins) = sqrt(kParaBinCenters(kPara)^2 + kPerpBinCenters(kPerp)^2);
         if ((kParaBinCenters(kPara) > (wedgeCoefficient * (kPerpBinCenters(kPerp)) + buffer * littleh ) || ~exciseWedge) && kPerpBinCenters(kPerp) < 10^10 && sqrt(kParaBinCenters(kPara)^2 + kPerpBinCenters(kPerp)^2) > 0)
-            kValues(counter,1) = sqrt(kParaBinCenters(kPara)^2);% + kPerpBinCenters(kPerp)^2);
+            kValues(counter,1) = sqrt(kParaBinCenters(kPara)^2 + kPerpBinCenters(kPerp)^2);
             kValues(counter,2) = kPerp;
             kValues(counter,3) = kPara;
             counter = counter + 1;
@@ -436,24 +442,82 @@ for kPara = 1:kParaBins
 end
 kValues = sortrows(kValues);
 
-%Sets the number of kSphereBins
-binSize  = .063 / littleh;
+deltaKPara = (kParaBinCenters(2) - kParaBinCenters(1))*2;
 
 %Assigns bins in order
 assignment = zeros(kParaBins*kPerpBins,1);
-counter = 1;
-bin = 1;
-while true
-        assignment(kValues(counter,3)+(kValues(counter,2)-1)*kParaBins) = kValues(counter,3);
-        counter = counter + 1;
-    if counter > size(kValues,1)
-        break
+for counter = 1:length(kValues)
+    for bin = 2:kParaBins
+        if kValues(counter,1) < kParaBinCenters(bin)
+            assignment(kValues(counter,3)+(kValues(counter,2)-1)*kParaBins) = bin-1;
+            break
+        elseif bin == kParaBins
+            assignment(kValues(counter,3)+(kValues(counter,2)-1)*kParaBins) = kParaBins;
+        end
     end
 end
-assignment = assignment - min(assignment(find(assignment))) + 1;
 
-%imagesc(reshape(assignment,kParaBins,kPerpBins))
+assignment = assignment - (min((assignment == 0) * max(assignment) + assignment) - 1);
+if exciseWedge
+    assignment = assignment .* (assignment ~= min(assignment));
+end
 
+%Create rebinning matrix
+kSphereBins = bin;
+rebinningMatrix = zeros(kSphereBins,kParaBins*kPerpBins);
+for kParaBin = 1:kParaBins
+    for kPerpBin = 1:kPerpBins
+        for sphereBin = 1:kSphereBins
+            cylBin = kParaBin+(kPerpBin-1)*kParaBins;
+            if assignment(kParaBin + (kPerpBin-1)*kParaBins) == sphereBin
+                rebinningMatrix(sphereBin,cylBin) = 1;
+            end
+        end
+    end
+end
+A = rebinningMatrix';
+
+
+
+% kSphereBins = kParaBins;
+% 
+% 
+% %Get kValues into a sorted list (excluding wedge, if necessary)
+% kParaBinCentersExtended = [kParaBinCenters; 2*kParaBinCenters(kParaBins) - kParaBinCenters(kParaBins-1)];
+% kValues = [];
+% counter = 1;
+% kValuesVector = [];
+% for kPara = 1:kParaBins
+%     for kPerp = 1:kPerpBins
+%         kValuesVector(kPara + (kPerp-1)*kParaBins) = sqrt(kParaBinCenters(kPara)^2 + kPerpBinCenters(kPerp)^2);
+%         if ((kParaBinCenters(kPara) > (wedgeCoefficient * (kPerpBinCenters(kPerp)) + buffer * littleh ) || ~exciseWedge) && kPerpBinCenters(kPerp) < 10^10 && sqrt(kParaBinCenters(kPara)^2 + kPerpBinCenters(kPerp)^2) > 0)
+%             kValues(counter,1) = sqrt(kParaBinCenters(kPara)^2);% + kPerpBinCenters(kPerp)^2);
+%             kValues(counter,2) = kPerp;
+%             kValues(counter,3) = kPara;
+%             counter = counter + 1;
+%         end
+%     end
+% end
+% kValues = sortrows(kValues);
+% 
+% %Sets the number of kSphereBins
+% binSize  = .063 / littleh;
+% 
+% %Assigns bins in order
+% assignment = zeros(kParaBins*kPerpBins,1);
+% counter = 1;
+% bin = 1;
+% while true
+%         assignment(kValues(counter,3)+(kValues(counter,2)-1)*kParaBins) = kValues(counter,3);
+%         counter = counter + 1;
+%     if counter > size(kValues,1)
+%         break
+%     end
+% end
+% assignment = assignment - min(assignment(find(assignment))) + 1;
+% 
+% %imagesc(reshape(assignment,kParaBins,kPerpBins))
+% 
 assignmentPlot = reshape(assignment,kParaBins,kPerpBins);
 
 assignmentMatrix = zeros(kParaBins+1,kPerpBins);
@@ -498,16 +562,18 @@ end
 
 
 
-text(.002,.07,'Horizon Wedge with .03 hMpc^{-1} Buffer','BackgroundColor',[1 1 1])
 hold on; plot([.001:.001:1], wedgeCoefficientHoriz*([.001:.001:1]) + .03,'w','LineWidth',4); hold off
+text(.002,.07,'Horizon Wedge with .03 hMpc^{-1} Buffer','BackgroundColor',[1 1 1])
 hold on; plot([.001:.001:1], wedgeCoefficientHoriz*([.001:.001:1]) + .03,'k--','LineWidth',2); hold off
 
-text(.01,.02,'Primary Beam Null Wedge with .03 hMpc^{-1} Buffer','BackgroundColor',[1 1 1])
+
 hold on; plot([.001:.001:1], wedgeCoefficientPB*([.001:.001:1]) + .03,'w','LineWidth',4); hold off
+text(.01,.02,'Primary Beam Null Wedge with .03 hMpc^{-1} Buffer','BackgroundColor',[1 1 1])
 hold on; plot([.001:.001:1], wedgeCoefficientPB*([.001:.001:1]) + .03,'k--','LineWidth',2); hold off
 
-text(.0015,.17,'Horizon Wedge with .15 hMpc^{-1} Buffer','BackgroundColor',[1 1 1])
+
 hold on; plot([.001:.001:1], wedgeCoefficientHoriz*([.001:.001:1]) + .15,'w','LineWidth',4); hold off
+text(.0015,.21,'Horizon Wedge with .15 hMpc^{-1} Buffer','BackgroundColor',[1 1 1])
 hold on; plot([.001:.001:1], wedgeCoefficientHoriz*([.001:.001:1]) + .15,'k--','LineWidth',2); hold off
 
 
@@ -566,6 +632,40 @@ for kParaBin = 1:kParaBins
 end
 A = rebinningMatrix';
 
+%% Lidz Theory
+
+lidzPS = importdata('/Users/jsdillon/Desktop/HERA/power_21cm_z7.32.dat');
+theoryCurve = [littleh*lidzPS(:,1)'; (lidzPS(:,1).^3/2/pi^2.*lidzPS(:,2)*(28 * sqrt( 9.5/10))^2)']';
+
+
+%% Sample Variance
+allSphereKValues = zeros(kParaBins*kPerpBins,1);
+for kParaBin = 1:kParaBins
+    for kPerpBin = 1:kPerpBins
+        allSphereKValues(kParaBin + (kPerpBin-1)*kParaBins) = sqrt(kParaBinCenters(kParaBin)^2 + kPerpBinCenters(kPerpBin)^2);
+    end
+end
+
+theoryForAllSphereKValues = interp1(theoryCurve(:,1),theoryCurve(:,2),allSphereKValues,'linear','extrap');
+binCountVector = reshape(cylindricalBinCount',kParaBins*kPerpBins,1)/2;
+cylindricalSampleVarianceDeltaSqError = theoryForAllSphereKValues.*sqrt(2)./binCountVector.^.5; %in mK^2
+cylindricalSampleVariancePError = cylindricalSampleVarianceDeltaSqError ./ allSphereKValues.^3 * 2 * pi^2 / (1000)^2;
+
+if sampleVarianceOn
+    %covP = covP + W*diag(cylindricalSampleVariancePError.^2)*W';
+    covP = covP + diag(cylindricalSampleVariancePError.^2);
+    disp(['Not handling window functions properly for sample variance...I think...'])
+end
+    
+ 
+% independentBinCount = A'*reshape(cylindricalBinCount',kParaBins*kPerpBins,1)*fields/2;
+% SampleVarianceDeltaSqError = (theoryInterpDeltaSq.*sqrt(2)./(independentBinCount).^.5);
+% 
+% figure(321); clf;
+% plot(kSphereBinCenters/littleh,independentBinCount,'.-')
+% xlabel('k (hMpc^{-1})');
+% ylabel('Number of independent bins');
+
 
 %% Recalculate Band Powers, Window Functions, and Band Power Covariance
 
@@ -580,6 +680,24 @@ else
     Wsphere = A'*W*A;
 end
 
+%% Adrian's N_indep Calculation
+
+if invVarWeightingSpherical
+    Nindep = (sum((covPsphere * A' * invVar).^2,2)).^-1;
+    figure(1234); clf
+    plot(kSphereBinCenters/littleh, Nindep,'.-')
+    ylabel('N_{indep}'); xlabel('k (hMpc^{-1})');
+end
+
+% if invVarWeightingSpherical
+%     b = (covPsphere * A' * invVar);
+%     
+%     figure(1235); clf
+%     theorySq = (interp1(theoryCurve(:,1),theoryCurve(:,2),kSphereBinCenters,'linear','extrap') ./ kSphereBinCenters.^3 * 2 * pi^2 / (1000)^2).^2
+%     plot(kSphereBinCenters/littleh,diag(b *  W*diag(cylindricalSampleVariancePError.^2)*W' * b') ./ theorySq)
+%   
+%     ylabel('N_{indep}'); xlabel('k (hMpc^{-1})');
+% end
 
 %% Calculate Horizontal Error Bars
 
@@ -627,10 +745,7 @@ for win = 1:kSphereBins
         rightHorizErr = [rightHorizErr; max(2*centerHorizErr(end) - leftHorizErr(end),10e-15)];
     else
         for i=1:ni
-            if (total >= percentile && left == 0)
-                leftHorizErr = [leftHorizErr; xi(i)];
-                left = 1;
-            end
+
             if (total >= .5 && center == 0)
                 centerHorizErr = [centerHorizErr; xi(i)];
                 center = 1;
@@ -638,6 +753,10 @@ for win = 1:kSphereBins
             if (total >= (1-percentile) && right == 0)
                 rightHorizErr = [rightHorizErr; xi(i)];
                 right = 1;
+            end
+            if (total >= percentile && left == 0)
+                leftHorizErr = [leftHorizErr; max(xi(i),leftHorizErr(end))];
+                left = 1;
             end
             if (~isnan(yi(i)))
                 total = total + yi(i)/norm;
@@ -647,20 +766,10 @@ for win = 1:kSphereBins
     
 end
 kSphereBinCentersBackup = kSphereBinCenters;
-kSphereBinCenters = centerHorizErr;
+%kSphereBinCenters = centerHorizErr;
+disp('No longer using center of window functions as bin center')
 
 
-%% Lidz Theory
-
-lidzPS = importdata('/Users/jsdillon/Desktop/HERA/power_21cm_z7.32.dat');
-theoryCurve = [littleh*lidzPS(:,1)'; (lidzPS(:,1).^3/2/pi^2.*lidzPS(:,2)*(28 * sqrt( 9.5/10))^2)']';
-theoryInterpDeltaSq = interp1(theoryCurve(:,1),theoryCurve(:,2),kSphereBinCenters,'linear','extrap');
-
-
-%% Sample Variance
-
-independentBinCount = A'*reshape(cylindricalBinCount',kParaBins*kPerpBins,1)*fields;%/2
-SampleVarianceDeltaSqError = (theoryInterpDeltaSq.*sqrt(2)./(independentBinCount).^.5);
 
 %% Detections and Upper Limits
 
@@ -668,7 +777,7 @@ figure(22); close(22); hfig = figure(22); clf;
 set(22,'Position',[560   256   804   692])
 KPrefactor = kSphereBinCenters.^3 / (2*pi^2);
 vertError = 1000^2*((KPrefactor.*(diag(covPsphere)).^.5))/sqrt(fields);
-vertError = (vertError.^2 + SampleVarianceDeltaSqError.^2).^.5;
+theoryInterpDeltaSq = interp1(theoryCurve(:,1),theoryCurve(:,2),kSphereBinCenters,'linear','extrap');
 plotBottom = min(min(theoryCurve(:,2)),min(vertError/3));
 
 leftBar = leftHorizErr/littleh;
@@ -681,8 +790,10 @@ xHandleSize = .2*log10(SphereXLim(2)/SphereXLim(1))/20;
 yHandleSize = 1.0*0.0048*log10(max(topBar)*1000/plotBottom);
 h = ploterr(kSphereBinCenters/littleh, theoryInterpDeltaSq, {leftBar, rightBar}, {bottomBar,topBar},'ko','logx','logy','abshhy',yHandleSize,'abshhx',xHandleSize);
 set(h(1),'MarkerSize',4,'MarkerFaceColor','k')
+
+
 hold on; h2 = loglog(theoryCurve(:,1)/littleh,theoryCurve(:,2),'b--'); hold off;
-set(gca,'XLim',[.05 1],'YLim',[1 10^2]);
+set(gca,'XLim',[.02 1],'YLim',[1 10^2]);
 xlabel('k (h Mpc^{-1})');
 ylabel('\Delta^2(k)  (mK^2)');
 title({[ArrayName ' Simulation of Errors on \Delta^2(k)'], ['z = ' num2str(zRangeStart,3) ' to z = ' num2str(zRangeStop,3)]});
@@ -699,9 +810,9 @@ set(gca,'YTickMode','manual');
 
 set(22,'Color',[1 1 1])
 if MproptoDelta
-    filename = [resultsFolderName '/Corr_Deltak.pdf'];
+    filename = [resultsFolderName '/Corr_Deltak.png'];
 else
-    filename = [resultsFolderName '/HERA_DeltaSqPrediction.pdf'];
+    filename = [resultsFolderName '/HERA_DeltaSqPrediction.png'];
 end
 export_fig(filename, '-nocrop')
 
@@ -734,3 +845,33 @@ DeltaSqError = num2str(vertError)
 wedgeEqualsHorizon
 buffer
 
+%%
+
+load('samp.txt')
+load('samp-fg.txt')
+
+figure(50)
+plot(samp_fg(:,1),abs(samp_fg(:,2)),'.')
+
+
+joshsCoords = [];
+for kParaBin = 1:kParaBins
+    for kPerpBin = 1:kPerpBins
+        joshsCoords = [joshsCoords; (assignment(kParaBin + (kPerpBin-1)*kParaBins) ~= 0) * kPerpBinCenters(kPerpBin)/littleh (assignment(kParaBin + (kPerpBin-1)*kParaBins) ~= 0)*kParaBinCenters(kParaBin)/littleh];
+    end
+end
+%joshsCoords(:,1) = joshsCoords(:,1).*(assignment ~= 0);
+%joshsCoords(:,2) = joshsCoords(:,2).*(assignment ~= 0);
+
+plot(joshsCoords(:,1),abs(joshsCoords(:,2)),'.')
+
+hold on; plot(samp_fg(:,1),abs(samp_fg(:,2)),'r.'); hold off
+
+hold on; plot([0 max(samp_fg(:,1))],[0 max(samp_fg(:,1))]*wedgeCoefficient+.15); hold off
+
+xlabel('k_\perp (hMpc^{-1})'); ylabel('k_{||} (hMpc^{-1})')
+changeFontSize(20)
+
+saveas(gcf, [resultsFolderName '/JoshVsJonnieBinning'], 'pdf') %Save figure
+
+legend('Josh','Jonnie')

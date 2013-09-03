@@ -1,0 +1,193 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      5625,        184]
+NotebookOptionsPosition[      4782,        149]
+NotebookOutlinePosition[      5142,        165]
+CellTagsIndexPosition[      5099,        162]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[Sigma]", " ", "=", " ", 
+   RowBox[{"0.45", " ", 
+    RowBox[{"2", "/", "14"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Sigma]", " ", "=", " ", "0.072635"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"(*", 
+  RowBox[{"Clear", "[", "\[Sigma]", "]"}]}]}], "Input",
+ CellChangeTimes->{{3.585062860498783*^9, 3.585062868676197*^9}, {
+  3.585063030876047*^9, 3.585063099221888*^9}, {3.585063147673563*^9, 
+  3.585063234911871*^9}, {3.5850641309891243`*^9, 3.585064131626013*^9}, {
+  3.5850673754048967`*^9, 3.5850674287481318`*^9}, {3.5853227369673634`*^9, 
+  3.585322765606392*^9}, {3.585322810434428*^9, 3.585322810610909*^9}},
+ EmphasizeSyntaxErrors->True],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"A", "[", 
+    RowBox[{"l_", ",", "m_"}], "]"}], ":=", 
+   SuperscriptBox["\[ExponentialE]", 
+    FractionBox[
+     RowBox[{
+      RowBox[{"-", 
+       SuperscriptBox["l", "2"]}], "-", 
+      SuperscriptBox["m", "2"]}], 
+     RowBox[{"2", 
+      SuperscriptBox["\[Sigma]", "2"]}]]]}], ";"}]], "Input",
+ CellChangeTimes->{{3.585063966943215*^9, 3.585064045057323*^9}, 
+   3.5850640960314693`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"OmegaP", " ", "=", " ", 
+  RowBox[{"Integrate", "[", 
+   RowBox[{
+    RowBox[{"A", "[", 
+     RowBox[{"l", ",", "m"}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"l", ",", 
+      RowBox[{"-", "\[Pi]"}], ",", "\[Pi]"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"m", ",", 
+      RowBox[{"-", "\[Pi]"}], ",", "\[Pi]"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.58506404903786*^9, 3.585064080225498*^9}, {
+  3.585064111179386*^9, 3.585064112703163*^9}}],
+
+Cell[BoxData["0.03314910063430296`"], "Output",
+ CellChangeTimes->{
+  3.585322478272315*^9, 3.585322742523387*^9, {3.585322799435581*^9, 
+   3.5853228122208776`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"OmegaPP", " ", "=", " ", 
+  RowBox[{"Integrate", "[", 
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"Abs", "[", 
+      RowBox[{"A", "[", 
+       RowBox[{"l", ",", "m"}], "]"}], "]"}], "2"], ",", 
+    RowBox[{"{", 
+     RowBox[{"l", ",", 
+      RowBox[{"-", "\[Pi]"}], ",", "\[Pi]"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"m", ",", 
+      RowBox[{"-", "\[Pi]"}], ",", "\[Pi]"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.585064117362715*^9, 3.585064149771132*^9}}],
+
+Cell[BoxData["0.016574550317151483`"], "Output",
+ CellChangeTimes->{{3.5850641513437243`*^9, 3.585064168533245*^9}, {
+   3.5850673872781687`*^9, 3.585067429966626*^9}, {3.585322108155632*^9, 
+   3.585322115775653*^9}, {3.585322742751924*^9, 3.5853227710988913`*^9}, 
+   3.585322812440915*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"OmegaPrime", "=", 
+  FractionBox[
+   SuperscriptBox["OmegaP", "2"], "OmegaPP"]}]], "Input"],
+
+Cell[BoxData["0.0662982012686059`"], "Output",
+ CellChangeTimes->{3.585322363986961*^9, 3.585322742773562*^9, 
+  3.585322812463358*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FullSimplify", "[", 
+  RowBox[{"Assuming", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\[Sigma]", ">", "0"}], ",", 
+      RowBox[{
+       RowBox[{"Im", "[", 
+        RowBox[{"1", "/", 
+         SuperscriptBox["\[Sigma]", "2"]}], "]"}], "\[Equal]", "0"}]}], "}"}],
+     ",", "OmegaPrime"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.585063745964704*^9, 3.585063757105831*^9}, {
+  3.585064200684662*^9, 3.585064202299088*^9}, {3.585322143456818*^9, 
+  3.585322185382861*^9}, {3.5853223352444963`*^9, 3.585322368213113*^9}, {
+  3.585322580906695*^9, 3.585322585578062*^9}}],
+
+Cell[BoxData["0.0662982012686059`"], "Output",
+ CellChangeTimes->{{3.585064164086934*^9, 3.585064168587994*^9}, 
+   3.585064202758437*^9, {3.585067387297261*^9, 3.585067429992703*^9}, {
+   3.585322123837739*^9, 3.585322186028913*^9}, 3.585322339334013*^9, 
+   3.5853223694017887`*^9, {3.585322566692154*^9, 3.5853225863626432`*^9}, 
+   3.585322742805382*^9, 3.585322812502803*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["OmegaPrime"], "Input"],
+
+Cell[BoxData["0.0662982012686059`"], "Output",
+ CellChangeTimes->{3.585322699535907*^9, 3.585322742836547*^9, 
+  3.585322812530603*^9}]
+}, Open  ]]
+},
+WindowSize->{740, 823},
+WindowMargins->{{Automatic, 447}, {-141, Automatic}},
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 20, \
+2012)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 711, 15, 63, "Input"],
+Cell[1271, 37, 441, 14, 46, "Input"],
+Cell[CellGroupData[{
+Cell[1737, 55, 486, 13, 28, "Input"],
+Cell[2226, 70, 166, 3, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2429, 78, 502, 14, 35, "Input"],
+Cell[2934, 94, 292, 4, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3263, 103, 115, 3, 53, "Input"],
+Cell[3381, 108, 135, 2, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3553, 115, 619, 15, 35, "Input"],
+Cell[4175, 132, 380, 5, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4592, 142, 36, 0, 28, "Input"],
+Cell[4631, 144, 135, 2, 86, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
