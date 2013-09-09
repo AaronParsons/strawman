@@ -12,6 +12,8 @@ nArrays = length(ArrayFilenames);
 %% Settings
 MproptoDelta = 0;
 invVarWeightingSpherical = 1;
+sampleVarianceOn = 1;
+
 fields = 9;
 exciseWedge = 1;
 nLowKPerpBinsToRemove = 0;
@@ -88,14 +90,11 @@ for a = 1:nArrays
     
     %% Load in Power Spectrum Estimates and compute Fisher Matrix
     
+    
     load QuadraticEstimators/fisher.mat;
     load QuadraticEstimators/kParaBinCenters.dat;
     load QuadraticEstimators/kPerpBinCenters.dat;
     cylindricalBinCount = load('QuadraticEstimators/BinSampleCounts.dat');
-    
-    %kParaBinCenters = kParaBinCenters / littleh;
-    %kPerpBinCenters = kPeBinCenters / littleh;
-    
     
     kPerpBins = length(kPerpBinCenters);
     kParaBins = length(kParaBinCenters);
@@ -133,7 +132,7 @@ for a = 1:nArrays
         kParaBins = kParaBins -1;
     end
     
-        
+    
     %% Calcualte M and W
     
     sqrtF = sqrtm(fisher);
@@ -202,8 +201,9 @@ for a = 1:nArrays
         
         %% Generate Rebinning Matrix
         
-        kSphereBins = kParaBins;
+        %% Generate Rebinning Matrix
         
+        kSphereBins = kParaBins;
         
         %Get kValues into a sorted list (excluding wedge, if necessary)
         kParaBinCentersExtended = [kParaBinCenters; 2*kParaBinCenters(kParaBins) - kParaBinCenters(kParaBins-1)];
@@ -214,7 +214,7 @@ for a = 1:nArrays
             for kPerp = 1:kPerpBins
                 kValuesVector(kPara + (kPerp-1)*kParaBins) = sqrt(kParaBinCenters(kPara)^2 + kPerpBinCenters(kPerp)^2);
                 if ((kParaBinCenters(kPara) > (wedgeCoefficient * (kPerpBinCenters(kPerp)) + buffer * littleh ) || ~exciseWedge) && kPerpBinCenters(kPerp) < 10^10 && sqrt(kParaBinCenters(kPara)^2 + kPerpBinCenters(kPerp)^2) > 0)
-                    kValues(counter,1) = sqrt(kParaBinCenters(kPara)^2);% + kPerpBinCenters(kPerp)^2);
+                    kValues(counter,1) = sqrt(kParaBinCenters(kPara)^2 + kPerpBinCenters(kPerp)^2);
                     kValues(counter,2) = kPerp;
                     kValues(counter,3) = kPara;
                     counter = counter + 1;
@@ -223,27 +223,42 @@ for a = 1:nArrays
         end
         kValues = sortrows(kValues);
         
-        %Sets the number of kSphereBins
-        binSize  = .063 / littleh;
+        deltaKPara = (kParaBinCenters(2) - kParaBinCenters(1))*2;
         
         %Assigns bins in order
         assignment = zeros(kParaBins*kPerpBins,1);
-        counter = 1;
-        bin = 1;
-        while true
-            assignment(kValues(counter,3)+(kValues(counter,2)-1)*kParaBins) = kValues(counter,3);
-            counter = counter + 1;
-            if counter > size(kValues,1)
-                break
+        for counter = 1:length(kValues)
+            for bin = 2:kParaBins
+                if kValues(counter,1) < kParaBinCenters(bin)
+                    assignment(kValues(counter,3)+(kValues(counter,2)-1)*kParaBins) = bin-1;
+                    break
+                elseif bin == kParaBins
+                    assignment(kValues(counter,3)+(kValues(counter,2)-1)*kParaBins) = kParaBins;
+                end
             end
         end
-        assignment = assignment - min(assignment(find(assignment))) + 1;
         
-        %imagesc(reshape(assignment,kParaBins,kPerpBins))
+        assignment = assignment - (min((assignment == 0) * max(assignment) + assignment) - 1);
+        if exciseWedge
+            assignment = assignment .* (assignment ~= min(assignment));
+        end
         
-        assignmentPlot = reshape(assignment,kParaBins,kPerpBins);
+        %Create rebinning matrix
+        kSphereBins = bin;
+        rebinningMatrix = zeros(kSphereBins,kParaBins*kPerpBins);
+        for kParaBin = 1:kParaBins
+            for kPerpBin = 1:kPerpBins
+                for sphereBin = 1:kSphereBins
+                    cylBin = kParaBin+(kPerpBin-1)*kParaBins;
+                    if assignment(kParaBin + (kPerpBin-1)*kParaBins) == sphereBin
+                        rebinningMatrix(sphereBin,cylBin) = 1;
+                    end
+                end
+            end
+        end
+        A = rebinningMatrix';
         
-        assignmentMatrix = zeros(kParaBins+1,kPerpBins);
+        
         
         %Create rebinning matrix
         kSphereBins = max(assignment);
@@ -260,6 +275,29 @@ for a = 1:nArrays
         end
         A = rebinningMatrix';
         
+        %% Lidz Theory
+        
+        lidzPS = importdata('/Users/jsdillon/Desktop/HERA/power_21cm_z7.32.dat');
+        theoryCurve = [littleh*lidzPS(:,1)'; (lidzPS(:,1).^3/2/pi^2.*lidzPS(:,2)*(28 * sqrt( 9.5/10))^2)']';
+        
+        
+        %% Sample Variance
+        allSphereKValues = zeros(kParaBins*kPerpBins,1);
+        for kParaBin = 1:kParaBins
+            for kPerpBin = 1:kPerpBins
+                allSphereKValues(kParaBin + (kPerpBin-1)*kParaBins) = sqrt(kParaBinCenters(kParaBin)^2 + kPerpBinCenters(kPerpBin)^2);
+            end
+        end
+        
+        theoryForAllSphereKValues = interp1(theoryCurve(:,1),theoryCurve(:,2),allSphereKValues,'linear','extrap');
+        binCountVector = reshape(cylindricalBinCount',kParaBins*kPerpBins,1)/2;
+        cylindricalSampleVarianceDeltaSqError = theoryForAllSphereKValues.*sqrt(2)./binCountVector.^.5; %in mK^2
+        cylindricalSampleVariancePError = cylindricalSampleVarianceDeltaSqError ./ allSphereKValues.^3 * 2 * pi^2 / (1000)^2;
+        
+        if sampleVarianceOn
+            %covP = covP + W*diag(cylindricalSampleVariancePError.^2)*W';
+            covP = covP + diag(cylindricalSampleVariancePError.^2);
+        end
         %% Recalculate Band Powers, Window Functions, and Band Power Covariance
         
         if invVarWeightingSpherical
@@ -340,22 +378,12 @@ for a = 1:nArrays
             
         end
         kSphereBinCentersBackup = kSphereBinCenters;
-        kSphereBinCenters = centerHorizErr;
+        %kSphereBinCenters = centerHorizErr;
         
-        %% Lidz Theory
+        %% Fill up arrays with results
         
-        lidzPS = importdata('/Users/jsdillon/Desktop/HERA/power_21cm_z7.32.dat');
-        theoryCurve = [littleh*lidzPS(:,1)'; (lidzPS(:,1).^3/2/pi^2.*lidzPS(:,2)*(28 * sqrt( 9.5/10))^2)']';
-        theoryInterpDeltaSq = interp1(theoryCurve(:,1),theoryCurve(:,2),kSphereBinCenters,'linear','extrap');
-        
-        
-        %% Sample Variance
-        
-        independentBinCount = A'*reshape(cylindricalBinCount',kParaBins*kPerpBins,1)*fields;
-        SampleVarianceDeltaSqError = (theoryInterpDeltaSq.*sqrt(2)./(independentBinCount).^.5);
         KPrefactor = kSphereBinCenters.^3 / (2*pi^2);
         vertError = 1000^2*((KPrefactor.*(diag(covPsphere)).^.5))/sqrt(fields);
-        vertError = (vertError.^2 + SampleVarianceDeltaSqError.^2).^.5;
         
         vertErrorList{foreModel,a} = vertError;
         kSphereBinCenterList{foreModel,a} = kSphereBinCenters;
@@ -389,7 +417,7 @@ for a = 1:nArrays
             kEdges(2*k) = (kSphereBinCenterList{m,a}(k)+kSphereBinCenterList{m,a}(k+1))/2/littleh;
             kEdges(2*k+1) = (kSphereBinCenterList{m,a}(k)+kSphereBinCenterList{m,a}(k+1))/2/littleh;
         end
-        kEdges(end) = kSphereBinCenterList{m,thisArray}(end)/littleh;
+        kEdges(end) = kSphereBinCenterList{m,a}(end)/littleh;
         kEdges = [kEdges(1); kEdges];
         
         
@@ -416,8 +444,8 @@ for a = 1:nArrays
         set(gca,'XTickLabel',[]);
     else
         xlabel('k (hMpc^{-1})')
-    end    
-        
+    end
+    
 end
 changeFontSize(12)
 
@@ -426,7 +454,7 @@ for a = 1:nArrays
     text(.033,.02,arrayNames{a},'FontSize',20);
 end
 
-axes(ha(2)); 
+axes(ha(2));
 hold on; txt = text(.03,10^4.5,['z = ' num2str(zRangeStart,3) ' to z = ' num2str(zRangeStop,3)],'HorizontalAlignment','center','FontSize',24);
 
 set(gcf,'Color',[1 1 1])
@@ -457,7 +485,7 @@ for m = 1:3
             kEdges(2*k) = (kSphereBinCenterList{m,a}(k)+kSphereBinCenterList{m,a}(k+1))/2/littleh;
             kEdges(2*k+1) = (kSphereBinCenterList{m,a}(k)+kSphereBinCenterList{m,a}(k+1))/2/littleh;
         end
-        kEdges(end) = kSphereBinCenterList{m,thisArray}(end)/littleh;
+        kEdges(end) = kSphereBinCenterList{m,a}(end)/littleh;
         kEdges = [kEdges(1); kEdges];
         
         
@@ -492,7 +520,7 @@ for m = 1:3
     text(.033,.02,modelNames{m},'FontSize',20);
 end
 
-axes(ha(1)); 
+axes(ha(1));
 hold on; txt = text(sqrt(.03*2),10^4.5,['z = ' num2str(zRangeStart,3) ' to z = ' num2str(zRangeStop,3)],'HorizontalAlignment','center','FontSize',24);
 
 
