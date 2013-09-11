@@ -112,7 +112,7 @@ decade 2012-2021."
 
 Thus far, a number of indirect probes have been used to understand cosmic
 reionization.  These include observations of Gunn-Peterson attenuation by the
-IGM toward the most distant quasars \citep{fan_et_al2006,bouwens_et_al2010},
+IGM toward the most distant quasars \citep{fan_et_al2006},
 kinetic Sunyaev-Zel'dovich features in the CMB \citep{zahn_et_al2012}, CMB
 anisotropy and polarization \citep{page_et_al2007,planck_et_al2013}, and the
 demographics of Ly$\alpha$ emitting galaxies
@@ -126,28 +126,40 @@ their results and the fact that reionization was a complex process.
 
 
 \begin{figure}[t]\centering
-\includegraphics[height=2.25in]{plots/constraints.pdf}
-~ % gap
-\includegraphics[height=2.25in]{plots/Xray.pdf}
-\caption{\small
-Left: A theoretical reionization model, overlaid with current constraints \citep{robertson_2013},
-as well as the predicted constraints from HERA~568. % XXX or is it HERA~331?
-By adopting a fiducial model, measurements of the 21~cm power spectrum (see Figure \ref{fig:eor_pspec})
-determine the neutral fraction, $x_{\rm\HI}$, of the universe as a function of redshift.
-At high redshifts, 21~cm emission may be the only probe of $x_{\rm\HI}$.
-%Left: A theoretical model from \citet{robertson_2013} that fits the existing constraints for reionization. Existing measurements and limits are indicated, along with the simulated measurements HERA would provide by constraining the rise and fall of the 21~cm power spectrum (see Figure \ref{fig:eor_pspec}).
+\includegraphics[height=2.25in]{plots/constraints.pdf} ~ % gap
+\includegraphics[height=2.25in]{plots/Xray.pdf} \caption{\small Left: A
+theoretical reionization model, overlaid with current constraints
+\citep{robertson_2013}, as well as the predicted constraints from HERA~568. %
+XXX or is it HERA~331?  By adopting a fiducial model, measurements of the 21~cm
+power spectrum (see Figure \ref{fig:eor_pspec}) determine the neutral fraction,
+$x_{\rm\HI}$, of the universe as a function of redshift.  At high redshifts,
+21~cm emission may be the only probe of $x_{\rm\HI}$.
+%Left: A theoretical model from \citet{robertson_2013} that fits the existing
+%constraints for reionization. Existing measurements and limits are indicated,
+%along with the simulated measurements HERA would provide by constraining the
+%rise and fall of the 21~cm power spectrum (see Figure \ref{fig:eor_pspec}).
 %[XXX: Update this plot when the Aaron/Josh comparison is done.] 
 Right: HERA's substantial sensitivity at low frequencies opens a window to
-pre-reionization physics.  Shown here are power spectrum amplitudes at $k=0.15h\ {\rm Mpc}^{-1}$
-as a function of redshift for various IGM heating models, along with 
-predicted sensitivities.  HERA has
-the potential to transform our understanding of the physical processes at play
-in the early universe by distunguishing between these scenarios.
-%Right: HERA's ability to
-%observe at relatively high sensitivity even at low frequencies opens a window to
-%higher redshift pre-reionization physics.  Shown here is the amplitude of the power spectrum as a function of redshift (at $k =  0.15$~hMpc$^{-1}$) for a variety of theoretical models with different IGM heating mechanisms.
-}\label{fig:x_i_Xray}
-\end{figure}
+pre-reionization physics.  Shown here are power spectrum amplitudes at
+$k=0.15h\ {\rm Mpc}^{-1}$ as a function of redshift for various IGM heating
+models, along with predicted sensitivities.  HERA has the potential to
+transform our understanding of the physical processes at play in the early
+universe by distunguishing between these scenarios.
+%Right: HERA's ability to observe at relatively high sensitivity even at low
+%frequencies opens a window to higher redshift pre-reionization physics.  Shown
+%here is the amplitude of the power spectrum as a function of redshift (at $k =
+%0.15$~hMpc$^{-1}$) for a variety of theoretical models with different IGM
+%heating mechanisms.
+}\label{fig:x_i_Xray} \end{figure}
+% XXX comments from Carilli:
+%2. fig 1a.  excellent. really excellent.  except i am not sure replicating the
+%X axis ticks in the middle is the best way to go. perhaps just a dash line or
+%something. the caption should point out that at this line it switches from log
+%to linear Y scale. also, the  'slow kZ' lines are confusing. what do they
+%mean?  if they really delimit some range in f(HI), then doesn't that violate
+%our predictions?   i would just remove, since these limits were more
+%aspirational than meaningful in the publication.
+
 
 The 21~cm hyperfine transition has been recognized as potentially the most
 powerful probe of the evolution of the IGM during cosmic reionization, and into
@@ -293,7 +305,7 @@ enormous scale difference between the self-shielding regions that are the
 primary sinks of ionizing photons and volumes required for statistically
 representative samples of cosmic structures remains an open problem.  
 Basic constraints on theoretical models remain rudimentary, and the most
-fundamental questions remain concerning the process of reionization remain open. 
+fundamental questions concerning the process of reionization remain open. 
 When did
 reionization occur, and over what timescale?  What objects dominated the
 radiation field? how were the objects distributed? Did the first generation of
@@ -317,32 +329,26 @@ cosmic reionization remains problematic.
 %}\label{fig:21cm_cosmo}
 %\end{figure}
 
-\begin{figure}[t]\centering
-\includegraphics[height=2.20 in]{plots/eor_pspec.png}
-~ % gap
-\includegraphics[height=2.25 in]{plots/hera_snr_contour.png}
-\caption{\small
-Left: Power-spectrum sensitivities for three stages of
-HERA (solid) relative to a fiducial model 
-(dashed, with corresponding line in right panel), for
-180-day drift-scan observations toward the galactic pole, excluding
-modes that are expected to be
-dominated by systematics.
-In each stage, improvement in analysis software expands the range
-of modes that are not systematics-dominated. 
-Right: 
-Simulations of 21~cm power spectrum amplitudes (color scale; \citealt{lidz_et_al2008})
-as a function of neutral fraction, $x_{\rm HI}(z)$,
-with contours indicating the predicted detection significance
-with HERA-568.
-%The spectrum initially follows the dark matter fluctuations at the
-%upper edge of the plot, falls as the densest regions reionize at $x_i=0.8$
-%(inside-out in this model), rises and flattens as galaxies ionize large bubbles
-%in the IGM ($x_i$ 0.6--0.2, $x_i=0.5$ corresponds to the line in the lefthand
-%panel), before falling again as reionization completes at the bottom of the
-%plot.
-}\label{fig:eor_pspec}
-\end{figure}
+\begin{figure}[t]\centering \includegraphics[height=2.20
+in]{plots/eor_pspec.png} ~ % gap \includegraphics[height=2.25
+in]{plots/hera_snr_contour.png} \caption{\small Left: Power-spectrum
+sensitivities for three stages of HERA (solid) relative to a fiducial model
+(dashed, with corresponding line in right panel), for 180-day drift-scan
+observations toward the galactic pole, excluding modes that are expected to be
+dominated by systematics.  In each stage, improvement in analysis software
+expands the range of modes that are not systematics-dominated.  Right:
+Simulations of 21~cm power spectrum amplitudes (color scale;
+\citealt{lidz_et_al2008}) as a function of neutral fraction, $x_{\rm HI}(z)$,
+with contours indicating the predicted detection significance with HERA-568.
+%The spectrum initially follows the dark matter fluctuations at the upper edge
+%of the plot, falls as the densest regions reionize at $x_i=0.8$ (inside-out in
+%this model), rises and flattens as galaxies ionize large bubbles in the IGM
+%($x_i$ 0.6--0.2, $x_i=0.5$ corresponds to the line in the lefthand panel),
+%before falling again as reionization completes at the bottom of the plot.
+}\label{fig:eor_pspec} \end{figure}
+% XXX from carilli:
+%3. fig 2b:  dotted line at z=7.5 should be dash to match format in 2a. also,
+%caption should include some statement about degeneracy in x-z 
 
 
 %\begin{figure}[!ht]\centering
@@ -380,8 +386,9 @@ Spatial isotropy allows measurements within the 3D wavenumber space to be
 squared and averaged in shells to produce the spherical power spectrum
 presented in Figure \ref{fig:eor_pspec}.
 
+% XXX carilli wants recombination lines out of this paragraph
 The astrophysical foreground emission is spectrally very smooth (synchrotron \&
-Bremsstrahlung emission) or at known editable frequencies (radio recombination
+Bremsstrahlung emission) or at known editable frequencies (radio recombination 
 lines). The advance in 21~cm cosmology has been understanding how this
 foreground emission interacts with the instrument to produce the EoR Window.
 Through a concerted theoretical and observational campaign
@@ -392,6 +399,7 @@ righthand panel of of Figure \ref{fig:twoFGViews}. This wedge is the result of
 the smooth spectrum foregrounds (low $\kpar$) interacting with the inherent
 chromaticity of an interferometer. This leaves the region above isolated from
 the foreground emission---a window through which we can observe the EoR.
+% XXX carilli: might add that this isolation requires an optimally designed experiment as we are doing for HERA
 
 All observations have now confirmed the presence of the EoR Window
 \citep{pober_et_al2013,dillon_et_al2013b}, including suppression by more than 3
@@ -406,32 +414,30 @@ insight.
 
 
 
-\begin{figure}[t]
-\centering
-%\includegraphics[width=6.5in]{plots/MWApretty.png}
-%\includegraphics[width=3.6 in]{plots/MWApretty.png}
-\includegraphics[height=2.5in]{plots/MWApretty_crop.png}
-~ %gutter btwn graphics
+\begin{figure}[t] \centering
+%\includegraphics[width=6.5in]{plots/MWApretty.png} \includegraphics[width=3.6
+%in]{plots/MWApretty.png}
+\includegraphics[height=2.5in]{plots/MWApretty_crop.png} ~ %gutter btwn
+graphics
 %\includegraphics[width=2.4 in]{plots/wedge_tall.png}
-\includegraphics[height=2.5in]{plots/wedge_tall.png}
-\caption{\small
-Left: Foregrounds imaged on the MWA using FHD software
-developed by Morales' group \citep{sullivan_et_al2012}.
-This image, which
-spans $\sim$$30^{\circ}$ and includes both point-source and diffuse emission 
-(e.g. the Vela and Puppis SNRs, bottom-right), illustrates the power of imaging methods for reducing
-polarization leakage and foreground systematics.
-Right: Foreground systematics become unsmooth (vertical axis) versus
-baseline length (horizontal).  The EoR window (blue), predicted
-theoretically \citep{morales_et_al2012,parsons_et_al2012b,vedantham_2012,Datta_2010}, and
-verified empirically above \citep{pober_et_al2013},
-is a region where foreground systematics
-fall by orders-of-magnitude, leading to sensitivity-limited
-upper limits and the first meaningful constraints
-on EoR via 21~cm emission \citep{parsons_et_al2013}.
+\includegraphics[height=2.5in]{plots/wedge_tall.png} \caption{\small Left:
+Foregrounds imaged on the MWA using FHD software developed by Morales' group
+\citep{sullivan_et_al2012}.  This image, which spans $\sim$$30^{\circ}$ and
+includes both point-source and diffuse emission (e.g. the Vela and Puppis SNRs,
+bottom-right), illustrates the power of imaging methods for reducing
+polarization leakage and foreground systematics.  Right: Foreground systematics
+become unsmooth (vertical axis) versus baseline length (horizontal).  The EoR
+window (blue), predicted theoretically
+\citep{morales_et_al2012,parsons_et_al2012b,vedantham_2012,Datta_2010}, and
+verified empirically above \citep{pober_et_al2013}, is a region where
+foreground systematics fall by orders-of-magnitude, leading to
+sensitivity-limited upper limits and the first meaningful constraints on EoR
+via 21~cm emission \citep{parsons_et_al2013}.
 % XXX does the word "wedge" need to be mentioned?
-}\label{fig:twoFGViews}
-\end{figure}
+}\label{fig:twoFGViews} \end{figure}
+% XXX carilli: 8. fig 3: i think the MWA image is sort of too big relative to
+% the wedge image. sort of dwarfs it.  also, the caption should state what the
+% black line is in fig 3b.
 
 %\begin{figure}\centering
 %\includegraphics{plots/Pober_wedge.pdf}
@@ -477,7 +483,7 @@ outrigger antennas (not shown) for imaging and foreground mitigation.
 %}\label{fig:hera_dish}
 %\end{figure}
 
-The HERA program a staged build-out to a 568-antenna array in South Africa that
+The HERA program entails a staged build-out to a 568-antenna array in South Africa that
 incorporates the lessons learned from the first generation EoR observatories.
 It features a 14~m zenith-pointing dish optimized for sensitivity and spectral
 smoothness, a dense hexagonal core to enable redundant baseline calibration and
@@ -613,6 +619,7 @@ pushing power spectrum measurements into the Dark Ages.
 %\end{figure}
 
 
+% XXX revert this section to pre-miguel edits
 \vspace{-0.25in}
 \section{Broader Impacts}
 \label{BIsec}
@@ -811,7 +818,7 @@ observations, and wide-field maps from the survey made in the first two years.
 This project balances the light-weight management structure of PAPER/MWA
 activities and the more formal structure required for larger-scale projects.
 Construction management is centered at UC Berkeley's Radio Astronomy Laboratory
-(RAL), headed by Aaron Parsons as the Project Director and David DeBoer as
+(RAL), headed by Aaron Parsons as the Project Director and DeBoer as
 Project Manager. They will be assisted by Bob Goeke at MIT as a part-time
 Project Engineer with a particular emphasis on interfacing with the NE based
 antenna contractor.  A Site Manager will split their time between South Africa
@@ -822,11 +829,11 @@ of this proposal's senior investigators, and will be operate using
 super-majority policies. 
 
 The scientific capability of HERA and the data analysis and publication will be
-overseen by the Science Panel, and chaired by the Project Scientist. These
+overseen by the Science Panel, and chaired by Project Scientist, Bowman. These
 positions will rotate as needed expertise changes, and are appointed by the
-Board. Initial members are Aguirre, Furlanetto, Morales, and Tegmark with
-Bowman serving as the Project Scientist. As with the MWA and PAPER, observing
-will be performed remotely with maintenance headed by the Site Manager.
+Board.  As with the MWA and PAPER, observing
+will be performed remotely with occasional site support
+and maintenance headed by the Site Manager.
 
 %Building on PAPER's excellent track record
 %and the resources of ,
@@ -876,7 +883,7 @@ thermal noise (\S \ref{LessonsSec}; \citealt{parsons_et_al2013}). While the MWA
 and PAPER are pushing hard to detect the EoR PS, budget constraints have
 dictated that a marginal detection is the best these instruments can achieve.
 HERA will both ensure a high significance detection of the HI 21cm signal, as
-well as provide powerful constraints on rise and fall of reionization, how
+well as provide powerful constraints on the rise and fall of reionization, how
 early stars and structure formed, and physical processes at the end of the
 cosmic dark ages (Figures \ref{fig:x_i_Xray} \& \ref{fig:eor_pspec}).
 
