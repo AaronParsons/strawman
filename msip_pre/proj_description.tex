@@ -75,7 +75,7 @@ that are aimed at characterizing
 foregrounds and making a first effort to detect the EoR power
 spectrum. A second-generation HERA instrument aims to measure the EoR power spectrum in
 detail and reveal how early structure in the universe formed, and a
-third-generation instrument late in the decade will image the EoR. 
+third-generation instrument aims to image the EoR. 
 
 % XXX would like to highlight the PAPER result here
 Using the advances spearheaded by 
@@ -107,7 +107,8 @@ Taken together, this program
 not only fulfills the goal of detailed power spectrum
 characterization as a second-generation HERA experiment, but is also
 capable of imaging the EoR --- a task previously considered possible only for
-third-generation instruments.}
+third-generation instruments.  Further, given recent advances in our understanding, these goals may be 
+undertaking at a substantially lower budget than contained in the earlier roadmap.}
 % XXX any mention of budget, staged delivery of science
 
 \vspace{-0.25in}
@@ -153,7 +154,7 @@ these results, and the fact that reionization was a complex process.
 Left: Adapted from \citet{robertson_2013}, this figure shows existing
 constraints on $\xHI$ during reionization (colored symbols), along with a
 reionization history consistent with these measurements (black line). The
-constraints HERA would provide are indicated with black markers (with the prior
+constraints HERA would provide are indicated with black markers (with the constraint
 that $\xHI$ steadily decreases over this redshift range). At redshifts 8--12
 21~cm emission may be the only precision probe of the neutral fraction.  
 Right: HERA’s substantial sensitivity at low frequencies opens a window to
@@ -283,13 +284,12 @@ to a staged array size, sensitivity curves reflect
 a staged improvement in analysis software that expands the range
 of modes that are not corrupted by systematics. 
 Right: The color surface shows the rise and fall of the 21~cm power spectrum from 
-\citealt{lidz_et_al2008} as a function of neutral fraction $\xHI$ (and redshift).
+\citealt{lidz_et_al2008} as a function of neutral fraction $\xHI$ (and hence redshift).
 The spectrum initially follows the dark matter fluctuations at the upper edge
-of the plot, falls as the densest regions reionize at $\xHI=0.8$ (inside-out in
-this model), rises and flattens as galaxies ionize large bubbles in the IGM
+of the plot, falls as the densest regions reionize at $\xHI=0.8$, rises and flattens as galaxies ionize large bubbles in the IGM
 ($0.6<\xHI<0.2$), and finally
 falls again as reionization completes at the bottom of the
-plot. Contours indicate the predicted significance of HERA~568 observations
+plot. Contours indicate the predicted signal-to-noise ratio of HERA~568 observations
 throughout reionization.
 }\label{fig:eor_pspec} 
 \end{figure}
@@ -309,8 +309,9 @@ throughout reionization.
 \section{Foregrounds \& Lessons Learned from PAPER and MWA}
 \label{LessonsSec}
 
-The challenge of 21~cm cosmology is isolating the faint EoR signal from
-astrophysical foregrounds that are $\sim$5 orders of magnitude brighter, as seen
+The key challenge of 21~cm cosmology is isolating the faint EoR signal from
+astrophysical foregrounds that are $\sim$5 orders of magnitude brighter. These foregrounds
+are shown in recent MWA image 
 in the left-hand panel of Figure \ref{fig:twoFGViews}. The major breakthrough in
 21~cm cosmology---what enables us to propose HERA now---is the discovery of the
 EoR Window.
@@ -320,7 +321,7 @@ EoR Window.
 the three dimensional wavenumber space $\k$.  Because the \HI emission is a
 narrow spectral line, the observed frequency of the emission can be mapped to
 redshift or line-of-sight distance to provide an observed volume $\{x,y,z\}$ in
-cMpc. This observed volume is Fourier transformed into a three dimensional
+co-moving Mpc. This observed volume is Fourier transformed into a three dimensional
 wavenumber cube $\{k_{x}, k_{y}, k_{z}\}$. For graphical simplicity the angular
 wavenumbers are typically averaged ($\{k_{x},k_{y}\}\rightarrow\kperp$) to
 produce line-of-sight wavenumber $\kpar$ vs.\ angular $\kperp$ figures. 
@@ -440,7 +441,7 @@ combined with redundant baselines within the core (PAPER, MITEoR). Together
 these advances enable HERA to have the science reach envisioned in the decadal
 survey while fitting within the MSIP funding envelope.
 
-HERA follows a staged build-out plan.  In
+HERA follows a staged deployment in both physical construction and scientific processing.  In
 each deployment stage improvements are incorporated into the system and new
 science capabilities are unlocked.  This approach has the advantage of
 providing early access to science and reducing the project risk by testing systems
@@ -495,7 +496,7 @@ Upgrade the UPenn analysis cluster.
   \item Complete science observations with HERA~331 Apr. 2018. Begin analysis of data to
 characterize the evolution the power spectrum and determining properties of the first galaxies.
   \item Continue analysis software development, emphasizing imaging-based subtraction techniques for expanding the EoR window.
-  \item Build out to 568 antennas begins, including outrigger antennas to facilitate imaging and better foreground removal.
+  \item Begin build out to 568 antennas begins, including outrigger antennas to facilitate imaging and better foreground removal.
   \item Complete pipelines for EoR processing of HERA~568.
 \end{itemize}
 
@@ -752,12 +753,12 @@ activities and the more formal structure required for larger-scale projects.
 Construction management is centered at UC Berkeley's Radio Astronomy Laboratory
 (RAL), headed by Parsons as the Project Director and DeBoer as
 Project Manager. They will be assisted by Bob Goeke at MIT as a part-time
-Project Engineer with a particular emphasis on interfacing with the NE based
+Project Engineer with a particular emphasis on interfacing with the US-based
 antenna contractor.  A Site Manager will split their time between South Africa
 and Berkeley and manage the construction activities by local South African
 contractors. A SKA-SA Liaison will coordinate HERA, Meerkat, and SKA site
-activities (supported by SKA-SA). Governance will be provided by an Executive Board made
-of this proposal's senior investigators, and will be operate using
+activities (supported by SKA-SA). Governance will be provided by an Executive Board comprising
+this proposal's senior investigators, and will be operate using
 super-majority policies. 
 
 The scientific capability of HERA and the data analysis and publication will be
@@ -811,7 +812,7 @@ and analysis advances needed to suppress the contamination. The discovery and
 characterization of the EoR Window and the development of precision foreground
 mitigation techniques have shown that foregrounds can be suppressed to the
 thermal noise (\S \ref{LessonsSec}; \citealt{parsons_et_al2013}). While the MWA
-and PAPER are pushing hard to detect the EoR PS, budget constraints have
+and PAPER are pushing hard to detect the EoR power spectrum, budget constraints have
 dictated that a marginal detection is the best these instruments can achieve.
 HERA will both ensure a high significance detection of the \HI 21~cm signal, as
 well as provide powerful constraints on the rise and fall of reionization, how
