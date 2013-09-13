@@ -49,11 +49,10 @@
 
 %This proposal targets the Mid-Scale Science Projects category of the Mid-Scale Innovations Program solicitation. The Hydrogen Epoch of Reionization Arrays (HERA) is a program for using the unique capabilities of the 21~cm hyperfine line to trace neutral hydrogen through the cosmic dawn of our Universe.  The HERA roadmap that was submitted to the {\it New Worlds, New Horizons of Astronomy and Astrophysics} 2010 decadal survey, (hereafter NWNH) was given ``top priority in this [Radio, Millimeter, and Sub-millimeter] category of recommended new facilities for mid-scale funding." The HERA roadmap proceeded in three stages: HERA-IB called for \$25M to complete the PAPER and MWA experiments; HERA-II budgeted \$62M for an array with 0.1 km$^2$ of collecting area capable of characterizing the power spectrum of cosmic reionization in detail; HERA-III targeted 1 km$^2$ of collecting area to image reionization structures in detail.
 
-% XXX mcquinn: highlight a couple of key sentences?
 { \setlength{\parindent}{0cm}
 The Hydrogen Epoch of Reionization Arrays (HERA) roadmap is a staged 
 program that uses the unique properties of the 21~cm line from neutral 
-hydrogren to probe the 
+hydrogen to probe the 
 Epoch of Reionization (EoR) and the preceding Dark Ages.  These epochs
 correspond to
 when the first stars and black holes heat and reionize the
@@ -77,31 +76,39 @@ spectrum. A second-generation HERA instrument would measure the EoR power spectr
 detail and reveal how early structure in the Universe formed, and a
 third-generation instrument would map EoR.
 
-% XXX would like to highlight the PAPER result here
 Using the advances spearheaded by
 PAPER and the MWA,
 we propose to build the next generation of HERA in stages of 127, 331, and 568 elements,
 observing in the 50--225MHz band.
 Each stage of HERA is scoped to deliver new science capabilities that advance our
-understanding of reionization in a timely manner:
-\vspace{-7pt}
+understanding of reionization at a competitive pace:
+\vspace{-4pt}
 \begin{itemize}\setlength{\parskip}{0pt}\itemsep0pt
 \item HERA~127 will measure the rise and fall of the EoR power
 spectrum, constraining the timing and duration of reionization.
-\item HERA~331 will measure the shape of the power spectrum over
-a significant range in wavenumber, determining the features and distribution of
+\item HERA~331 will statistically measure EoR fluctuations over a variety of
+scales to determine the features and distribution of
 the first galaxies that dominate cosmic reionization.
 \item HERA~568 will extend precision power-spectrum observations
 into the Dark Ages and start direct imaging of the IGM during reionization.
 \end{itemize}
+\vspace{-4pt}
 { \setlength{\parindent}{0cm}
-Taken together, this program
-not only fulfills the NWNH goal of detailed power spectrum
-characterization as a second-generation EoR experiment, but is also
-capable of imaging the EoR---a task previously considered possible only for
+Taken together, this program produces a series of dedicated experiments
+optimized to fulfill the NWNH goal of characterizing the EoR power spectrum
+in detail. In its final stages, HERA
+is also
+capable of imaging the EoR---a task previously only considered for
 third-generation instruments.}
 %Further, given recent advances in our understanding, these goals may be 
 %undertaking at a substantially lower budget than contained in the earlier roadmap.}
+
+% =============================================================
+% ___     _                      _ 
+%/ __| __(_)___ _ _  __ ___   _ | |
+%\__ \/ _| / -_) ' \/ _/ -_) | || |
+%|___/\__|_\___|_||_\__\___|  \__/ 
+% =============================================================
 
 \vspace{-0.25in}
 \section{Scientific Justification}
@@ -132,45 +139,54 @@ demographics of Ly$\alpha$ emitting galaxies
 these ground-breaking results have limited reach: the
 Gunn-Peterson effect and related phenomena saturate at low neutral fractions,
 and the CMB provides only an integral measure of %the optical depth
-the EoR looking % XXX check with McQuinn if this phrasing works
+the EoR looking 
 back to recombination.  Moreover, many of these indirect observations are in
 tension with one another, underscoring both the difficulty in their interpretation
 and the complexity of the reionization process.
 
 
 \begin{figure}[t]\centering
-\includegraphics[height=2.25in]{plots/constraints_crop.pdf}  % XXX choose crop vs regular
+%\includegraphics[height=2.25in]{plots/constraints_crop.pdf} 
+\includegraphics[height=2.25in]{plots/constraints.pdf}
 \includegraphics[height=2.25in]{plots/Xray.pdf} 
 \caption{\small 
 Left: Adapted from \citet{robertson_2013}, this figure shows existing
-constraints on $\xHI$ during reionization (colored symbols), along with a
-reionization history consistent with these measurements (black line). The
-constraints HERA would provide are indicated with black markers (with the constraint
-that $\xHI$ steadily decreases over this redshift range). At redshifts 8--12
-21~cm emission may be the only precision probe of the neutral fraction.  
-Right: HERA’s substantial sensitivity at low frequencies opens a window to
+constraints (colored symbols) on neutral fraction, $\xHI$, versus redshift, along with 
+the constraints HERA would provide (black markers, assuming
+that $\xHI$ steadily decreases over this redshift range) for a fiducial
+reionization history (black line).
+At redshifts 8--12
+21-cm emission may be the only precision probe of $\xHI$.
+Right: HERA's sensitivity at low frequencies opens a window to
 pre-reionization physics. Shown here are power spectrum amplitudes (at $k =
-0.15h$~Mpc$^{-1}$) as a function of redshift for various IGM heating models,
+0.15h$~Mpc$^{-1}$) for various IGM heating models,
 along with predicted sensitivities.
 }\label{fig:x_i_Xray} \end{figure}
 
-As a high sensitivity instrument with broad frequency coverage, HERA will be
-perhaps the most powerful probe of the evolution of the IGM during
-cosmic reionization, and into the preceding Dark Ages.
-The black line in Figure~\ref{fig:x_i_Xray}a indicates a model
-from \citet{robertson_2013} that is consistent with current constraints on
-reionization. The black symbols and error bars show how HERA would measure the
-evolution of the neutral fraction throughout the EoR, definitively answering
-how reionization occurred. The wide range of heating and ionization models HERA
-can constrain during the EoR and into the Dark Ages is captured in
-Figure~\ref{fig:x_i_Xray}b. 
+The 21-cm line has been recognized as potentially the most
+powerful probe of the evolution of the IGM during cosmic reionization, and into
+the preceding Dark Ages \citep{morales_wyithe2010,furlanetto_et_al2006}.
 As emphasized in NWNH: ``The panel concluded that to explore the discovery
 area of the epoch of reionization, it is most important to develop new
 capabilities to observe redshifted 21~cm \HI emission, building on the legacy of
 current projects and increasing sensitivity and spatial resolution to
 characterize the topology of the gas at reionization."
 
-% XXX is there text from this paragraph to save?
+As a high-sensitivity 21-cm instrument with broad frequency coverage, HERA will be transformative.
+Figure~\ref{fig:x_i_Xray}a illustrates how HERA will
+reach beyond the late stages of reionization to measure the
+ionization of the IGM throughout the EoR, definitively constraining the timing
+and duration of reionization.
+The wide range of heating and ionization models that HERA
+can distinguish during the EoR and into the Dark Ages is captured in
+Figure~\ref{fig:x_i_Xray}b.  As shown in Figure~\ref{fig:eor_pspec},
+HERA will statistically measure the growth and intersection
+of ionization fronts as they are driven outward by early galaxies, giving
+us important information about the nature and distribution of the first stars and galaxies.
+Finally, as shown in Figure~\ref{imaging}, HERA will capable of reconstructing
+tomographic maps of reionization versus redshift to directly image the IGM as
+it evolves.
+
 %The new window into high-redshift 21~cm observations provided by HERA
 %will begin to explore the rate and density of massive black holes formed in the
 %early universe \citep{pritchard_loeb2010} via their X-ray emission (see Figure \ref{fig:Xray}), 
@@ -194,7 +210,7 @@ characterize the topology of the gas at reionization."
 %constrains the relative contributions to the ionizing background of halos as a function of mass,
 %and helps us understand how efficiently early structures cooled and formed stars.
 
-%The evolution of the \HI 21~cm signal from the neutral IGM depends on miriad
+%The evolution of the \HI 21~cm signal from the neutral IGM depends on myriad
 %physical processes, including: general large scale structure evolution, IGM
 %ionization by the first galaxies and black holes, and the complex interplay
 %between the gas kinetic and excitation temperatures, and the temperature of the
@@ -209,31 +225,30 @@ characterize the topology of the gas at reionization."
 %matter and dark-matter halos \citep{mcquinn_oleary2012}.  
 
 In the past decade, considerable effort has gone into modeling the complex astrophysics
-% XXX if more cites, add Shull, Haiman, Furlanetto, Oh, Gnedin, Shaver
+% if more cites, add Shull, Haiman, Furlanetto, Oh, Gnedin, Shaver
 of reionization (e.g.\ \citealt{santos_et_al2010,mesinger_et_al2011,wyithe_loeb2004}). However,
 basic constraints on theoretical models are still rudimentary and the most
 fundamental questions concerning the process of reionization remain open.
-% XXX cite Choudhury, Haehnel, Regan 2009
+% cite Choudhury, Haehnel, Regan 2009
 When did
 reionization occur, and over what timescale?  What objects dominated the
 radiation field? How were the objects distributed? Did the first generation of
 stars enhance or suppress the formation of subsequent stars in the original
-halo and smaller nearby halos? Without measurements from a HERA-like experiment,
-further progress on understanding first galaxy formation and
-cosmic reionization will remain problematic.
+halo and smaller nearby halos? {\it HERA provides the key measurements 
+that are needed to progress our understanding of early galaxy formation and
+cosmic reionization.}
 
 \begin{figure}[t]\centering
 \includegraphics[height=2.40 in]{plots/eor_pspec.png}
-\includegraphics[height=2.45 in]{plots/hera_snr_contour.png} % XXX awaiting latest from Judd
+\includegraphics[height=2.45 in]{plots/hera_snr_contour.png} 
 \caption{\small 
 Left: Power-spectrum sensitivities for three stages of
-HERA (solid) relative to a fiducial ionization model (dashed line at $\xHI=0.47$ in both panels).  
-In addition
-to a staged array size, sensitivity curves reflect
+HERA (solid) relative to a fiducial ionization model (dotted line in both panels; $\xHI=0.47$).  
+Sensitivity curves reflect a staged array size and
 a staged improvement in analysis software that expands the range
-of modes that are not corrupted by systematics. 
+of modes falling into the EoR Window (see \S\ref{LessonsSec}).
 Right: The color surface shows the rise and fall of the 21~cm power spectrum from 
-\citealt{lidz_et_al2008} as a function of neutral fraction $\xHI$ (and hence redshift).
+\citealt{lidz_et_al2008} as a function of $\xHI$ (and redshift).
 The spectrum initially follows the dark matter fluctuations at the upper edge
 of the plot, falls as the densest regions reionize at $\xHI=0.8$, rises and flattens as galaxies ionize large bubbles in the IGM
 ($0.6<\xHI<0.2$), and finally
@@ -243,7 +258,7 @@ throughout reionization.
 }\label{fig:eor_pspec} 
 \end{figure}
 
-% XXX from mesinger
+% from mesinger
 %you don't mention the pre-reionization signal.  HERA could be transformative in
 %reaching beyond the late stages of reionization, and seeing the imprint of the
 %very first galaxies in the Lya and X-ray backgrounds.  This is really
@@ -262,24 +277,53 @@ throughout reionization.
 %for the longer proposal, I can make the contour plots for HERA which are
 %analogous to the ones in my paper with Aaron E-W.
 
+\begin{figure}[t] \centering
+%\includegraphics[height=2.5in]{plots/HERA_z8_SNR_annotated_v2.jpg}
+\includegraphics[height=2.25in]{plots/HERA_z8_SNR_wide_annotated.jpg}
+% XXX waiting for version with "Characteristic HI shells and HII holes" in annotation
+\caption{\small 
+A simulated imaging reconstruction of \HI emission at $z=8$ from 
+100 hours of HERA~568 observations with 1~MHz of bandwidth.  The resulting
+EoR map has a resolution of 20\arcmin ($\sim$50~cMpc); black contours
+enclose regions detected at 10$\sigma$.
+With a surface brightness sensitivity of 60~$\mu$Jy after filtering chromatic
+foregrounds, HERA is capable of
+directly imaging regions of neutral and ionized hydrogen.
+\label{imaging}}
+\end{figure}
+
+
+% =============================================================
+% ___                                      _    
+%| __|__ _ _ ___ __ _ _ _ ___ _  _ _ _  __| |___
+%| _/ _ \ '_/ -_) _` | '_/ _ \ || | ' \/ _` (_-<
+%|_|\___/_| \___\__, |_| \___/\_,_|_||_\__,_/__/
+%               |___/                           
+% =============================================================
 
 \vspace{-0.25in}
 \section{Foregrounds \& Lessons Learned from PAPER and MWA}
 \label{LessonsSec}
 
-The key challenge of 21~cm cosmology is isolating the faint EoR signal from
-astrophysical foregrounds that are $\sim$5 orders of magnitude brighter. These foregrounds
-are shown in recent MWA image 
-in the left-hand panel of Figure \ref{fig:twoFGViews}. A major breakthrough in
-21~cm cosmology---what enables us to propose HERA now---is the discovery of the
-EoR Window.
-% XXX gotta play up PAPER result here
+The key challenge of 21~cm reionization experiments is 
+balancing the stringent sensitivity requirements needed to detect the faint EoR signal
+with the need to suppress
+foregrounds (see Figure~\ref{fig:twoFGViews}a) that are $\sim$5 orders of magnitude brighter.
+A major breakthrough in 21~cm cosmology---what enables us to propose HERA now---is 
+a new understanding
+of how instrumental characteristics can be leveraged to isolate foregrounds
+from the cosmological signal on the basis of spectral smoothness,
+opening up an `EoR Window'.  {\it These techniques have been successfully
+applied in PAPER observations to suppress
+foreground emission by 4 orders of magnitude}, to the current limits of sensitivity,
+with results that have begun ruling out certain reionization scenarios
+\citep{parsons_et_al2013}.
 
-21~cm cosmology observations and foreground isolation are best understood in
-the three dimensional wavenumber space $\k$.  Because the \HI emission is a
+21~cm cosmology observations are best understood in
+wavenumber space, $\k$.  Because the \HI emission is a
 narrow spectral line, the observed frequency of the emission can be mapped to
 redshift or line-of-sight distance to provide an observed volume $\{x,y,z\}$ in
-co-moving Mpc. This observed volume is Fourier transformed into a three dimensional
+co-moving Mpc. This observed volume is Fourier transformed into a 3D
 wavenumber cube $\{k_{x}, k_{y}, k_{z}\}$. For graphical simplicity, the angular
 wavenumbers are typically averaged ($\{k_{x},k_{y}\}\rightarrow\kperp$) to
 produce line-of-sight wavenumber $\kpar$ vs.\ angular $\kperp$. 
@@ -288,60 +332,78 @@ produce line-of-sight wavenumber $\kpar$ vs.\ angular $\kperp$.
 %a Fourier transform in the frequency direction and a coordinate mapping is
 %needed to obtain the 3D $\{k_{x}, k_{y}, k_{z}\}$ measurements
 %\citep{morales_hewitt2004}.) 
-The expected statistical isotropy of the signal allows measurements within the 3D wavenumber space to be
+The expected statistical isotropy of the signal allows measurements in $\k$-space to be
 squared and averaged in shells to produce the spherical power spectrum
-presented in Figure \ref{fig:eor_pspec}.
+in Figure \ref{fig:eor_pspec}.
 
 A significant recent advance in 21~cm cosmology has been understanding how smooth-spectrum
 foreground emission interacts with the instrument to produce the EoR Window.
 Through a concerted theoretical and observational campaign
 \citep{morales_et_al2012,parsons_et_al2012b,vedantham_2012,Datta_2010,hazelton_et_al2013,pober_et_al2013,parsons_et_al2013,dillon_et_al2013b_trunc}
-we now understand that the foreground contamination is confined to a `wedge' in
+we now understand that foreground contamination can be confined to a `wedge' in
 $\kpar$ vs.\ $\kperp$, as demonstrated by the PAPER observations in the
 righthand panel of of Figure \ref{fig:twoFGViews}. This wedge is the result of
 the smooth spectrum foregrounds (low $\kpar$) interacting with the inherent
-chromaticity of an interferometer. Deep imaging similarly suppresses the 
-contributions from polarized foregrounds \citep{bernardi_2013_trunc,moore_et_al2013}. 
+chromaticity of an interferometer. 
 This leaves the region above the wedge isolated from the
 foreground emission---a window through which we can observe the EoR.
 
+Observations with PAPER and the MWA have confirmed the presence of the EoR Window
+\citep{pober_et_al2013,dillon_et_al2013b_trunc}, and recent PAPER observations
+have measured the foreground suppression within it, at the limits of current sensitivity,
+to be at least 4 orders of magnitude (8 in mK$^2$;
+\citealt{parsons_et_al2013}).
+This is a major advance. 
+First, it indicates that the bulk of the foreground problem
+is behind us.  Polarization leakage is the last foreground systematic of 
+concern \citep{moore_et_al2013}, but
+recent results by \citet{bernardi_2013_trunc}
+indicate that this signal
+should be comparable in amplitude to the 21~cm EoR signal. It is reasonable 
+to expect that the deep imaging and Fast Holographic Deconvolution (FHD; \citealt{sullivan_et_al2012_trunc})
+polarization calibration techniques pioneered on the MWA
+can suppress them below a problematic level.
 
-Observations with PAPER and the MWA have now confirmed the presence of the EoR Window
-\citep{pober_et_al2013,dillon_et_al2013b_trunc}, including suppression by more than 4
-% XXX mcquinn: awkward phrasing
-orders-of-magnitude (8 in mK$^{2}$) to the thermal noise floor of current
-PAPER observations \citep{parsons_et_al2013}. This is a major advance; we can
-suppress foregrounds and we understand the instrumental and analysis % XXX need to tweak phrasing
-characteristics needed to perform the EoR measurement. The MWA and PAPER teams
-have been at the forefront of developing the EoR Window, writing all of the % XXX is "all" going to make people cranky?
-papers in the literature and developing the 
-delay-spectrum and full power-spectrum (imaging) analyses to exploit this
-insight. 
-
-% XXX principles of building this knowledge into instrument design
+The second consequence of this advance is that,
+with a new understanding of how antenna size and
+separation affect sensitivity and access to the EoR Window, it
+has become evident that {\it a revised antenna design can yield up to 30
+times the sensitivity per element (relative to PAPER) without substantially degrading
+foreground isolation}.  Hence, an extremely compact array of large, fixed-pointing parabolic dishes,
+each with a short focal height that limits the chromaticity of the
+instrumental response, can provide the necessary foreground suppression
+while delivering a game-changing level of sensitivity at a fraction of the
+cost that was anticipated in the HERA roadmap.
 
 \begin{figure}[t] \centering
 %\includegraphics[width=6.5in]{plots/MWApretty.png} \includegraphics[width=3.6
 %in]{plots/MWApretty.png}
-\includegraphics[height=2.5in]{plots/MWApretty_crop.png} 
+\includegraphics[height=2.3in]{plots/MWApretty_crop.png} 
 %\includegraphics[width=2.4 in]{plots/wedge_tall.png}
-\includegraphics[height=2.5in]{plots/wedge_tall_wide.png} \caption{\small Left:
-Foregrounds imaged on the MWA using FHD software developed by Morales' group
-\citep{sullivan_et_al2012_trunc}.  This image spans $\sim$$30^{\circ}$ and
-includes both point-source and diffuse emission (with the Vela and Puppis SNRs visible in the
-bottom-right), illustrating the power of imaging methods for reducing
+\includegraphics[height=2.3in]{plots/wedge_tall_wide.png} \caption{\small Left:
+Foregrounds imaged on the MWA using FHD software.
+This image spans $\sim$$30^{\circ}$ and
+includes point-source and diffuse emission (the Vela and Puppis SNRs are in the
+bottom-right). Imaging methods provide a key capability for reducing
 polarization leakage and foreground systematics.  
 Right: Foreground contamination in line-of-sight $\kpar$ vs.\ angular $\kperp$
-as observed using PAPER \citep{pober_et_al2013}, with
-the analytic prediction of the horizon limit to foreground emission (solid black).
-Bright foreground emission is
-confined to a wedge (lower right) as predicted by
-\citep{morales_et_al2012,parsons_et_al2012b,vedantham_2012,Datta_2010}, and falls
-by orders-of-magnitude in the EoR Window (blue
+as observed using PAPER \citep{pober_et_al2013}.
+Bright foregrounds occupy
+a wedge (lower right) that extends beyond a fundamental analytic limit
+(solid black) by a margin dictated by the chromatic properties of the foregrounds
+and the instrument, and then falls precipitously
+in the EoR Window (blue
 region), where measurements are currently thermal noise limited. This insight has lead to the
-first meaningful constraints on EoR via 21~cm emission in
-\citet{parsons_et_al2013}.
+first meaningful constraints on EoR via 21~cm emission
+\citep{parsons_et_al2013}.
 }\label{fig:twoFGViews} \end{figure}
+
+% =============================================================
+% _  _ ___ ___    _   
+%| || | __| _ \  /_\  
+%| __ | _||   / / _ \ 
+%|_||_|___|_|_\/_/ \_\
+% =============================================================
 
 \vspace{-0.25in}
 \section{HERA}
@@ -349,9 +411,9 @@ first meaningful constraints on EoR via 21~cm emission in
 \begin{figure}[t]\centering
 \includegraphics[width=6.5in]{plots/PAPER_and_MWA_and_HERA.jpg}
 \caption{\small
-The MWA (top left) and PAPER (bottom right) arrays, each currently deployed with 128 elements.
+The MWA (top left) and PAPER (bottom left) arrays, each currently deployed with 128 elements.
 The 14-m HERA element (right) dramatically improves sensitivity
-while delivering the spectral smoothness and stability of response that
+while still delivering the spectral smoothness and stability of response that
 are required for managing foregrounds.
 The core of HERA~568 consists of a redundant hexagonal array with
 outrigger antennas (not shown) for imaging and foreground mitigation.
@@ -359,39 +421,43 @@ outrigger antennas (not shown) for imaging and foreground mitigation.
 \label{HERAfig}
 \end{figure}
 
-HERA will be built in stages at the Karoo Radio Observatory reserve in South Africa near the
-current PAPER deployment, up to a final size of 568 antenna elements.
+HERA will be built at the Karoo Radio Observatory reserve in South Africa (SA) near the
+current PAPER deployment, in stages of 127, 331, and 568 antenna elements.
 HERA 
 incorporates numerous lessons learned from first-generation 21~cm EoR experiments.
-It features a 14-m zenith-pointing dish optimized for sensitivity and foreground suppression,
-a dense hexagonal core to facilitate redundant baseline calibration and
-delay-spectrum analysis (see Figure \ref{HERAfig}), and a distribution of outrigger antennas to provide
-complete uv coverage to $\sim$700~m for foreground imaging and mitigation.
+It features a 14-m zenith-pointing dish optimized for sensitivity and foreground suppression 
+(see \S\ref{LessonsSec}),
+a dense hexagonal core (see Figure \ref{HERAfig}) to enhance sensitivity and facilitate 
+redundant baseline calibration,
+and distributed outrigger antennas to provide
+complete uv coverage to $\sim$700~m for foreground imaging.
 HERA draws on the technical heritage of the MWA, PAPER,
 EDGES and MITEoR. Specific examples include the antenna feed and correlator of
-PAPER, receiver node and field digitization from the MWA, absolute radiometric
-calibration from EDGES, redundant baseline calibration from MITEoR \citep{zheng_et_al2013_trunc}, the
-delay-spectrum analysis from PAPER, and the precision imaging and foreground
-removal software from the MWA.
+PAPER \citep{bradley_et_al2005}, receiver node and field digitization 
+from the MWA \citep{lonsdale_et_al2009_trunc,tingay_et_al2013_trunc}, absolute radiometric
+calibration from EDGES \citep{rogers_2012}, redundant baseline calibration 
+from MITEoR \citep{zheng_et_al2013_trunc}, 
+delay-spectrum analysis from PAPER, and imaging and foreground
+removal software from the MWA, and optimal estimator formalism.
 
 %Incorporated into the design of HERA are new aspects that reflect our current understanding of the optimal balance between sensitivity and foreground systematics.  
 
 The HERA antenna is an example of this technical heritage. The spectral
-smoothness and the stability of the antenna response determine the precision to
-which astrophysical foreground emission can be separated from the cosmological
-21~cm emission. HERA uses the PAPER dipole feed---modified slightly for wider
-bandwidth---suspended over a 14-m parabolic dish (Figure \ref{HERAfig}). The
-short ($\sim$5~m) focal height of the dishes is central to limiting the path
-length of reflections, whose time-delay gives rise to chromatic antenna
-sensitivity. The zenith pointing enhances the stability of the antenna response
+smoothness and the stability of the antenna response determine how well
+foreground emission can be separated from the cosmological signal.
+HERA uses the PAPER dipole feed---modified slightly for wider
+bandwidth---suspended over a 14-m parabolic dish (Figure \ref{HERAfig}) that
+delivers a near-optimal balance of sensitivity and foreground suppression capability (see \S{LessonsSec}.
+The static zenith pointing enhances the stability of the antenna response
 (as found for PAPER), short cables to in-field digitizers limit the length of cable
 reflections (MWA), and absolute calibration (EDGES) provide
 an extremely stable and smooth spectral response. Similarly, the antenna layout
-features outriggers and a symmetric configuration (MWA),
-combined with a core of equally spaced elements that improves sensitivity
-and enables redundancy-based calibration (PAPER, MITEoR). Together
+a core of equally spaced elements that improves sensitivity
+and enables redundancy-based calibration (PAPER, MITEoR), and 
+outriggers that improve imaging (MWA).
+Together
 these advances enable HERA achieve the science goals envisioned in the decadal
-survey at a fraction of the cost. % XXX maybe need to highlight sensitivity of element
+survey at a fraction of the anticipated cost. 
 
 HERA follows a staged deployment in both physical construction and scientific processing.  In
 each deployment stage, improvements are incorporated into the system and new
@@ -405,15 +471,14 @@ development, along with the associated science products, is outlined below.
 \noindent{\bf Year 1--Infrastructure and First 37 Antennas (FY 2015)}.  
 \begin{itemize}\setlength{\parskip}{0pt}\itemsep0pt
 \vspace{-7pt}
-  \item Install infrastructure $\sim$10~km from the current PAPER site at the Karoo Radio Observatory in South Africa. Includes ground leveling, power and basic network connectivity.
+  \item Install basic infrastructure (ground leveling, power, network connectivity) at a new site $\sim$10~km from 
+the current PAPER site in the Karoo.
   \item Move existing PAPER-128 antennas, correlator, and EMC container to new site.
-  \item Install first 37 HERA antennas and instrument with existing PAPER feeds and electronics. 
-  \item Begin development of improved HERA baluns, receivers, feeds, and 
-nodes using the PAPER and MWA technical heritage \citep{bradley_et_al2005,lonsdale_et_al2009_trunc,tingay_et_al2013_trunc} 
-and the in-situ antenna calibration system based 
-on EDGES \citep{rogers_2012}. Continue development of delay-spectrum \citep{parsons_et_al2012b}, 
-Fast Holographic Deconvolution (FHD; \citealt{sullivan_et_al2012_trunc}) and 
-optimal estimator software \citep{dillon_et_al2013b_trunc}.
+  \item Install first 37 HERA antennas with existing PAPER feeds, electronics, and correlator. 
+  \item Start developing improved HERA baluns, receivers, feeds, 
+nodes, and in-situ antenna calibration system.
+Continue delay-spectrum, FHD, 
+and optimal estimator software development.
 \end{itemize}
 
 
@@ -424,19 +489,18 @@ optimal estimator software \citep{dillon_et_al2013b_trunc}.
   \item Commissioning observations using a hybrid array of 37 HERA antennas in a close-packed hexagon surrounded by 91 PAPER antennas in an imaging configuration.
   \item Perform a polarized foreground survey using hybrid-antenna capability of FHD. Determine on-sky beam response of HERA antennas to facilitate future source subtraction efforts.
   \item Finalize site infrastructure (high-bandwidth optical network, surveying, trenching).
-  \item On-antenna commissioning of new feeds, receivers, nodes, and calibration systems in Green Bank and South Africa.
-  \item Build out to 127 HERA antennas starts.
+  \item Commission new feeds, receivers, nodes, and calibration systems in Green Bank and SA.
+  \item Begin HERA~127 construction.
 \end{itemize}
 
 \vspace{-7pt}
 \noindent{\bf Year 3--HERA 127 and Detecting the Rise and Fall of Reionization (FY 2017)}.
 \begin{itemize}\setlength{\parskip}{0pt}\itemsep0pt
 \vspace{-7pt}
-  \item Complete construction of HERA~127. Begin science observations Oct.\ 2016, again using the PAPER correlator.
-  \item Begin analysis of a dataset capable of constraining the timing and duration of reionization. 
-Analysis focuses on proven techniques based on PAPER delay-spectrum analysis, explorating subtraction of bright 
-and polarized foregrounds.
-  \item Begin deployment of HERA~331. Install node electronics for all 331 elements, and a new 331-element, 
+  \item Complete HERA~127 construction. Science observations begin using the PAPER correlator.
+  \item Apply proven delay-spectrum analysis techniques to HERA~127 observations to constrain 
+the timing and duration of reionization. 
+  \item Begin deployment of HERA~331. Install new node electronics and a 331-element, 
 GPU-based correlator in the Karoo Array Processing Building (KAPB).
   \item  Install new data storage infrastructure in the KAPB.  
 Upgrade the UPenn analysis cluster.
@@ -450,7 +514,7 @@ Upgrade the UPenn analysis cluster.
   \item Complete science observations with HERA~331 Apr. 2018. Begin analysis of data to
 characterize the evolution of the power spectrum and determining properties of the first galaxies.
   \item Continue analysis software development, emphasizing imaging-based subtraction techniques for expanding the EoR window.
-  \item Begin build out to 568 antennas begins, including outrigger antennas to facilitate imaging and better foreground removal.
+  \item Build-out to HERA~568, with outrigger antennas to facilitate imaging and foreground removal.
   \item Complete pipelines for EoR processing of HERA~568.
 \end{itemize}
 
@@ -463,41 +527,25 @@ characterize the evolution of the power spectrum and determining properties of t
 the instrument, including partially coherent baselines. 
 \end{itemize}
 
+\vspace{-8pt}
 \noindent
 {\it The staged buildout of HERA enables cutting edge science at each stage while
-mitigating risk by allowing the team to learn from experience along the way.}
+mitigating project risk.}
 HERA~127 will measure the rise and fall of the EoR power spectrum; HERA~331
 will characterize the shape of the power spectrum and constrain the development
 of the first galaxies; and HERA~568 will start to image reionization while
 pushing power spectrum measurements into the Dark Ages.
 
-% XXX check: was this stuff incorporated into a caption?
 %In addition to pushing the sensitivity frontier, HERA will also extend the redshift frontier 
 %to $z \sim 20$ and possibly beyond.  Measuring the power spectrum at higher, pre-reionization redshifts provides
 %an incisive probe of astrophysical processes that are qualitatively different from those that
 %drive reionization.  During the reionization era, the $21\,\textrm{cm}$ signal is driven by
 %fluctuations in the ionization state of the IGM, while at higher redshifts the signal is determined
-%by fluctuations in the spin temperature.  These fluctuations in turn depend sensitively on the nature of early heating sources  and their abundance, as well as on more exotic physics such as dark matter annihilation cross-sections.  Beginning with the midstages of its staged build-out, HERA will be in a unique position to probe the pre-reionization epoch that current-generation instruments are unable to reach (see Figure \ref{fig:x_i_Xray}).  With its ability to measure the power spectrum \emph{continuously} over an extremely large frequency range,
+%by fluctuations in the spin temperature.  These fluctuations in turn depend sensitively on the nature of early heating sources  and their abundance, as well as on more exotic physics such as dark matter annihilation cross-sections.  Beginning with the mid-stages of its staged build-out, HERA will be in a unique position to probe the pre-reionization epoch that current-generation instruments are unable to reach (see Figure \ref{fig:x_i_Xray}).  With its ability to measure the power spectrum \emph{continuously} over an extremely large frequency range,
 %HERA will also provide a longer lever arm for ionization history measurements than any other astronomical probe,
 %as one can see in Figure \ref{fig:x_i_Xray}.
 %
 %{\sl Imaging reionization} In the later stages, HERA will become a powerful imaging instrument of cosmic reionization. Fiducial simulations of the expected \HI 21~cm signal on 25' scales predict regions with contrasts of about 10mK at 150MHz, or flux densities of up to 0.5 mJy/beam \citep{mcquinn_et_al2007}. The expected thermal noise for HERA 576 is 60 uJy, hence these regions could be detected at high confidence across redshifts $6<z<12$. Figure \ref{imaging} shows the predicted images of the \HI 21 structures  assuming the properties of HERA 547. The large scale structure is easily detected, and imaged, with the later stages of HERA. Of course, reaching these sensitivity levels relies critically on foreground synchrotron removal. We will be exploring foreground removal techniques throughout the program, and in particular, in the latter stages. The resulting \HI 21~cm images will provide a key reference for imaging of the large scale galaxy distribution (the sources of reionization), using CO or [CII] intensity mapping and/or nearIR surveys with WFIRST (see section ??).
-
-% TBD: include in full prop? no space in science pre-proposal
-\begin{figure}[t] \centering
-%\includegraphics[height=2.5in]{plots/HERA_z8_SNR_annotated_v2.jpg}
-\includegraphics[height=2.4in]{plots/HERA_z8_SNR_wide_annotated.jpg}
-% XXX waiting for version with "Characteristic HI shells and HII holes" in annotation
-\caption{\small 
-An instrumental simulation of reconstructed \HI emission at $z=8$,
-assuming 100 hours of observing and 1~MHz of bandwidth with HERA~568.  The resulting
-image has a resolution of 20\arcmin ($\sim$50~cMpc); black contours
-enclose regions detected at 10$\sigma$.
-With a surface brightness sensitivity of 60~$\mu$Jy after filtering chromatic
-foregrounds, HERA has the sensitivity
-to directly image regions of neutral and ionized hydrogen.
-\label{imaging}}
-\end{figure}
 
 \vspace{-0.25in}
 \section{Broader Impacts}
@@ -553,14 +601,13 @@ hosted at MIT. These data products will include foreground subtracted cubes for
 cross-correlation, deep images of reionization from HERA~568, compressed
 visibilities for re-analysis, snapshot continuum images for transient
 observations, and wide-field maps from the survey made in the first two years.
-% XXX mcquinn: add cross-correlations with LSST, which will find z~6-8 galaxies, 30-m telescopes
 
-% XXX include some of this above
+% include some of this above
 %In parallel to the
 %unique capabilities of the 21~cm line as a probe of neutral gas during
 %reionization, powerful
 %techniques are being explored to probe 
-%the distribution of star forming galaxies and AGN droving reionization,
+%the distribution of star forming galaxies and AGN driving reionization,
 %and the ionized regions themselves.  
 %CO and [CII] `intensity mapping' experiments \citep{carilli2011,lidz_et_al2011,gong_et_al2011}, 
 %and wide-field
@@ -626,7 +673,7 @@ Construction management is centered at UC Berkeley's Radio Astronomy Laboratory
 (RAL), headed by Parsons as the Project Director and DeBoer as
 Project Manager. They are assisted by Bob Goeke at MIT as a part-time
 Project Engineer with emphasis on interfacing with the US-based
-antenna contractor.  A Site Manager splits time between South Africa
+antenna contractor.  A Site Manager splits time between SA
 and Berkeley and manages the construction activities by local South African
 contractors. A SKA-SA Liaison coordinates HERA, Meerkat, and SKA site
 activities (supported by SKA-SA). Governance is provided by an Executive Board comprising
@@ -681,7 +728,7 @@ Studying the formation of the first luminous structures after the Big
 Bang and how they reionize the Universe is a primary driver for 
 major astronomical facilities over the next decade (ref: NWNH).
 Such studies include direct observation of stars, gas, dust, and AGN in the
-first galaxies using the JWST, TMT, ALMA, CCAT, and the JVLA. HERA is % XXX is it ok to mention CCAT?
+first galaxies using the JWST, TMT, ALMA, CCAT, and the JVLA. HERA is 
 a unique and necessary element in this panchromatic arsenal, providing
 the large scale context in which the complex process of first galaxy
 formation plays out.
