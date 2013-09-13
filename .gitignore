@@ -2,3 +2,10 @@
 *.aux
 *.log
 *.gz
+*.blg
+*.bbl
+*.tmp
+*.mp
+*.tui
+*.tuo
+*.gz
