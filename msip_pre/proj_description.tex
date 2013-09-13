@@ -157,10 +157,10 @@ the constraints HERA would provide (black markers, assuming
 that $\xHI$ steadily decreases over this redshift range) for a fiducial
 reionization history (black line).
 At redshifts 8--12
-21~cm emission may be the only precision probe of the neutral fraction.  
-Right: HERA’s substantial sensitivity at low frequencies opens a window to
+21-cm emission may be the only precision probe of $\xHI$.
+Right: HERA's sensitivity at low frequencies opens a window to
 pre-reionization physics. Shown here are power spectrum amplitudes (at $k =
-0.15h$~Mpc$^{-1}$) as a function of redshift for various IGM heating models,
+0.15h$~Mpc$^{-1}$) for various IGM heating models,
 along with predicted sensitivities.
 }\label{fig:x_i_Xray} \end{figure}
 
@@ -246,12 +246,11 @@ cosmic reionization.}
 \caption{\small 
 Left: Power-spectrum sensitivities for three stages of
 HERA (solid) relative to a fiducial ionization model (dashed line at $\xHI=0.47$ in both panels).  
-In addition
-to a staged array size, sensitivity curves reflect
+Sensitivity curves reflect a staged array size and
 a staged improvement in analysis software that expands the range
-of modes that are not corrupted by systematics. 
+of modes falling into the EoR Window (see \S\ref{LessonsSec}).
 Right: The color surface shows the rise and fall of the 21~cm power spectrum from 
-\citealt{lidz_et_al2008} as a function of neutral fraction $\xHI$ (and hence redshift).
+\citealt{lidz_et_al2008} as a function of $\xHI$ (and redshift).
 The spectrum initially follows the dark matter fluctuations at the upper edge
 of the plot, falls as the densest regions reionize at $\xHI=0.8$, rises and flattens as galaxies ionize large bubbles in the IGM
 ($0.6<\xHI<0.2$), and finally
@@ -282,7 +281,7 @@ throughout reionization.
 
 \begin{figure}[t] \centering
 %\includegraphics[height=2.5in]{plots/HERA_z8_SNR_annotated_v2.jpg}
-\includegraphics[height=2.4in]{plots/HERA_z8_SNR_wide_annotated.jpg}
+\includegraphics[height=2.25in]{plots/HERA_z8_SNR_wide_annotated.jpg}
 % XXX waiting for version with "Characteristic HI shells and HII holes" in annotation
 \caption{\small 
 A simulated imaging reconstruction of \HI emission at $z=8$ from 
@@ -290,8 +289,8 @@ A simulated imaging reconstruction of \HI emission at $z=8$ from
 EoR map has a resolution of 20\arcmin ($\sim$50~cMpc); black contours
 enclose regions detected at 10$\sigma$.
 With a surface brightness sensitivity of 60~$\mu$Jy after filtering chromatic
-foregrounds, HERA has the sensitivity
-to directly image regions of neutral and ionized hydrogen.
+foregrounds, HERA is capable of
+directly imaging regions of neutral and ionized hydrogen.
 \label{imaging}}
 \end{figure}
 
@@ -363,8 +362,8 @@ may yet arise \citep{moore_et_al2013}, but
 recent results by \citet{bernardi_2013_trunc} and simulations by \citet{jelic_et_al2008}
 indicate that this signal
 should be comparable in amplitude to the 21~cm EoR signal. It is reasonable 
-to expect that the deep imaging
-and FHD polarization calibration techniques pioneered on the MWA \citep{sullivan_et_al2012_trunc}
+to expect that the deep imaging and Fast Holographic Deconvolution (FHD; \citealt{sullivan_et_al2012_trunc})
+polarization calibration techniques pioneered on the MWA
 can suppress them below a problematic level.
 
 The second consequence of this advance is that,
@@ -384,21 +383,21 @@ cost that was anticipated in the HERA roadmap.
 \includegraphics[height=2.5in]{plots/MWApretty_crop.png} 
 %\includegraphics[width=2.4 in]{plots/wedge_tall.png}
 \includegraphics[height=2.5in]{plots/wedge_tall_wide.png} \caption{\small Left:
-Foregrounds imaged on the MWA using FHD software developed by Morales' group
-\citep{sullivan_et_al2012_trunc}.  This image spans $\sim$$30^{\circ}$ and
-includes both point-source and diffuse emission (with the Vela and Puppis SNRs visible in the
-bottom-right), illustrating the power of imaging methods for reducing
+Foregrounds imaged on the MWA using FHD software.
+This image spans $\sim$$30^{\circ}$ and
+includes point-source and diffuse emission (the Vela and Puppis SNRs are in the
+bottom-right). Imaging methods provide a key capability for reducing
 polarization leakage and foreground systematics.  
 Right: Foreground contamination in line-of-sight $\kpar$ vs.\ angular $\kperp$
-as observed using PAPER \citep{pober_et_al2013}, with
-the analytic prediction of the horizon limit to foreground emission (solid black).
-Bright foreground emission is
-confined to a wedge (lower right) as predicted by
-\citep{morales_et_al2012,parsons_et_al2012b,vedantham_2012,Datta_2010}, and falls
-by orders-of-magnitude in the EoR Window (blue
+as observed using PAPER \citep{pober_et_al2013}.
+Bright foregrounds occupy
+a wedge (lower right) that extends beyond a fundamental analytic limit
+(solid black) by a margin dictated by the chromatic properties of the foregrounds
+and the instrument, and then falls precipitously
+in the EoR Window (blue
 region), where measurements are currently thermal noise limited. This insight has lead to the
-first meaningful constraints on EoR via 21~cm emission in
-\citet{parsons_et_al2013}.
+first meaningful constraints on EoR via 21~cm emission
+\citep{parsons_et_al2013}.
 }\label{fig:twoFGViews} \end{figure}
 
 % =============================================================
@@ -424,20 +423,24 @@ outrigger antennas (not shown) for imaging and foreground mitigation.
 \label{HERAfig}
 \end{figure}
 
-HERA will be built in stages at the Karoo Radio Observatory reserve in South Africa near the
-current PAPER deployment, up to a final size of 568 antenna elements.
+HERA will be built at the Karoo Radio Observatory reserve in South Africa near the
+current PAPER deployment, in stages of 127, 331, and 568 antenna elements.
 HERA 
 incorporates numerous lessons learned from first-generation 21~cm EoR experiments.
-It features a 14-m zenith-pointing dish optimized for sensitivity and foreground suppression,
-a dense hexagonal core to facilitate redundant baseline calibration and
-delay-spectrum analysis (see Figure \ref{HERAfig}), and a distribution of outrigger antennas to provide
-complete uv coverage to $\sim$700~m for foreground imaging and mitigation.
+It features a 14-m zenith-pointing dish optimized for sensitivity and foreground suppression 
+(see \S\ref{LessonsSec}),
+a dense hexagonal core (see Figure \ref{HERAfig}) to enhance sensitivity and facilitate 
+redundant baseline calibration,
+and distributed outrigger antennas to provide
+complete uv coverage to $\sim$700~m for foreground imaging.
 HERA draws on the technical heritage of the MWA, PAPER,
 EDGES and MITEoR. Specific examples include the antenna feed and correlator of
-PAPER, receiver node and field digitization from the MWA, absolute radiometric
-calibration from EDGES, redundant baseline calibration from MITEoR \citep{zheng_et_al2013_trunc}, the
-delay-spectrum analysis from PAPER, and the precision imaging and foreground
-removal software from the MWA.
+PAPER \citep{bradley_et_al2005}, receiver node and field digitization 
+from the MWA \citep{lonsdale_et_al2009_trunc,tingay_et_al2013_trunc}, absolute radiometric
+calibration from EDGES \citep{rogers_2012}, redundant baseline calibration 
+from MITEoR \citep{zheng_et_al2013_trunc}, the
+delay-spectrum analysis from PAPER \citep{parsons_et_al2012b}, and imaging and foreground
+removal software from the MWA, and optimal estimator formalism \citep{dillon_et_al2013b_trunc}.
 
 %Incorporated into the design of HERA are new aspects that reflect our current understanding of the optimal balance between sensitivity and foreground systematics.  
 
@@ -474,11 +477,10 @@ development, along with the associated science products, is outlined below.
   \item Move existing PAPER-128 antennas, correlator, and EMC container to new site.
   \item Install first 37 HERA antennas and instrument with existing PAPER feeds and electronics. 
   \item Begin development of improved HERA baluns, receivers, feeds, and 
-nodes using the PAPER and MWA technical heritage \citep{bradley_et_al2005,lonsdale_et_al2009_trunc,tingay_et_al2013_trunc} 
+nodes using the PAPER and MWA technical heritage.
 and the in-situ antenna calibration system based 
-on EDGES \citep{rogers_2012}. Continue development of delay-spectrum \citep{parsons_et_al2012b}, 
-Fast Holographic Deconvolution (FHD; \citealt{sullivan_et_al2012_trunc}) and 
-optimal estimator software \citep{dillon_et_al2013b_trunc}.
+on EDGES. Continue development of delay-spectrum, FHD, 
+and optimal estimator software.
 \end{itemize}
 
 
