@@ -73,21 +73,21 @@ the Murchison Widefield Array (MWA) instruments
 aimed at characterizing
 foregrounds and laying the groundwork for detecting the EoR power
 spectrum. A second-generation HERA instrument would measure the EoR power spectrum in
-detail and reveal how early structure in the Universe formed, and a
-third-generation instrument would map EoR.
+detail and reveal how early structure in the Universe formed. A
+third-generation instrument would map the EoR.
 
 Using the advances spearheaded by
 PAPER and the MWA,
 we propose to build the next generation of HERA in stages of 127, 331, and 568 elements,
 observing in the 50--225MHz band.
 Each stage of HERA is scoped to deliver new science capabilities that advance our
-understanding of reionization at a competitive pace:
+understanding of reionization:
 \vspace{-4pt}
 \begin{itemize}\setlength{\parskip}{0pt}\itemsep0pt
 \item HERA~127 will measure the rise and fall of the EoR power
 spectrum, constraining the timing and duration of reionization.
-\item HERA~331 will statistically measure EoR fluctuations over a variety of
-scales to determine the features and distribution of
+\item HERA~331 will measure EoR fluctuations over a variety of
+spatial scales to determine the features and distribution of
 the first galaxies that dominate cosmic reionization.
 \item HERA~568 will extend precision power-spectrum observations
 into the Dark Ages and start direct imaging of the IGM during reionization.
@@ -128,6 +128,7 @@ among other effects.  Exploring the Dark Ages and EoR, and the evolution of
 the IGM during these epochs, was one of the top three
 ``priority science objectives chosen by the [NWNH] survey committee for the
 decade 2012-2021."
+% XXX check decadal: make list or drop IGM
 
 To date, a number of indirect probes have been used to understand cosmic
 reionization.  These include observations of Gunn-Peterson absorption by the
@@ -172,7 +173,9 @@ capabilities to observe redshifted 21~cm \HI emission, building on the legacy of
 current projects and increasing sensitivity and spatial resolution to
 characterize the topology of the gas at reionization."
 
-As a high-sensitivity 21-cm instrument with broad frequency coverage, HERA will be transformative.
+As a high sensitivity instrument with broad frequency coverage, HERA will be
+capable of painting a consistent uninterrupted picture through the EoR and into
+the Dark Ages.
 Figure~\ref{fig:x_i_Xray}a illustrates how HERA will
 reach beyond the late stages of reionization to measure the
 ionization of the IGM throughout the EoR, definitively constraining the timing
@@ -305,17 +308,19 @@ directly imaging regions of neutral and ionized hydrogen.
 \section{Foregrounds \& Lessons Learned from PAPER and MWA}
 \label{LessonsSec}
 
-The key challenge of 21~cm reionization experiments is 
+The key challenge of 21~cm cosmological reionization experiments is 
 balancing the stringent sensitivity requirements needed to detect the faint EoR signal
 with the need to suppress
 foregrounds (see Figure~\ref{fig:twoFGViews}a) that are $\sim$5 orders of magnitude brighter.
 A major breakthrough in 21~cm cosmology---what enables us to propose HERA now---is 
-a new understanding
-of how instrumental characteristics can be leveraged to isolate foregrounds
-from the cosmological signal on the basis of spectral smoothness,
-opening up an `EoR Window'.  {\it These techniques have been successfully
-applied in PAPER observations to suppress
-foreground emission by 4 orders of magnitude}, to the current limits of sensitivity,
+the discovery of how 
+instrumentation and analysis can exploit the 
+spectral smoothness of foregrounds
+to open up an `EoR Window'.  
+These advances have been used to suppress foreground emission by 4
+orders of magnitude in PAPER observations,
+in the best current constraints on the 21~cm EoR power spectrum
+to the current limits of sensitivity,
 with results that have begun ruling out certain reionization scenarios
 \citep{parsons_et_al2013}.
 
@@ -345,31 +350,31 @@ $\kpar$ vs.\ $\kperp$, as demonstrated by the PAPER observations in the
 righthand panel of of Figure \ref{fig:twoFGViews}. This wedge is the result of
 the smooth spectrum foregrounds (low $\kpar$) interacting with the inherent
 chromaticity of an interferometer. 
-This leaves the region above the wedge isolated from the
+This leaves the region above the wedge free from 
 foreground emission---a window through which we can observe the EoR.
 
 Observations with PAPER and the MWA have confirmed the presence of the EoR Window
 \citep{pober_et_al2013,dillon_et_al2013b_trunc}, and recent PAPER observations
-have measured the foreground suppression within it, at the limits of current sensitivity,
+have measured the foreground suppression within it
 to be at least 4 orders of magnitude (8 in mK$^2$;
 \citealt{parsons_et_al2013}).
 This is a major advance. 
-First, it indicates that the bulk of the foreground problem
-is behind us.  Polarization leakage is the last foreground systematic of 
-concern \citep{moore_et_al2013}, but
+It indicates that the bulk of the foreground problem
+is behind us.  Although polarization leakage is a foreground systematic of 
+concern \citep{moore_et_al2013},
 recent results by \citet{bernardi_2013_trunc}
 indicate that this signal
-should be comparable in amplitude to the 21~cm EoR signal. It is reasonable 
-to expect that the deep imaging and Fast Holographic Deconvolution (FHD; \citealt{sullivan_et_al2012_trunc})
+should be comparable in amplitude to the 21~cm EoR signal. It is 
+expected that the deep imaging and Fast Holographic Deconvolution (FHD; \citealt{sullivan_et_al2012_trunc})
 polarization calibration techniques pioneered on the MWA
 can suppress them below a problematic level.
 
-The second consequence of this advance is that,
+Another consequence of this advance is that,
 with a new understanding of how antenna size and
 separation affect sensitivity and access to the EoR Window, it
-has become evident that {\it a revised antenna design can yield up to 30
+is evident that a revised antenna design can yield up to 30
 times the sensitivity per element (relative to PAPER) without substantially degrading
-foreground isolation}.  Hence, an extremely compact array of large, fixed-pointing parabolic dishes,
+foreground isolation.  Hence, an extremely compact array of large, fixed-pointing parabolic dishes,
 each with a short focal height that limits the chromaticity of the
 instrumental response, can provide the necessary foreground suppression
 while delivering a game-changing level of sensitivity at a fraction of the
@@ -449,7 +454,7 @@ HERA uses the PAPER dipole feed---modified slightly for wider
 bandwidth---suspended over a 14-m parabolic dish (Figure \ref{HERAfig}) that
 delivers a near-optimal balance of sensitivity and foreground suppression capability (see \S\ref{LessonsSec}).
 The static zenith pointing enhances the stability of the antenna response
-(as found for PAPER), short cables to in-field digitizers limit the length of cable
+(from PAPER), short cables to in-field digitizers limit the length of cable
 reflections (MWA), and absolute calibration (EDGES) provide
 an extremely stable and smooth spectral response. Similarly, the antenna layout
 a core of equally spaced elements that improves sensitivity
@@ -684,15 +689,15 @@ The scientific capability of HERA and the data analysis and publication are
 overseen by the Science Panel, and chaired by the Project Scientist, Bowman. These
 positions rotate as needed expertise changes, and are appointed by the
 Executive Board.  As with the MWA and PAPER, observing
-proceeds remotely with limit site support
+proceeds remotely with limited site support
 and maintenance, headed by the Site Manager.
 
 The estimated inherent contingency is $\sim$15\%, anticipating that additional project 
 risk and contingency are handled by reducing
 build-out with associated de-scoping of science capabilities.
-A baseline design using
-existing hardware establishes a low-risk path to core functionality and science.  Improved functionality
-results from successful development activities or is otherwise de-scoped.
+%A baseline design using
+%existing hardware establishes a low-risk path to core functionality and science.  Improved functionality
+%results from successful development activities or is otherwise de-scoped.
 
 \vspace{-0.25in}
 \section{Why Now? Why Us?}
