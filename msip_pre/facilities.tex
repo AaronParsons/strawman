@@ -19,25 +19,77 @@
 
 \section*{Facilities, Equipment, Other}
 
-The work described in this proposal will take place at eight locations as discussed below. 
+The work described in this proposal will take place at eight locations, as discussed below. 
 
 \subsection*{\it Arizona State University}
 
-Several ASU low frequency developmental efforts will contribute directly to the HERA effort. ASU will support the deployment of an antenna beam mapping octocopter system which is currently undergoing testing for MWA, PAPER and other low frequency experiments. This system will enable the precise mapping of the antenna response as a function of frequency. Several developments from the ongoing Experiment to Detect the Global EoR Step (EDGES, supported by NSF grant \#1207761) will also be directly applicable.  Most notable is an ongoing effort to improve the precision of low frequency antenna response calibration by two orders of magnitude. The resources at the disposal of the ASU low frequency lab include a 5000 square foot dedicated electronics lab complete with vector network analyzers, FPGA development stations, high accuracy noise sources, outdoor antenna test facility, 6 axis micromill and several highly qualified technicians.
+Several ASU low-frequency developmental efforts will contribute directly to the
+HERA effort. ASU will support the deployment of an antenna beam mapping
+octocopter system which is currently undergoing testing for MWA, PAPER and
+other low frequency experiments. This system will enable the precise mapping of
+the antenna response as a function of frequency. Several developments from the
+ongoing Experiment to Detect the Global EoR Step (EDGES, supported by NSF grant
+\#1207761) will also be directly applicable.  Most notable is an ongoing effort
+to improve the precision of low-frequency antenna response calibration by two
+orders of magnitude. The resources at the disposal of the ASU low-frequency laboratory
+include a 5000 square foot dedicated electronics lab complete with vector
+network analyzers, FPGA development stations, high-accuracy noise sources,
+outdoor antenna test facility, 6-axis micromill and several highly qualified
+technicians.
 
-Adjacent to the Low Frequency lab is the Laboratory for Astronomical and Space Instrumentation (LASI) which assembles and tests space instrumentation. Proximity to the ASU Machine Shop (which has produced space-qualified hardware for Mars missions) offers quick custom machining and integration of pieces in instrument assembly. 
+Adjacent to the Low-Frequency laboratory is the Laboratory for Astronomical and Space
+Instrumentation (LASI) which assembles and tests space instrumentation.
+Proximity to the ASU Machine Shop (which has produced space-qualified hardware
+for Mars missions) offers quick custom machining and integration of pieces in
+instrument assembly. 
 
-The ASU High Performance Computing Initiative maintains a 5000-node cluster (Saguaro) with 11 TB of aggregate RAM and 215 TB of high-speed disk space that is available to all students and researchers through an internal time allocation process. A cluster dedicated to low frequency astronomy, consisting of three high power (16 core, 128G of RAM, 75TB of storage), suitable for algorithm development and data exchange, is maintained by the co-I and available to all collaborators.
+The ASU High Performance Computing Initiative maintains a 5000-node cluster
+(Saguaro) with 11 TB of aggregate RAM and 215 TB of high-speed disk space that
+is available to all students and researchers through an internal time
+allocation process. A cluster dedicated to low-frequency astronomy, consisting
+of three high-power (16 core, 128G of RAM, 75TB of storage) nodes suitable for
+algorithm development and data exchange, is maintained by the co-I and
+available to all collaborators.
 
-\subsection*{\it Massachussetts Institute of Technology}
+\subsection*{\it Massachusetts Institute of Technology}
 
-As part of the MIT's group participation in the MWA and with support from an MRI grant, a dedicated cluster of PC-Linux computers and storage are being purchased and installed in a phased manner as they are needed to accommodate MWA data. The final configuration will consist of ~15 computers and >1.0 Pbytes of storage space. The computers will typically have 12 cores and 100 GB of ram, providing enough compute power to produce the data "cubes" required for EoR science as the data arrive at MIT. The MWA data-taking will be complete by May 2015, and the cluster processing capacity will be made available to HERA in September 2015, when it is anticipated that the standard pipeline MWA data processing will be complete.
+As part of the MIT's group participation in the MWA and with support from an
+MRI grant, a dedicated cluster of PC-Linux computers and storage are being
+purchased and installed in a phased manner as they are needed to accommodate
+MWA data. The final configuration will consist of $\sim$15 computers and $>$1.0 Pbytes
+of storage space. The computers will typically have 12 cores and 100 GB of RAM,
+providing enough compute power to produce the data cubes required for EoR
+science as the data arrive at MIT. The MWA data-taking will be complete by May
+2015, and the cluster processing capacity will be made available to HERA in
+September 2015, when it is anticipated that the standard pipeline processing of MWA 
+data will be complete.
 
-At MIT, we have developed a 21 cm power spectrum estimation pipeline using quadratic estimator and Fisher matrix formalism to optimally measure power spectra and rigorously keep track of estimator errors and correlations.  The technique was adapted (Liu \& Tegmark 2011) from earlier work on the CMB and galaxy surveys, accelerated to run in $\mathcal{O}(N\log N)$ by exploiting various symmetries (Dillon et al. 2013a), and applied successfully to MWA prototype data (Dillon et al. 2013b). The statistical technology and code is straightforwardly adaptable to analyzing HERA data.
+At MIT, we have developed a 21 cm power spectrum estimation pipeline using
+quadratic estimator and Fisher matrix formalism to optimally measure power
+spectra and rigorously keep track of estimator errors and correlations.  The
+technique was adapted (Liu \& Tegmark 2011) from earlier work on the CMB and
+galaxy surveys, accelerated to run in $\mathcal{O}(N\log N)$ by exploiting
+various symmetries (Dillon et al. 2013a), and applied successfully to MWA
+prototype data (Dillon et al. 2013b). The statistical technology and code is
+straightforwardly adaptable to analyzing HERA data, and is furnished to the project.
 
-The hexagonal layout of the HERA array core allows unprecedented opportunities for automated precision calibration and quality control using massive baseline redundancy (Liu et al 2010). This approach was successfully prototyped in the MITEoR experiment, and the resulting hardware and software is now available for HERA use. This includes the MITEoR 64 dual-polarization correlator, including 4 ADCx64 boards, 4 ROACH-II processing boards, 8 ROACH-I processing boards and two data acquisition servers, as well as 64 dual-polarization MITEoR elements with analog signal chains, including nodes, Walsh modulation boards, and receivers.
+The hexagonal layout of the HERA array core allows unprecedented opportunities
+for automated precision calibration and quality control using massive baseline
+redundancy (Liu et al 2010). This approach was successfully prototyped in the
+MITEoR experiment, and the resulting hardware and software is now available for
+HERA use. This includes the MITEoR 64 dual-polarization correlator, including 4
+ADCx64 boards, 4 ROACH-II processing boards, 8 ROACH-I processing boards and
+two data acquisition servers, as well as 64 dual-polarization MITEoR elements
+with analog signal chains, including nodes, Walsh modulation boards, and
+receivers.  The use of this system, as well as the underlying technology
+and software libraries, are being furnished to the HERA project.
 
-The massive baseline redundancy of HERA also provides a potential for significant efficiency improvements to the correlator though 2D FFT's on the hexagonal antenna lattice, cutting the numerical load scaling of the X-engine from $n^2$ to $n \log n$. This would free up a significant fraction of the GPU resources, which could instead be used for automated real-time calibration and quality control.
+The massive baseline redundancy of HERA also provides a potential for
+significant efficiency improvements to the correlator though 2D FFT's on the
+hexagonal antenna lattice, cutting the numerical load scaling of the X-engine
+from $\mathcal{O}(N^2)$ to $\mathcal{O}(N \log N)$. This would free up a significant fraction of the GPU
+resources, which could instead be used for automated real-time calibration and
+quality control.
 
 
 \subsection*{\it NRAO} 
@@ -46,42 +98,46 @@ NRAO contributes support for Bradley's and Carilli's involvement in the
 project, and provides access to the NRAO site near Green Bank, WV,
 including the infrastructure and systems associated with the PAPER-32
 array deployed there, for the purpose of development and field studies
-of the HERA system.
+of the HERA system.  NRAO also contributes support for adding low-frequency
+functionality to the CASA software package.  This software is publicly available,
+and will directly benefit HERA's foreground imaging initiatives.
 
-% XXX update
-
-A 500 sq. ft. field station is located on the NRAO Green Bank, WV observatory
-site. It houses a work area and plenty of space to deploy instrumentation.
+NRAO provides access to the PAPER field station located on the NRAO Green Bank, WV observatory
+site. This field station houses a work area and plenty of space to deploy additional instrumentation.
 Positioned within the National Radio Quiet Zone, this site is an ideal venue
-for very sensitive radio frequency measurements due to its remoteness from
+for sensitive radio-frequency measurements due to its remoteness from
 large urban areas and its exceptional laboratory infrastructure. A relatively
 large amount of outdoor space is available adjacent to the station for the
-deployment of antennas under test. The satellite downlink measurement system is
+deployment of antennas under test. A satellite downlink measurement system is
 here, and the PAPER array is located nearby. Electromagnetic enclosures are
 used to house all instrumentation to prevent self-interference as well as
 interference with Observatory telescopes, in strict adherence to the radio
 emissions control policy of the Observatory’s Interference Protection Group
 (IPG).
 
-There warehouse facilities located in Green Bank are ideal for staging our
-shipments to South Africa. Wooden crates are built in the carpenter shop and
-moved to the warehouse for packing and short term storage. Heavy lift
-equipment and the expertise to use them safely are also available to transport
-these crates to the truck mounted shipping containers destined for the cargo
-ship.
+PAPER equipment deployed at Green Bank will be used for antenna testing,
+absolute-calibration balun development,
+feed development, and other preliminary on-antenna testing activities.
+The deployed system in Green Bank consists of 32 dual-polarization PAPER antennas,
+with associated analog electronics, cables, and power, and a 32-antenna correlator.
+This correlator consists of 16 quad-ADC boards, 8 IBOB processing boards,
+4 ROACH processing boards, and a data-acquisition server.  Network infrastructure 
+on site permits the direct transfer of data products to the computing server 
+at UPenn.
 
-A 800 sq.ft. research laboratory is located at the NRAO’s Technology Center.
+A 800 sq. ft. research laboratory is located at the NRAO’s Technology Center.
 It is equipped with two complete micro-assembly workstations for component
 fabrication and rework as well as a suite of basic instruments necessary for
 evaluation and repair. In addition, the laboratory contains several signal
 generators, power meters, spectrum analyzers, an impedance bridge, network
-analyzers, and noise figure meters for radio frequency applications. A small
+analyzers, and noise figure meters for radio-frequency applications. A small
 anechoic chamber is available for antenna impedance measurements, and an
-computer-controlled environmental chamber is ready for studies of thermal and
-humidity induced effects on component and subsystem designs. We routinely make
+computer-controlled environmental chamber is ready for studies of thermal- and
+humidity-induced effects on component and subsystem designs. Feed and balun
+development will routinely make
 use of the NRAO machine shop facilities.
 
-We also have access to the latest computer-aided design software. Autocad
+For feed development, NRAO provides access to the latest computer-aided design software. Autocad
 Inventor is used for three-dimensional mechanical drawings. Agilent’s Advanced
 Design System (ADS) is available for circuit and subsystem modeling while CST
 Microwave Studio is used for electromagnetic simulations of antenna and other
@@ -90,37 +146,65 @@ conduction and radiation pathways.
 
 \subsection*{\it South Africa}
 
-The recent and manifold infrastructure developments in South Africa are of direct benefit to the project.  These relate to the radio-quiet observatory in the Karoo area of Northern Cape, South Africa in which PAPER has been observing over the last several years, as well as the PAPER electronics and support infrastructure directly.
+The recent and manifold infrastructure developments in South Africa are of
+direct benefit to the project.  These relate to the radio-quiet observatory in
+the Karoo area of Northern Cape, South Africa, where PAPER has been observing
+over the last several years, as well as the PAPER electronics and support
+infrastructure directly.
 
-The PAPER equipment will be used directly in this system up through the 127-element design.  This allows use of a thoroughly commissioned system for science observations until there is the need for the larger correlator.  The PAPER 128 dual-polarization correlator includes 16 ADCx16 boards,  8 ROACH-II processing boards, 8 servers each hosting 2 GTX690 dual-GPU cards,
-and two data acquisition servers.  The data compression and storage system includes 5 computing servers and a 220 TB raid storage system.  In addition, the 128 PAPER elements, with analog signal chains, including nodes, receivers will be used as part of the first observations in an imaging configuration. The 12-meter container, 120 dB shielded EMC enclosure housing the correlator and electronics along with the power infrastructure (transformers, reticulation, and UPS) and HVAC system will also all be used.
+The PAPER equipment will be used directly in this project up through the
+127-element design.  This allows use of a thoroughly commissioned system for
+science observations until there is the need for the larger correlator.  The
+PAPER 128 dual-polarization correlator includes 16 ADCx16 boards,  8 ROACH-II
+processing boards, 8 servers each hosting 2 GTX690 dual-GPU cards, and two data
+acquisition servers.  The data compression and storage system includes 5
+computing servers and a 220 TB raid storage system.  In addition, the 128 PAPER
+elements, with analog signal chains, nodes, and receivers will be used as
+part of the first observations in an imaging configuration. The 12-meter
+container, 120 dB shielded EMC enclosure housing the correlator and electronics
+along with the power infrastructure (transformers, reticulation, and UPS) and
+HVAC system will also all be used.
 
-South Africa will relocated the PAPER equipment to a new nearby site that had been set aside for SKA-Low.  This will include site clearing, road access, power and internet infrastructure and service.  As part of the observatory development a new shielded processor building is currently well under construction, and HERA will have use of this facility, which will be connected to the HERA site by a dedicated fiber cable.  This facility has a fast internet connection back to the Cape Town headquarters.
+South Africa will relocate the PAPER equipment to a new nearby site that had previously
+been set aside for SKA-Low.  This will include site clearing, road access,
+power and internet infrastructure and service.  As part of the observatory
+development a new shielded building (the Karoo Array
+Processing Building) is currently well under
+construction, and HERA will have use of this facility, which will be connected
+to the HERA site by a dedicated fiber cable.  This facility has a fast internet
+connection back to the Cape Town headquarters.
 
-The South African group consists of a growing pool of experienced scientists in this field.  Key among them is Gianni Bernardi, who will participate fully in this project.  South Africa also provides strong liaison support between the groups, and the excellent experience PAPER has enjoyed will continue.
+The South African group consists of a growing pool of experienced scientists in
+this field.  Key among them is Bernardi, who will participate fully in
+this project.  South Africa also provides strong liaison support between the
+groups, building on the excellent experience PAPER has enjoyed.  South African
+researchers will also provide mirror support for the student exchanges described
+in the Broader Impacts section of the Project Description.
 
-In addition, SKA-SA assists with the unloading, assembly and storage of
-shipping crates. Two on-site mobile truck cranes are available along with use
-of a 30m x 18m dish construction shed, shared with the KAT-7 construction.
-Accommodation is provided for on-site PAPER visitors and off-road pickup trucks
-are available for use to, from and while on site.  Site staff are available for occasional operations maintenance support.
+In addition, SKA-SA assists with the unloading, assembly, and storage of
+shipping crates. Two on-site mobile truck cranes are available, along with use
+of a 30m x 18m dish construction shed that is shared with the KAT-7 construction.
+Accommodation is provided for on-site PAPER visitors. Off-road pickup trucks
+are available for use driving to and from site, as well as while on site.  Site staff are available for
+occasional operations maintenance support.
 
 A digital electronic laboratory is available in the Cape Town SKA-SA offices,
-complete with hot-air rework stations and high frequency test equipment
-(bench power supplies, signal generators, network analyzers, spectrum
-analyzers, oscilloscopes up to 100GHz etc). There is an off-site RFI
-measurement facility near Cape Town (Houwteq) able to perform measurements to,
-amongst others, MIL-STD-461E (18GHz) with a greater than 100dB 11.5m x 7.5m x
-8.5m anechoic chamber, large hangar shed, open area test site and vibration
-room for testing transmitters and receivers.
+complete with hot-air rework stations and test equipment (bench
+power supplies, signal generators, network analyzers, spectrum analyzers,
+oscilloscopes up to 100GHz etc). There is an off-site RFI measurement facility
+near Cape Town (Houwteq) replete with 
+an anechoic
+chamber, a large hangar shed, an open-area test site, and a vibration room for testing
+transmitters and receivers.
 
 \subsection*{\it Cavendish Observatory, Cambridge}
 
-Cavendish Observatory will provide scientific and technical staff to assist the project.  This will consist of:
-a PhD student for 3 years to explore imaging/calibration using standard software; 
-0.5 Postdoc for 2 years to explore novel power spectral approaches; 
-0.3 full-time equivalent engineer support for 3yrs for field work and system testing; and 
-0.2 full-time equivalent of a senior scientist (Dr. Chris Carilli, who has a joint appointment).
+Cavendish Observatory will provide scientific and technical staff to assist the project.  This will consist of
+support for a PhD student to explore imaging/calibration using standard software,
+support for a postdoctoral student 
+to explore novel power spectral approaches,
+partial support for an engineer for field work and systems testing,
+and partial support for a senior scientist (Carilli, who has a joint appointment with NRAO).
 
 \subsection*{\it University of California, Berkeley}
 
@@ -140,23 +224,54 @@ campus. It provides access to additional high-end digital test equipment and
 software for digital signal processing.  It is available to members of the
 Collaboration for Astronomy Signal Processing and Electronics Research (CASPER).
 
-Berkeley will provide 0.25 full-time equivalent engineering and management support for 4 years (Dr. David DeBoer), 0.5 full-time equivalent engineering support for 4 years (split between Mr. 
-David MacMahon and Mr. Matt Dexter), as well as 1.5 months of summary salary support for 5 years (Prof. Aaron Parsons).
+For the duration of this grant, Berkeley will provide partial support for engineering and management (DeBoer), 
+partial support for engineering (both MacMahon and Dexter),
+as well as partial summary salary support for (Parsons).
 
-Berkeley will provide a laboratory correlator system for development and testing of correlators; delay spectrum power spectrum pipeline software; 
-the 94-node Henyey compute cluster for local data processing; Matlab; video conferencing software to further the collaboration; and a full-size 
-HERA test antenna.
+Berkeley will provide a laboratory correlator system for development and
+testing of correlators; delay spectrum power spectrum pipeline software; the
+94-node Henyey compute cluster for local data processing; Matlab; video
+conferencing software to further the collaboration; and a full-size HERA test
+antenna.
 
 \subsection*{\it University of Pennsylvania}
 
-The central computing cluster and data archive for the Precision Array for Probing the Epoch of Reionization (PAPER) is maintained at the University of Pennsylvania (Penn).  This currently consists of 22 nodes connected by Gb ethernet: 16 Dell PowerEdge 1950s (dual 4-core Intel Xeon L5420 \@ 2.50GHz), and 6 Dell PowerEdge R410 (32 GB RAM; dual 6-core Intel Xeon E5649 \@ 2.53GHz), for a total of 200 cores and 448 GB RAM.  Fast working data storage is provided by a network storage system (NSS) based around two Dell MD1200s, with a total RAID storage of 140 TB.  The storage has a dedicated head node and internal 10Gbe, with 1 Gbe connections to each compute node. Backup of the NSS is done on to several Silicon Mechanics Storform D59J.v2 machines, each of which is about 55 TB effective in RAID6.  We currently have three backing up the 140 TB above. The system was purchased through a combination of the PI's startup funds, internal funding from Penn's University Research Foundation, a major contribution from the Mt.~Cuba Astronomical Foundation, and contributions from Professors M. Sako and G. Bernstein, who share the cluster for processing of DES and SDSS data.  Extra space is available to house the additional data analysis and storage hardware described in this proposal to support the HERA array.
+The central computing cluster and data archive for PAPER
+is maintained at UPenn.  This currently consists of 22 nodes connected by Gb
+ethernet. These nodes consist of 16 Dell PowerEdge 1950s (dual 4-core Intel Xeon L5420 \@ 2.50GHz)
+and 6 Dell PowerEdge R410 (32 GB RAM; dual 6-core Intel Xeon E5649 \@ 2.53GHz),
+for a total of 200 cores and 448 GB RAM.  Fast working data storage is provided
+by a network storage system (NSS) based around two Dell MD1200s, with a total
+RAID storage capacity of 140 TB.  The storage has a dedicated head node and internal
+10Gbe, with 1 Gbe connections to each compute node. Backup of the NSS is done
+on to several Silicon Mechanics Storform D59J.v2 machines, each of which is
+about 55 TB effective in RAID6.  We currently have three backing up the 140 TB
+above. The system was purchased through a combination of the PI's startup
+funds, internal funding from UPenn's University Research Foundation, a major
+contribution from the Mt.~Cuba Astronomical Foundation, and contributions from
+Professors M. Sako and G. Bernstein, who share the cluster for processing of
+DES and SDSS data.  Extra space is available to house the additional data
+analysis and storage hardware described in this proposal to support the HERA
+array.
 
 
 \subsection*{\it University of Washington}
 
-The University of Washington is providing software developed as a part of the MWA, including Monitor \& Control software, Fast Holographic Deconvolution software, and direct power spectrum analysis software, in addition to a RF testing laboratory (vector network analyzers, spectrum analyzers, mixed mode oscilloscopes, precision system temperature measurements, etc.) and access to an excellent machine shop.
+The University of Washington is providing software developed as a part of the
+MWA, including Monitor \& Control software, Fast Holographic Deconvolution
+software, and direct power spectrum analysis software, in addition to a RF
+testing laboratory (vector network analyzers, spectrum analyzers, mixed mode
+oscilloscopes, precision system temperature measurements, etc.) and access to
+an excellent machine shop.
 
-Morales led the development of the MWA Monitor \& Control software, and this will provide a strong code base for developing the associated system for HERA. Morales' group has also been at the forefront of wide-field imaging and foreground subtraction, and has developed the Fast Holographic Deconvolution software that is being used to reduce PAPER imaging data and all MWA Epoch of Reionization data. This code is crucial to reaching the scientific goals of HERA, including the survey and instrumental commissioning with HERA 37 and obtaining the foreground isolation necessary for the ultimate PS and imaging of the EoR with the full HERA instrument.
-
+Morales has led the development of the MWA Monitor \& Control software, and this
+will provide a strong code base for developing the associated system for HERA.
+Morales' group has also been at the forefront of wide-field imaging and
+foreground subtraction, and has developed the Fast Holographic Deconvolution
+software that is being used to reduce PAPER imaging data and all MWA Epoch of
+Reionization data. This code is crucial to reaching the scientific goals of
+HERA, including the survey and instrumental commissioning with HERA 37, and
+obtaining the foreground isolation necessary for the ultimate power-spectrum
+analysis and imaging of the EoR with the full HERA instrument.
 
 \end{document}
